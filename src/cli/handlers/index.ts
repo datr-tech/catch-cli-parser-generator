@@ -1,0 +1,1 @@
+export { generatorHandler } from './generatorHandler';

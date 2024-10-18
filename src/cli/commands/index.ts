@@ -1,0 +1,1 @@
+export { generatorCommand } from './generatorCommand';
