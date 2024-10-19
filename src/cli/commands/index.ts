@@ -1,1 +1,1 @@
-export { generatorCommand } from './generatorCommand';
+export { generateCommand } from './generateCommand';

@@ -1,1 +1,1 @@
-export { generatorHandler } from './generatorHandler';
+export { generateHandler } from './generateHandler';

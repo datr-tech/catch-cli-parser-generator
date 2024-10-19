@@ -1,16 +1,16 @@
-import { jsonArgument } from '@app/cli/arguments';
+import { preFlightOption } from '@app/cli/options';
 
 describe('unit', () => {
 	describe('cli', () => {
-		describe('arguments', () => {
-			describe('jsonArgument', () => {
+		describe('options', () => {
+			describe('preFlightOption', () => {
 				describe('description', () => {
 					test('should be valid', () => {
 						// Arrange
-						const expected = 'The JSON definition of the parser to be generated';
+						const expected = 'Run the command without performing downstream processing';
 
 						// Act
-						const { description } = jsonArgument;
+						const { description } = preFlightOption;
 
 						// Assert
 						expect(description).toEqual(expected);
