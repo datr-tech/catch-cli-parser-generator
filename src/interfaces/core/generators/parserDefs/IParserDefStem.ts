@@ -1,13 +1,13 @@
 import { ParserTypeEnum } from '@datr.tech/catch-lib-parser-core';
-import { ParserMethodEnum } from '@app/config/enums';
 import {
 	IParserDefPropEl,
+	IParserDefPropChildParserWrappers,
 	IParserDefPropParser,
 } from '@app/interfaces/core/generators/parserDefProps';
 
-export interface IParserDefLeaf {
+export interface IParserDefStem {
+	childParserWrappers: IParserDefPropChildParserWrappers;
 	el: IParserDefPropEl;
 	parser: IParserDefPropParser;
-	method: ParserMethodEnum;
-	type: ParserTypeEnum.LEAF;
+	type: ParserTypeEnum.STEM;
 }

@@ -1,7 +1,6 @@
-import { ParserTypeEnum } from '@datr.tech/catch-lib-parser-core';
-import { ParserDefMethodEnum, ParserDefTagEnum } from '@app/config/enums';
 import { parserGenerator } from '@app/core/generators';
 import { IParserDefLeaf } from '@app/interfaces/core/generators/parserDefs';
+import { parserDefLeafPositive } from '@test/fixtures/core/generators/parserDefs';
 import { parserCodeLeafPositive } from '@test/fixtures/core/generators/parserGenerator';
 
 describe('unit', () => {
@@ -14,15 +13,7 @@ describe('unit', () => {
 							/*
 							 * Arrange
 							 */
-							const parserDef: IParserDefLeaf = {
-								el: {
-									class: 'MOCK',
-									tag: ParserDefTagEnum.DIV,
-								},
-								parser: 'mock',
-								method: ParserDefMethodEnum.INNER_TEXT,
-								type: ParserTypeEnum.LEAF,
-							};
+							const parserDef: IParserDefLeaf = parserDefLeafPositive;
 
 							/*
 							 * Act

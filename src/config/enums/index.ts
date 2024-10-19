@@ -1,2 +1,3 @@
-export { ParserDefMethodEnum } from './ParserDefMethodEnum';
-export { ParserDefTagEnum } from './ParserDefTagEnum';
+export { FileExtensionEnum } from './FileExtensionEnum';
+export { ParserMethodEnum } from './ParserMethodEnum';
+export { ParserTagEnum } from './ParserTagEnum';
