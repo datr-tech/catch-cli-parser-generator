@@ -1,3 +1,3 @@
-export { IParserGenerator } from './IParserGenerator';
-export { IParserGeneratorInput } from './IParserGeneratorInput';
-export { IParserGeneratorOutput } from './IParserGeneratorOutput';
+export { IGeneratorParser } from './IGeneratorParser';
+export { IGeneratorParserInput } from './IGeneratorParserInput';
+export { IGeneratorParserOutput } from './IGeneratorParserOutput';

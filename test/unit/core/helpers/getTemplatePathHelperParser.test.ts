@@ -1,9 +1,6 @@
 import { CONSTS_PATHS_TEMPLATES_DIR } from '@app/config/consts/paths';
 import { parserDefLeafPositive } from '@test/fixtures/core/generators/parserDefs';
-import {
-	getTemplateNameHelperParser,
-	getTemplatePathHelperParser,
-} from '@app/core/helpers';
+import { getTemplateNameHelperParser, getTemplatePathHelperParser } from '@app/core/helpers';
 
 describe('unit', () => {
 	describe('core', () => {

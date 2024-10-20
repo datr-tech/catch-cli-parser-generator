@@ -1,7 +1,7 @@
 import { FileExtensionEnum, TemplateNamePrefixEnum } from '@app/config/enums';
 import { getTemplateHelperInterface } from '@app/core/helpers';
 import { parserDefLeafPositive } from '@test/fixtures/core/generators/parserDefs';
-import { commonParseCodePositive } from '@test/fixtures/core/generators/interfaceGenerator';
+import { parseInterfaceLeafPositive } from '@test/fixtures/core/generators/interfaceGenerator';
 
 describe('unit', () => {
 	describe('core', () => {
@@ -24,7 +24,7 @@ describe('unit', () => {
 									parserDef,
 									templateName,
 								});
-								const templateExpected = commonParseCodePositive.trim();
+								const templateExpected = parseInterfaceLeafPositive.trim();
 
 								/*
 								 * Assert

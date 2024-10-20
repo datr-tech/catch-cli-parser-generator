@@ -1,6 +1,6 @@
 import { getTemplateHelperInterfaceParser } from '@app/core/helpers';
 import { parserDefLeafPositive } from '@test/fixtures/core/generators/parserDefs';
-import { commonParserCodePositive } from '@test/fixtures/core/generators/interfaceGenerator';
+import { parserInterfaceLeafPositive } from '@test/fixtures/core/generators/interfaceGenerator';
 
 describe('unit', () => {
 	describe('core', () => {
@@ -19,7 +19,7 @@ describe('unit', () => {
 								 * Act
 								 */
 								const templateFound = getTemplateHelperInterfaceParser({ parserDef });
-								const templateExpected = commonParserCodePositive.trim();
+								const templateExpected = parserInterfaceLeafPositive.trim();
 
 								/*
 								 * Assert

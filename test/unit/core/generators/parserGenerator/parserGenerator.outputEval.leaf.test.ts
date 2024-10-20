@@ -1,8 +1,5 @@
 import ts from 'typescript';
-import {
-	ParserTypeEnum,
-	IParserBuilderIterOutput,
-} from '@datr.tech/catch-lib-parser-core';
+import { ParserTypeEnum, IParserBuilderIterOutput } from '@datr.tech/catch-lib-parser-core';
 import { parserGenerator } from '@app/core/generators';
 import { IParserDefLeaf } from '@app/interfaces/core/generators/parserDefs';
 import { parserDefLeafPositive } from '@test/fixtures/core/generators/parserDefs';

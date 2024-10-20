@@ -1,4 +1,4 @@
-export const commonParseCodePositive = `
+export const parseInterfaceLeafPositive = `
 import { IParseInput } from '@datr.tech/catch-lib-parser-core';
 import { IParserleafParseOutput from '@app/interfaces/core/parsers/IParserleafParseOutput';
 

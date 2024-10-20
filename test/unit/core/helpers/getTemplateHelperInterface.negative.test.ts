@@ -12,8 +12,7 @@ describe('unit', () => {
 								/*
 								 * Arrange
 								 */
-								const errorExpected =
-									"'templatePath' does not identify a valid file object";
+								const errorExpected = "'templatePath' does not identify a valid file object";
 								const timestamp = Date.now();
 								const templateName = `getTemplateHelperInterface.${timestamp}.txt`;
 								const parserDef = parserDefLeafPositive;

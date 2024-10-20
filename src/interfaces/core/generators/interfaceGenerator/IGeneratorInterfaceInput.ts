@@ -1,6 +1,5 @@
 import { IParserDef } from '@app/interfaces/core/generators/parserDefs';
 
-export interface IParserGeneratorOutput {
-	parserCode: string;
+export interface IGeneratorInterfaceInput {
 	parserDef: IParserDef;
 }

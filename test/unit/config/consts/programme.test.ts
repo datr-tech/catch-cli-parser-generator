@@ -1,7 +1,4 @@
-import {
-	CONSTS_PROGRAMME_NAME,
-	CONSTS_PROGRAMME_DESCRIPTION,
-} from '@app/config/consts/progamme';
+import { CONSTS_PROGRAMME_NAME, CONSTS_PROGRAMME_DESCRIPTION } from '@app/config/consts/progamme';
 
 describe('unit', () => {
 	describe('config', () => {

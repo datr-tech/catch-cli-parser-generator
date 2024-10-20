@@ -1,6 +1,6 @@
 import { getTemplateHelperInterfaceParseOutput } from '@app/core/helpers';
 import { parserDefStemPositive } from '@test/fixtures/core/generators/parserDefs';
-import { parseOutputCodeStemPositive } from '@test/fixtures/core/generators/interfaceGenerator';
+import { parseOutputInterfaceStemPositive } from '@test/fixtures/core/generators/interfaceGenerator';
 
 describe('unit', () => {
 	describe('core', () => {
@@ -21,7 +21,7 @@ describe('unit', () => {
 								const templateFound = getTemplateHelperInterfaceParseOutput({
 									parserDef,
 								});
-								const templateExpected = parseOutputCodeStemPositive.trim();
+								const templateExpected = parseOutputInterfaceStemPositive.trim();
 
 								/*
 								 * Assert
