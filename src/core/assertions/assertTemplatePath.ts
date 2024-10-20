@@ -1,18 +1,32 @@
-import fs from 'node:fs';
+import { FileExistTypeEnum } from '@app/config/enums';
+import { doesFileExist } from '@app/core/services/fileService';
 import { IAssertTemplatePath } from '@app/interfaces/core/assertions';
 
 export const assertTemplatePath: IAssertTemplatePath = ({ templatePath }) => {
-	if (!templatePath) {
-		throw new TypeError("Invalid 'templatePath'");
+	let errorMessage: string;
+	const { doesExist, nonExistentType } = doesFileExist({ filePath: templatePath });
+
+	if (doesExist) {
+		return;
 	}
 
-	if (!fs.existsSync(templatePath)) {
-		throw new TypeError("'templatePath' does not identify a valid file object");
+	switch (nonExistentType) {
+		case FileExistTypeEnum.INVALID_FILE_PATH:
+			errorMessage = "Invalid 'templatePath'";
+			break;
+
+		case FileExistTypeEnum.FILE_NOT_EXISTS:
+			errorMessage = "'templatePath' does not identify a valid file object";
+			break;
+
+		case FileExistTypeEnum.ENTITY_NOT_FILE:
+			errorMessage = "'templatePath' does not identify a valid file";
+			break;
 	}
 
-	const fsStats = fs.statSync(templatePath);
-
-	if (!fsStats.isFile()) {
-		throw new TypeError("'templatePath' does not identify a valid file");
+	if (errorMessage) {
+		throw new TypeError(errorMessage);
+	} else {
+		throw new TypeError('Unknown error');
 	}
 };

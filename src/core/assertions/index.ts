@@ -1,3 +1,4 @@
+export { assertParserCode } from './assertParserCode';
 export { assertParserDefLeaf } from './assertParserDefLeaf';
 export { assertParserDefStem } from './assertParserDefStem';
 export { assertTemplateName } from './assertTemplateName';

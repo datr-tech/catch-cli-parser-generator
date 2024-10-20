@@ -1,6 +1,6 @@
 import { assertParserDefLeaf } from '@app/core/assertions';
-import { IParserDef } from '@app/interfaces/core/generators/parserDefs';
-import { parserDefLeafNegativeTestCases } from '@test/fixtures/core/generators/parserDefs';
+import { IParserDef } from '@app/interfaces/args/parserDefs';
+import { parserDefLeafNegativeTestCases } from '@test/fixtures/args/parserDefs';
 
 describe('unit', () => {
 	describe('core', () => {

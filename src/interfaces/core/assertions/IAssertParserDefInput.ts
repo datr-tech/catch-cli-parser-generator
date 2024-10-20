@@ -1,4 +1,4 @@
-import { IParserDef } from '@app/interfaces/core/generators/parserDefs';
+import { IParserDef } from '@app/interfaces/args/parserDefs';
 
 export interface IAssertParserDefInput {
 	parserDef: IParserDef;

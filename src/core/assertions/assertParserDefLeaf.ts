@@ -1,6 +1,6 @@
 import { ParserTypeEnum } from '@datr.tech/catch-lib-parser-core';
 import { IAssertParserDef } from '@app/interfaces/core/assertions';
-import { IParserDefLeaf } from '@app/interfaces/core/generators/parserDefs';
+import { IParserDefLeaf } from '@app/interfaces/args/parserDefs';
 
 export const assertParserDefLeaf: IAssertParserDef = ({ parserDef }) => {
 	if (parserDef.type === ParserTypeEnum.LEAF) {

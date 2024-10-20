@@ -1,6 +1,6 @@
 import { assertParserDefStem } from '@app/core/assertions';
-import { IParserDef } from '@app/interfaces/core/generators/parserDefs';
-import { parserDefStemNegativeTestCases } from '@test/fixtures/core/generators/parserDefs';
+import { IParserDef } from '@app/interfaces/args/parserDefs';
+import { parserDefStemNegativeTestCases } from '@test/fixtures/args/parserDefs';
 
 describe('unit', () => {
 	describe('core', () => {

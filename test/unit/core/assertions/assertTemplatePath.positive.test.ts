@@ -1,5 +1,5 @@
-import { assertTemplatePath } from '@app/core/assertions';
 import { CONSTS_PATHS_APP_ROOT } from '@app/config/consts/paths';
+import { assertTemplatePath } from '@app/core/assertions';
 
 let templatePath: string;
 

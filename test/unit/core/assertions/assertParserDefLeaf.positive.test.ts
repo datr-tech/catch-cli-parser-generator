@@ -1,9 +1,6 @@
 import { assertParserDefLeaf } from '@app/core/assertions';
-import { IParserDef } from '@app/interfaces/core/generators/parserDefs';
-import {
-	parserDefLeafPositive,
-	parserDefStemPositive,
-} from '@test/fixtures/core/generators/parserDefs';
+import { IParserDef } from '@app/interfaces/args/parserDefs';
+import { parserDefLeafPositive, parserDefStemPositive } from '@test/fixtures/args/parserDefs';
 
 describe('unit', () => {
 	describe('core', () => {

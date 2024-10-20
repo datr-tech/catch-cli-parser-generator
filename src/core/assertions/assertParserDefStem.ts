@@ -1,7 +1,7 @@
 import { ParserTypeEnum } from '@datr.tech/catch-lib-parser-core';
 import { IAssertParserDef } from '@app/interfaces/core/assertions';
-import { IParserDefStem } from '@app/interfaces/core/generators/parserDefs';
-import { IParserDefPropChildParserWrapper } from '@app/interfaces/core/generators/parserDefProps';
+import { IParserDefStem } from '@app/interfaces/args/parserDefs';
+import { IParserDefPropChildParserWrapper } from '@app/interfaces/args/parserDefProps';
 
 export const assertParserDefStem: IAssertParserDef = ({ parserDef }) => {
 	if (parserDef.type === ParserTypeEnum.STEM) {
