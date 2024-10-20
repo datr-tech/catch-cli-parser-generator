@@ -8,7 +8,7 @@ describe('unit', () => {
 		describe('generators', () => {
 			describe('parserGenerator', () => {
 				describe('positive', () => {
-					describe("should produce code based upon the 'parserIter' template", () => {
+					describe("should produce code based upon the 'parserIter' templates", () => {
 						test("when 'parserDef.type' is 'ParserTypeEnum.ITER'", () => {
 							/*
 							 * Arrange

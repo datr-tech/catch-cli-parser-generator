@@ -8,7 +8,7 @@ describe('unit', () => {
 		describe('generators', () => {
 			describe('parserGenerator', () => {
 				describe('positive', () => {
-					describe("should produce code based upon the 'parserLeaf' template", () => {
+					describe("should produce code based upon the 'parserLeaf' templates", () => {
 						test("when 'parserDef.type' is 'ParserTypeEnum.LEAF'", () => {
 							/*
 							 * Arrange

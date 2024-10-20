@@ -8,10 +8,10 @@ export default {
 	coverageReporters: ['clover', 'text'],
 	coverageThreshold: {
 		global: {
-			branches: 60,
-			functions: 60,
-			lines: 60,
-			statements: 60,
+			branches: 100,
+			functions: 100,
+			lines: 100,
+			statements: 100,
 		},
 	},
 	moduleNameMapper: {
@@ -20,7 +20,10 @@ export default {
 		'@test/(.*)': '<rootDir>/test/$1',
 	},
 	preset: 'ts-jest',
-	setupFilesAfterEnv: ['<rootDir>/.jest/setupPaths.ts'],
+	setupFilesAfterEnv: [
+		'<rootDir>/.jest/setupFunctions.ts',
+		'<rootDir>/.jest/setupPaths.ts',
+	],
 	testEnvironment: 'node',
 	testPathIgnorePatterns: ['<rootDir>/node_modules/'],
 	transform: {

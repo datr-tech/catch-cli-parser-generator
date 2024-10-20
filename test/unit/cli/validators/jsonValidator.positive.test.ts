@@ -5,7 +5,7 @@ describe('unit', () => {
 		describe('validators', () => {
 			describe('jsonValidator', () => {
 				describe('positive: should return the input', () => {
-					test('when the input is a valid name', () => {
+					test('when the input is a valid templateNames', () => {
 						// Arrange
 						const name = 'TEST';
 

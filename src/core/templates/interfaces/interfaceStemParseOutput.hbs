@@ -1,9 +1,0 @@
-{{#each childParserNames}}
-import { IParser{{ childParserName }}ParseOutput } from '@app/interfaces/core/parsers/IParser{{ childParserName }}ParseOutput';
-{{/each}}
-
-export type IParser{{ parserName }}ParseOutput = {
-	{{#each childParserNames }}
-		{{suffix}}: IParser{{ childParserName }}ParseOutput;
-	{{/each}}
-};
