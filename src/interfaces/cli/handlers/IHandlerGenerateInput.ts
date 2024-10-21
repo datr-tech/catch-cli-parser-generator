@@ -4,7 +4,7 @@ import { IWriterParser } from '@app/interfaces/core/writers';
 
 export interface IHandlerGenerateInput {
 	json: IArgsJSON;
-	options: IArgsOptions;
-	generateCode?: IGeneratorParsers;
+	options?: IArgsOptions;
+	generator?: IGeneratorParsers;
 	writer?: IWriterParser;
 }

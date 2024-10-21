@@ -10,11 +10,35 @@ describe('unit', () => {
 						describe('should return a valid path', () => {
 							test("when 'parserName' is a non-empty string", () => {
 								// Arrange
-								const parserName = 'aTestParserName';
+								const parserName = 'aTestParserNameOne';
 								const parserCodeFilePathExpected = `${CONSTS_PATHS_GENERATED_PARSER_CODE_DIR}/${parserName}.ts`;
 
 								// Act
 								const parserCodeFilePathFound = getParserCodeFilePath({ parserName });
+
+								// Assert
+								expect(parserCodeFilePathFound).toBe(parserCodeFilePathExpected);
+							});
+							test("when the optional 'parserOutDir' param has been received", () => {
+								// Arrange
+								const parserName = 'aTestParserNameTwo';
+								const parserOutDir = '/an/out/dir/path';
+								const parserCodeFilePathExpected = `${parserOutDir}/${parserName}.ts`;
+
+								// Act
+								const parserCodeFilePathFound = getParserCodeFilePath({ parserName, parserOutDir });
+
+								// Assert
+								expect(parserCodeFilePathFound).toBe(parserCodeFilePathExpected);
+							});
+							test("when the optional 'parserOutDir' param is an empty string (and the default dir is used instead)", () => {
+								// Arrange
+								const parserName = 'aTestParserNameThree';
+								const parserOutDir = '';
+								const parserCodeFilePathExpected = `${CONSTS_PATHS_GENERATED_PARSER_CODE_DIR}/${parserName}.ts`;
+
+								// Act
+								const parserCodeFilePathFound = getParserCodeFilePath({ parserName, parserOutDir });
 
 								// Assert
 								expect(parserCodeFilePathFound).toBe(parserCodeFilePathExpected);

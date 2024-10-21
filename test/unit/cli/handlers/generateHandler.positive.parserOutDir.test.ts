@@ -1,28 +1,31 @@
 import { generateHandler } from '@app/cli/handlers';
-import { CONSTS_PATHS_GENERATED_PARSER_CODE_DIR } from '@app/config/consts/paths';
 import { parsersGenerator } from '@app/core/codeGenerators';
 import { doesFileExist } from '@app/core/services/fileService';
 import { IArgsJSON, IArgsOptions } from '@app/interfaces/args';
 import { parserDefLeafPositive, parserDefStemPositive } from '@test/fixtures/args/parserDefs';
 
-const parserCodePathLeaf = `${CONSTS_PATHS_GENERATED_PARSER_CODE_DIR}/leaf.ts`;
-const parserCodePathStem = `${CONSTS_PATHS_GENERATED_PARSER_CODE_DIR}/stem.ts`;
+const parserOutDir = './';
+const parserCodePathLeaf = `${parserOutDir}/leaf.ts`;
+const parserCodePathStem = `${parserOutDir}/stem.ts`;
 
 describe('unit', () => {
 	describe('cli', () => {
 		describe('handlers', () => {
 			describe('generateHandler', () => {
-				describe('positive', () => {
+				describe('positive: parserOutDir', () => {
 					afterAll(() => {
 						global.jestRemoveFileSync(parserCodePathLeaf);
 						global.jestRemoveFileSync(parserCodePathStem);
 					});
-					test('should generate two code files', () => {
+					test("should generate two code files to 'parserOutDir'", () => {
 						/*
 						 * Arrange
 						 */
 						const json = {
 							parserDefs: [parserDefLeafPositive, parserDefStemPositive],
+							out: {
+								parserOutDir
+							}
 						} as IArgsJSON;
 						const options = { preFlight: false } as IArgsOptions;
 
