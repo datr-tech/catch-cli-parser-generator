@@ -1,5 +1,5 @@
 import { assertParserDefStem } from '@app/core/assertions';
-import { IParserDef } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
 import { parserDefStemNegativeTestCases } from '@test/fixtures/args/parserDefs';
 
 describe('unit', () => {
@@ -15,7 +15,7 @@ describe('unit', () => {
 									/*
 									 * Arrange
 									 */
-									const parserDef: IParserDef = parserDefNegative;
+									const parserDef: IArgsParserDef = parserDefNegative;
 
 									/*
 									 * Act

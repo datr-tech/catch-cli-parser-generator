@@ -1,8 +1,8 @@
 import { ParserTypeEnum } from '@datr.tech/catch-lib-parser-core';
 import { ParserTagEnum } from '@app/config/enums';
-import { IParserDefStem } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDefStem } from '@app/interfaces/args/parserDefs';
 
-export const parserDefStemPositive: IParserDefStem = {
+export const parserDefStemPositive: IArgsParserDefStem = {
 	childParserWrappers: [
 		{
 			ref: 'name',

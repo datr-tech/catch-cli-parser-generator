@@ -1,7 +1,7 @@
 import { ParserTypeEnum } from '@datr.tech/catch-lib-parser-core';
-import { IParserDefIter } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDefIter } from '@app/interfaces/args/parserDefs';
 
-export const parserDefIterPositive: IParserDefIter = {
+export const parserDefIterPositive: IArgsParserDefIter = {
 	parser: 'iter',
 	childParser: 'child',
 	type: ParserTypeEnum.ITER,

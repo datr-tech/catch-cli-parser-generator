@@ -7,7 +7,7 @@ import { IFileServiceWriteCodeToFile } from '@app/interfaces/core/services/fileS
 export const writeCodeToFile: IFileServiceWriteCodeToFile = ({
 	code,
 	codeFilePath,
-	writeFile = writeFileSync
+	writeFile = writeFileSync,
 }) => {
 	assertStringCode({ code });
 	assertStringCodeFilePath({ codeFilePath });

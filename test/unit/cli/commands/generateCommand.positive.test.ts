@@ -1,4 +1,5 @@
 import { app } from '@app/app';
+import { parserCodeLeafPositive } from '@test/fixtures/core/generators/parserGenerator';
 
 describe('unit', () => {
 	describe('cli', () => {
@@ -13,7 +14,8 @@ describe('unit', () => {
 							const appType = 'node';
 							const scriptName = 'generateCommand.positive.test.js';
 							const command = 'generate';
-							const jsonExpected = 'MOCK_JSON';
+							const jsonObj = { parserDefs: [parserCodeLeafPositive] };
+							const jsonExpected = JSON.stringify(jsonObj);
 							const preFlightOption = '-p';
 
 							/*

@@ -1,5 +1,5 @@
 import { parserGenerator } from '@app/core/codeGenerators';
-import { IParserDefStem } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDefStem } from '@app/interfaces/args/parserDefs';
 import { parserCodeStemPositive } from '@test/fixtures/core/generators/parserGenerator';
 import { parserDefStemPositive } from '@test/fixtures/args/parserDefs';
 
@@ -13,7 +13,7 @@ describe('unit', () => {
 							/*
 							 * Arrange
 							 */
-							const parserDef: IParserDefStem = parserDefStemPositive;
+							const parserDef: IArgsParserDefStem = parserDefStemPositive;
 
 							/*
 							 * Act

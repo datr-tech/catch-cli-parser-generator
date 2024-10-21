@@ -1,4 +1,4 @@
-export { IParserDef } from './IParserDef';
-export { IParserDefIter } from './IParserDefIter';
-export { IParserDefLeaf } from './IParserDefLeaf';
-export { IParserDefStem } from './IParserDefStem';
+export { IArgsParserDef } from './IArgsParserDef';
+export { IArgsParserDefIter } from './IArgsParserDefIter';
+export { IArgsParserDefLeaf } from './IArgsParserDefLeaf';
+export { IArgsParserDefStem } from './IArgsParserDefStem';

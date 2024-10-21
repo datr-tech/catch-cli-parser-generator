@@ -18,7 +18,7 @@ describe('unit', () => {
 							 */
 							const handler = () => {
 								assertStringCode({ code });
-							}
+							};
 
 							/*
 							 * Assert

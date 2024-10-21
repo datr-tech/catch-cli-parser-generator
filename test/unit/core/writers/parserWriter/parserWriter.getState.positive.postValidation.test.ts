@@ -12,14 +12,14 @@ describe('unit', () => {
 								/*
 								 * Arrange
 								 */
-								const parserCode = 'const testVar = 123;'
+								const parserCode = 'const testVar = 123;';
 								const parserName = 'parserWriter.validate.positive';
 								const parserPath = `${CONSTS_PATHS_GENERATED_PARSER_CODE_DIR}/${parserName}.ts`;
 								const stateExpected = {
 									isValid: true,
 									parserCode,
 									parserName,
-									parserPath
+									parserPath,
 								};
 
 								/*

@@ -11,7 +11,7 @@ describe('unit', () => {
 			describe('parserWriter', () => {
 				describe('getState', () => {
 					describe('negative', () => {
-						describe("should return an empty state", () => {
+						describe('should return an empty state', () => {
 							beforeAll(() => {
 								global.jestTouchFileSync(parserPath);
 							});
@@ -27,7 +27,7 @@ describe('unit', () => {
 									isValid: false,
 									parserCode: undefined,
 									parserName: undefined,
-									parserPath: undefined
+									parserPath: undefined,
 								};
 
 								/*
