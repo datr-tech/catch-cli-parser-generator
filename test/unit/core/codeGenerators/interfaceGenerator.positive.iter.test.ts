@@ -2,9 +2,9 @@ import { interfaceGenerator } from '@app/core/codeGenerators';
 import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
 import { parserDefIterPositive } from '@test/fixtures/args/parserDefs';
 import {
-	parseInterfaceIterPositive,
-	parseOutputInterfaceIterPositive,
-	parserInterfaceIterPositive,
+	parseInterfaceIterPositiveUcfirst,
+	parseOutputInterfaceIterPositiveUcfirst,
+	parserInterfaceIterPositiveUcfirst,
 } from '@test/fixtures/core/generators/interfaceGenerator';
 
 describe('unit', () => {
@@ -27,11 +27,11 @@ describe('unit', () => {
 							});
 
 							const parseInterfaceFound = parseInterface.trim();
-							const parseInterfaceExpected = parseInterfaceIterPositive.trim();
+							const parseInterfaceExpected = parseInterfaceIterPositiveUcfirst.trim();
 							const parseOutputInterfaceFound = parseOutputInterface.trim();
-							const parseOutputInterfaceExpected = parseOutputInterfaceIterPositive.trim();
+							const parseOutputInterfaceExpected = parseOutputInterfaceIterPositiveUcfirst.trim();
 							const parserInterfaceFound = parserInterface.trim();
-							const parserInterfaceExpected = parserInterfaceIterPositive.trim();
+							const parserInterfaceExpected = parserInterfaceIterPositiveUcfirst.trim();
 
 							/*
 							 * Assert
