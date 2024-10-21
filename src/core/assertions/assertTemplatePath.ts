@@ -24,9 +24,5 @@ export const assertTemplatePath: IAssertTemplatePath = ({ templatePath }) => {
 			break;
 	}
 
-	if (errorMessage) {
-		throw new TypeError(errorMessage);
-	} else {
-		throw new TypeError('Unknown error');
-	}
+	throw new TypeError(errorMessage);
 };

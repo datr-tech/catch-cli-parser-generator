@@ -1,12 +1,12 @@
-import { assertTemplateName } from '@app/core/assertions';
+import { assertStringTemplateName } from '@app/core/assertions';
 
 describe('unit', () => {
 	describe('core', () => {
 		describe('assertions', () => {
-			describe('assertTemplateName', () => {
+			describe('assertStringTemplateName', () => {
 				describe('positive', () => {
 					describe('should return undefined', () => {
-						test("when 'templateNames' is valid", () => {
+						test("when 'templateName' is valid", () => {
 							/*
 							 * Arrange
 							 */
@@ -15,7 +15,7 @@ describe('unit', () => {
 							/*
 							 * Act
 							 */
-							const response = assertTemplateName({ templateName });
+							const response = assertStringTemplateName({ templateName });
 
 							/*
 							 * Assert

@@ -24,10 +24,11 @@ describe('unit', () => {
 								const doesExistExpected = true;
 
 								// Act
-								const { doesExist } = doesFileExist({ filePath });
+								const { doesExist, nonExistentType } = doesFileExist({ filePath });
 
 								// Assert
 								expect(doesExist).toBe(doesExistExpected);
+								expect(nonExistentType).toBeUndefined();
 							});
 						});
 					});

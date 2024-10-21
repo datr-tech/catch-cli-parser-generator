@@ -1,20 +1,26 @@
-import { assertParserCode } from '@app/core/assertions';
+import { assertStringCode } from '@app/core/assertions';
 import {
-	doesFileExistHelper,
+	doesFileExist,
 	getParserCodeFilePath,
 	writeCodeToFile,
-} from '@app/core/writers/codeFileHelpers';
+} from '@app/core/services/fileService';
 import { IWriterParser, IWriterParserState } from '@app/interfaces/core/writers';
 
 export const parserWriter: IWriterParser = (() => {
-	let state: IWriterParserState;
+	const state: IWriterParserState = {
+		isValid: false,
+		parserCode: undefined,
+		parserName: undefined,
+		parserPath: undefined
+	};
 
 	const validate = ({ parserCode, parserName }) => {
 		_initState({ state });
-		assertParserCode({ parserCode });
+		assertStringCode({ code: parserCode });
 
 		const parserPath = getParserCodeFilePath({ parserName });
-		const isValid = !doesFileExistHelper({ filePath: parserPath });
+		const { doesExist } = doesFileExist({ filePath: parserPath });
+		const isValid = !doesExist;
 
 		if (isValid) {
 			_setState({ isValid, parserCode, parserName, parserPath });
@@ -28,15 +34,16 @@ export const parserWriter: IWriterParser = (() => {
 			return false;
 		}
 
-		const hasParserCodeBeenWritten = writeCodeToFile({
-			fileContents: state.parserCode,
-			filePath: state.parserPath,
+		writeCodeToFile({
+			code: state.parserCode,
+			codeFilePath: state.parserPath,
 		});
 
 		_initState({ state });
-
-		return hasParserCodeBeenWritten;
+		return true;
 	};
+
+	const _getState = () => state;
 
 	const _initState = ({ state }) => {
 		state.isValid = false;
@@ -52,5 +59,5 @@ export const parserWriter: IWriterParser = (() => {
 		state.parserPath = parserPath;
 	};
 
-	return { validate, write };
+	return { validate, write, _getState };
 })();

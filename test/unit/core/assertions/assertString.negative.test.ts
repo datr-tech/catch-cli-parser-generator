@@ -1,20 +1,20 @@
-import { assertTemplateName } from '@app/core/assertions';
-import { assertTemplateNameNegativeTestCases } from '@test/fixtures/core/assertions';
+import { assertString } from '@app/core/assertions';
+import { assertStringNegativeTestCases } from '@test/fixtures/core/assertions';
 
 describe('unit', () => {
 	describe('core', () => {
 		describe('assertions', () => {
-			describe('assertTemplateName', () => {
+			describe('assertString', () => {
 				describe('negative', () => {
 					describe('should throw an error', () => {
-						test.each(assertTemplateNameNegativeTestCases)(
+						test.each(assertStringNegativeTestCases)(
 							'%description',
-							({ errorExpected, templateName }) => {
+							({ errorExpected, name, value }) => {
 								/*
 								 * Act
 								 */
 								const handler = () => {
-									assertTemplateName({ templateName });
+									assertString({ name, value });
 								};
 
 								/*

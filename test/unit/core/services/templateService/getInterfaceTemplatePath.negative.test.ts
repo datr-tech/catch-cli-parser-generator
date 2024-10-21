@@ -11,7 +11,7 @@ describe('unit', () => {
 								/*
 								 * Arrange
 								 */
-								const errorExpected = "Invalid 'templateNames'";
+								const errorExpected = "Invalid 'templateName'";
 								const templateName = '';
 
 								/*

@@ -1,12 +1,12 @@
 export const assertTemplateNameNegativeTestCases = [
 	{
-		description: "when 'templateNames' is an empty string",
-		errorExpected: "Invalid 'templateNames'",
+		description: "when 'templateName' is an empty string",
+		errorExpected: "Invalid 'templateName'",
 		templateName: '',
 	},
 	{
-		description: "when 'templateNames' is undefined",
-		errorExpected: "Invalid 'templateNames'",
+		description: "when 'templateName' is undefined",
+		errorExpected: "Invalid 'templateName'",
 		templateName: undefined,
 	},
 ];
