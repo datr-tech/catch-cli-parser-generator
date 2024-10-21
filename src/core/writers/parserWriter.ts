@@ -11,7 +11,7 @@ export const parserWriter: IWriterParser = (() => {
 		isValid: false,
 		parserCode: undefined,
 		parserName: undefined,
-		parserPath: undefined
+		parserPath: undefined,
 	};
 
 	const validate = ({ parserCode, parserName }) => {

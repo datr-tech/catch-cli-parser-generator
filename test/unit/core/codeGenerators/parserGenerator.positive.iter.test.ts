@@ -1,6 +1,6 @@
 import { ParserTypeEnum } from '@datr.tech/catch-lib-parser-core';
 import { parserGenerator } from '@app/core/codeGenerators';
-import { IParserDefIter } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDefIter } from '@app/interfaces/args/parserDefs';
 import { parserCodeIterPositive } from '@test/fixtures/core/generators/parserGenerator';
 
 describe('unit', () => {
@@ -13,7 +13,7 @@ describe('unit', () => {
 							/*
 							 * Arrange
 							 */
-							const parserDef: IParserDefIter = {
+							const parserDef: IArgsParserDefIter = {
 								parser: 'iter',
 								childParser: 'child',
 								type: ParserTypeEnum.ITER,

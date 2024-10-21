@@ -11,7 +11,7 @@ describe('unit', () => {
 			describe('fileService', () => {
 				describe('writeCodeToFile', () => {
 					describe('negative: writeFile', () => {
-						describe("should throw an error", () => {
+						describe('should throw an error', () => {
 							beforeAll(() => {
 								writeFile = jest.fn().mockImplementationOnce(() => {
 									throw new Error(writeFileErrorMessage);
@@ -30,7 +30,7 @@ describe('unit', () => {
 								// Act
 								const handler = () => {
 									writeCodeToFile({ code, codeFilePath, writeFile });
-								}
+								};
 
 								// Assert
 								expect(handler).toThrow(errorExpected);

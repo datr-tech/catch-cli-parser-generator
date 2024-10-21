@@ -12,7 +12,7 @@ describe('unit', () => {
 								 * Arrange
 								 */
 								const isValidExpected = true;
-								const parserCode = 'const testVar = 123;'
+								const parserCode = 'const testVar = 123;';
 								const parserName = 'parserWriter.validate.positive';
 
 								/*

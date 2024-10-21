@@ -1,5 +1,5 @@
 import { parserGenerator } from '@app/core/codeGenerators';
-import { IParserDefLeaf } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDefLeaf } from '@app/interfaces/args/parserDefs';
 import { parserDefLeafPositive } from '@test/fixtures/args/parserDefs';
 import { parserCodeLeafPositive } from '@test/fixtures/core/generators/parserGenerator';
 
@@ -13,7 +13,7 @@ describe('unit', () => {
 							/*
 							 * Arrange
 							 */
-							const parserDef: IParserDefLeaf = parserDefLeafPositive;
+							const parserDef: IArgsParserDefLeaf = parserDefLeafPositive;
 
 							/*
 							 * Act

@@ -6,7 +6,7 @@ describe('unit', () => {
 			describe('fileService', () => {
 				describe('writeCodeToFile', () => {
 					describe('negative: codeFilePathEmpty', () => {
-						describe("should throw an error", () => {
+						describe('should throw an error', () => {
 							test("when 'codeFilePath' is empty", () => {
 								// Arrange
 								const code = 'const tempVar = 123;';
@@ -16,7 +16,7 @@ describe('unit', () => {
 								// Act
 								const handler = () => {
 									writeCodeToFile({ code, codeFilePath });
-								}
+								};
 
 								// Assert
 								expect(handler).toThrow(errorExpected);

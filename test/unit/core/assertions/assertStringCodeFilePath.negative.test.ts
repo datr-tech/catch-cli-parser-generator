@@ -18,7 +18,7 @@ describe('unit', () => {
 							 */
 							const handler = () => {
 								assertStringCodeFilePath({ codeFilePath });
-							}
+							};
 
 							/*
 							 * Assert

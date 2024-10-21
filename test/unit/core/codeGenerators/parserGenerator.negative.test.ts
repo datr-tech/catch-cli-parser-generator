@@ -1,5 +1,5 @@
 import { parsersGenerator } from '@app/core/codeGenerators';
-import { IParserDef } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
 import {
 	parserDefLeafPositive,
 	parserDefStemNegativeElClass,
@@ -16,7 +16,7 @@ describe('unit', () => {
 							 * Arrange
 							 */
 							const errorExpected = "Invalid 'parserDef.el.class'";
-							const parserDefs: IParserDef[] = [
+							const parserDefs: IArgsParserDef[] = [
 								parserDefLeafPositive,
 								parserDefStemNegativeElClass,
 							];

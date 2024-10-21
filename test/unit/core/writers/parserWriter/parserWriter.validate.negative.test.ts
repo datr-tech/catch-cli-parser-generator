@@ -11,7 +11,7 @@ describe('unit', () => {
 			describe('parserWriter', () => {
 				describe('validate', () => {
 					describe('negative', () => {
-						describe("should return false", () => {
+						describe('should return false', () => {
 							beforeAll(() => {
 								global.jestTouchFileSync(parserPath);
 							});
@@ -23,7 +23,7 @@ describe('unit', () => {
 								 * Arrange
 								 */
 								const isValidExpected = false;
-								const parserCode = 'const testVar = 123;'
+								const parserCode = 'const testVar = 123;';
 
 								/*
 								 * Act

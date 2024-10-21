@@ -1,8 +1,8 @@
 import { ParserTagEnum } from '@app/config/enums';
-import { IParserDefLeaf } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDefLeaf } from '@app/interfaces/args/parserDefs';
 import { parserDefLeafPositive } from './parserDefLeafPositive';
 
-export const parserDefLeafNegativeElClass: IParserDefLeaf = {
+export const parserDefLeafNegativeElClass: IArgsParserDefLeaf = {
 	...parserDefLeafPositive,
 	el: {
 		class: '',

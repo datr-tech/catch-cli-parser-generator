@@ -1,7 +1,7 @@
-import { IParserDefStem } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDefStem } from '@app/interfaces/args/parserDefs';
 import { parserDefStemPositive } from './parserDefStemPositive';
 
-export const parserDefStemNegativeParser: IParserDefStem = {
+export const parserDefStemNegativeParser: IArgsParserDefStem = {
 	...parserDefStemPositive,
 	parser: '',
 };

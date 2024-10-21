@@ -1,6 +1,6 @@
-import { IParserDef } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
 
 export interface ICodeGeneratorHelperGenerateInterfaceInput {
-	parserDef: IParserDef;
+	parserDef: IArgsParserDef;
 	templateName: string;
 }

@@ -1,8 +1,8 @@
 import { ParserTypeEnum } from '@datr.tech/catch-lib-parser-core';
 import { ParserMethodEnum, ParserTagEnum } from '@app/config/enums';
-import { IParserDefLeaf } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDefLeaf } from '@app/interfaces/args/parserDefs';
 
-export const parserDefLeafPositive: IParserDefLeaf = {
+export const parserDefLeafPositive: IArgsParserDefLeaf = {
 	el: {
 		class: 'leaf',
 		tag: ParserTagEnum.DIV,

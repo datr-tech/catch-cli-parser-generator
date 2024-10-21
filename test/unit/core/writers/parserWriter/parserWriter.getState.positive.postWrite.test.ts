@@ -1,5 +1,4 @@
 import { CONSTS_PATHS_GENERATED_PARSER_CODE_DIR } from '@app/config/consts/paths';
-import { doesFileExist } from '@app/core/services/fileService';
 import { parserWriter } from '@app/core/writers';
 
 const timestamp = Date.now();
@@ -20,16 +19,14 @@ describe('unit', () => {
 								/*
 								 * Arrange
 								 */
-								const doesExistExpected = true;
 								const hasBeenWrittenExpected = true;
 								const parserCode = 'const testVar = 123;';
 								const stateExpected = {
 									isValid: false,
 									parserCode: undefined,
 									parserName: undefined,
-									parserPath: undefined
+									parserPath: undefined,
 								};
-
 
 								/*
 								 * Act

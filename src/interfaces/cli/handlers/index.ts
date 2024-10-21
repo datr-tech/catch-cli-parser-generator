@@ -1,0 +1,1 @@
+export { IHandlerGenerate } from './IHandlerGenerate';

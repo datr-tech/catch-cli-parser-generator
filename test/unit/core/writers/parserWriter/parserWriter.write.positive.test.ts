@@ -22,7 +22,7 @@ describe('unit', () => {
 								 */
 								const doesExistExpected = true;
 								const hasBeenWrittenExpected = true;
-								const parserCode = 'const testVar = 123;'
+								const parserCode = 'const testVar = 123;';
 
 								/*
 								 * Act

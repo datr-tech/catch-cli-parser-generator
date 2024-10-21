@@ -1,7 +1,7 @@
 import ts from 'typescript';
 import { ParserTypeEnum, IParserBuilderIterOutput } from '@datr.tech/catch-lib-parser-core';
 import { parserGenerator } from '@app/core/codeGenerators';
-import { IParserDefLeaf } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDefLeaf } from '@app/interfaces/args/parserDefs';
 import { parserDefLeafPositive } from '@test/fixtures/args/parserDefs';
 
 describe('unit', () => {
@@ -14,7 +14,7 @@ describe('unit', () => {
 							/*
 							 * Arrange
 							 */
-							const parserDef: IParserDefLeaf = parserDefLeafPositive;
+							const parserDef: IArgsParserDefLeaf = parserDefLeafPositive;
 
 							/*
 							 * Act

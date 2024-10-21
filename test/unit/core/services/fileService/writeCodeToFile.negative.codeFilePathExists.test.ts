@@ -26,7 +26,7 @@ describe('unit', () => {
 								// Act
 								const handler = () => {
 									writeCodeToFile({ code, codeFilePath });
-								}
+								};
 
 								// Assert
 								expect(handler).toThrow(errorExpected);

@@ -1,5 +1,5 @@
 import { interfaceGenerator } from '@app/core/codeGenerators';
-import { IParserDef } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
 import { parserDefIterPositive } from '@test/fixtures/args/parserDefs';
 import {
 	parseInterfaceIterPositive,
@@ -17,7 +17,7 @@ describe('unit', () => {
 							/*
 							 * Arrange
 							 */
-							const parserDef: IParserDef = parserDefIterPositive;
+							const parserDef: IArgsParserDef = parserDefIterPositive;
 
 							/*
 							 * Act

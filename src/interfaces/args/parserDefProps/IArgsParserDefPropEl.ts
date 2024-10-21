@@ -1,6 +1,6 @@
 import { ParserTagEnum } from '@app/config/enums';
 
-export interface IParserDefPropEl {
+export interface IArgsParserDefPropEl {
 	class: string;
 	tag: ParserTagEnum;
 }

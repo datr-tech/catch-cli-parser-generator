@@ -1,5 +1,5 @@
 import { assertParserDefStem } from '@app/core/assertions';
-import { IParserDef } from '@app/interfaces/args/parserDefs';
+import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
 import { parserDefLeafPositive, parserDefStemPositive } from '@test/fixtures/args/parserDefs';
 
 describe('unit', () => {
@@ -13,7 +13,7 @@ describe('unit', () => {
 								/*
 								 * Arrange
 								 */
-								const parserDef: IParserDef = parserDefStemPositive;
+								const parserDef: IArgsParserDef = parserDefStemPositive;
 
 								/*
 								 * Act
@@ -29,7 +29,7 @@ describe('unit', () => {
 								/*
 								 * Arrange
 								 */
-								const parserDef: IParserDef = parserDefLeafPositive;
+								const parserDef: IArgsParserDef = parserDefLeafPositive;
 
 								/*
 								 * Act
