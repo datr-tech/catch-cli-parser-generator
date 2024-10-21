@@ -8,7 +8,7 @@ describe('unit', () => {
 				describe('negative', () => {
 					describe('should throw an error', () => {
 						test.each(assertParserNameNegativeTestCases)(
-							'%description',
+							'$description',
 							({ errorExpected, parserName }) => {
 								/*
 								 * Act

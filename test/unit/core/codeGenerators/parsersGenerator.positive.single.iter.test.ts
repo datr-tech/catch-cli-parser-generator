@@ -1,25 +1,25 @@
 import { parsersGenerator } from '@app/core/codeGenerators';
 import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
 import { IGeneratorParsersOutputSingle } from '@app/interfaces/core/generators';
-import { parserDefStemPositive } from '@test/fixtures/args/parserDefs';
-import { parserCodeStemPositive } from '@test/fixtures/core/generators/parserGenerator';
+import { parserDefIterPositive } from '@test/fixtures/args/parserDefs';
+import { parserCodeIterPositive } from '@test/fixtures/core/generators/parserGenerator';
 import {
-	parseInterfaceStemPositive,
-	parserInterfaceStemPositive,
-	parseOutputInterfaceStemPositive,
+	parseInterfaceIterPositiveUcfirst,
+	parserInterfaceIterPositiveUcfirst,
+	parseOutputInterfaceIterPositiveUcfirst,
 } from '@test/fixtures/core/generators/interfaceGenerator';
 
 describe('unit', () => {
 	describe('core', () => {
 		describe('codeGenerators', () => {
 			describe('parsersGenerator', () => {
-				describe('positive.single.stem', () => {
-					describe("should produce both templateCodeGenerators and interfaces based upon the 'parserStem' templates", () => {
-						test("when 'parserDef.type' is 'ParserTypeEnum.STEM'", () => {
+				describe('positive.single.iter', () => {
+					describe("should produce both templateCodeGenerators and interfaces based upon the 'parserIter' templates", () => {
+						test("when 'parserDef.type' is 'ParserTypeEnum.ITER'", () => {
 							/*
 							 * Arrange
 							 */
-							const parserDefs: IArgsParserDef[] = [parserDefStemPositive];
+							const parserDefs: IArgsParserDef[] = [parserDefIterPositive];
 
 							/*
 							 * Act
@@ -29,13 +29,13 @@ describe('unit', () => {
 								responses[0];
 
 							const parseInterfaceFound = parseInterface.trim();
-							const parseInterfaceExpected = parseInterfaceStemPositive.trim();
+							const parseInterfaceExpected = parseInterfaceIterPositiveUcfirst.trim();
 							const parseOutputInterfaceFound = parseOutputInterface.trim();
-							const parseOutputInterfaceExpected = parseOutputInterfaceStemPositive.trim();
+							const parseOutputInterfaceExpected = parseOutputInterfaceIterPositiveUcfirst.trim();
 							const parserCodeFound = parserCode.trim();
-							const parserCodeExpected = parserCodeStemPositive.trim();
+							const parserCodeExpected = parserCodeIterPositive.trim();
 							const parserInterfaceFound = parserInterface.trim();
-							const parserInterfaceExpected = parserInterfaceStemPositive.trim();
+							const parserInterfaceExpected = parserInterfaceIterPositiveUcfirst.trim();
 
 							/*
 							 * Assert

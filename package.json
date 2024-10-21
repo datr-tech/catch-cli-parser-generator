@@ -31,8 +31,9 @@
     "format": "npx prettier --config ./.prettierrc './src/**/*.ts' './test/**/*.ts' --write",
     "dev": "tsx ./src/index.ts",
     "build": "npx webpack --mode production",
-    "test:unit": "npx jest ./test/unit --coverage",
-    "test:integration": "npx jest ./test/integration",
+    "test:base": "npx jest",
+    "test:unit": "npm run test:base -- ./test/unit --coverage",
+    "test:integration": "npm run test:base ./test/integration",
     "test": "npm run test:unit",
     "prepare": "husky",
     "pre-push": "npm run lint"

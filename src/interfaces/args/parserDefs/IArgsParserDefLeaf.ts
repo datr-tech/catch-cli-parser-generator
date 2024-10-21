@@ -1,5 +1,5 @@
 import { ParserTypeEnum } from '@datr.tech/catch-lib-parser-core';
-import { ParserMethodEnum } from '@@app/config/enums';
+import { ParserMethodEnum } from '@app/config/enums';
 import {
 	IArgsParserDefPropEl,
 	IArgsParserDefPropParser,

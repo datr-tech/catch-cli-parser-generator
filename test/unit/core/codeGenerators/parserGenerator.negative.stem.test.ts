@@ -10,7 +10,7 @@ describe('unit', () => {
 					describe('negative', () => {
 						describe('should throw an error', () => {
 							test.each(parserDefStemNegativeTestCases)(
-								'%description',
+								'$description',
 								({ errorExpected, parserDefNegative }) => {
 									/*
 									 * Arrange

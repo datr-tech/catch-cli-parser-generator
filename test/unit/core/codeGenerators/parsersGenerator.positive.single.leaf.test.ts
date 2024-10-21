@@ -4,9 +4,9 @@ import { IGeneratorParsersOutputSingle } from '@app/interfaces/core/generators';
 import { parserDefLeafPositive } from '@test/fixtures/args/parserDefs';
 import { parserCodeLeafPositive } from '@test/fixtures/core/generators/parserGenerator';
 import {
-	parseInterfaceLeafPositive,
-	parserInterfaceLeafPositive,
-	parseOutputInterfaceLeafPositive,
+	parseInterfaceLeafPositiveUcfirst,
+	parserInterfaceLeafPositiveUcfirst,
+	parseOutputInterfaceLeafPositiveUcfirst,
 } from '@test/fixtures/core/generators/interfaceGenerator';
 
 describe('unit', () => {
@@ -29,13 +29,13 @@ describe('unit', () => {
 								responses[0];
 
 							const parseInterfaceFound = parseInterface.trim();
-							const parseInterfaceExpected = parseInterfaceLeafPositive.trim();
+							const parseInterfaceExpected = parseInterfaceLeafPositiveUcfirst.trim();
 							const parseOutputInterfaceFound = parseOutputInterface.trim();
-							const parseOutputInterfaceExpected = parseOutputInterfaceLeafPositive.trim();
+							const parseOutputInterfaceExpected = parseOutputInterfaceLeafPositiveUcfirst.trim();
 							const parserCodeFound = parserCode.trim();
 							const parserCodeExpected = parserCodeLeafPositive.trim();
 							const parserInterfaceFound = parserInterface.trim();
-							const parserInterfaceExpected = parserInterfaceLeafPositive.trim();
+							const parserInterfaceExpected = parserInterfaceLeafPositiveUcfirst.trim();
 
 							/*
 							 * Assert
