@@ -14,11 +14,11 @@ export const parserWriter: IWriterParser = (() => {
 		parserPath: undefined,
 	};
 
-	const validate = ({ parserCode, parserName }) => {
+	const validate = ({ parserCode, parserName, parserOutDir }) => {
 		_initState({ state });
 		assertStringCode({ code: parserCode });
 
-		const parserPath = getParserCodeFilePath({ parserName });
+		const parserPath = getParserCodeFilePath({ parserName, parserOutDir });
 		const { doesExist } = doesFileExist({ filePath: parserPath });
 		const isValid = !doesExist;
 
