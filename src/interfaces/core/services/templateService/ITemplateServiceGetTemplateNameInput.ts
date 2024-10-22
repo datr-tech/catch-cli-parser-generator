@@ -1,7 +1,7 @@
 import { TemplateNamePrefixEnum } from '@app/config/enums';
-import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
+import { IDataParserDef } from '@app/interfaces/data/parserDefs';
 
 export interface ITemplateServiceGetTemplateNameInput {
-	parserDef: IArgsParserDef;
-	templateNamePrefix: TemplateNamePrefixEnum;
+	parserDef: IDataParserDef;
+	namePrefix: TemplateNamePrefixEnum;
 }

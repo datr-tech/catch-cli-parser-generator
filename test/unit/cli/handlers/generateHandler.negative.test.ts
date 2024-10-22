@@ -1,7 +1,8 @@
 import { generateHandler } from '@app/cli/handlers';
-import { IArgsJSON, IArgsOptions } from '@app/interfaces/args';
-import { parserDefLeafPositive, parserDefStemPositive } from '@test/fixtures/args/parserDefs';
-import { parserWriter } from '@app/core/writers';
+import { ICliCommonGenerateOptions } from '@app/interfaces/cli/commands';
+import { IDataJSON } from '@app/interfaces/data';
+import { parserDefLeafPositive, parserDefStemPositive } from '@test/fixtures/data/parserDefs';
+import { writer } from '@app/core/writers';
 
 describe('unit', () => {
 	describe('cli', () => {
@@ -14,18 +15,18 @@ describe('unit', () => {
 						 */
 						const json = {
 							parserDefs: [parserDefLeafPositive, parserDefStemPositive],
-						} as IArgsJSON;
-						const options = { preFlight: false } as IArgsOptions;
+						} as IDataJSON;
+						const options = { preFlight: false } as ICliCommonGenerateOptions;
 
 						const errorExpected = 'At least one parser wrapper could not be written';
-						const writer = { ...parserWriter };
-						writer.validate = () => false;
+						const write = { ...writer };
+						write.validate = () => false;
 
 						/*
 						 * Act
 						 */
 						const handler = () => {
-							generateHandler({ json, options, writer });
+							generateHandler({ json, options, write });
 						};
 
 						/*

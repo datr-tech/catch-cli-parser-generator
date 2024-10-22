@@ -1,3 +1,3 @@
 export { doesFileExist } from './doesFileExist';
-export { getParserCodeFilePath } from './getParserCodeFilePath';
+export { getCodePath } from './getCodePath';
 export { writeCodeToFile } from './writeCodeToFile';

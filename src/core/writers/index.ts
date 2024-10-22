@@ -1,1 +1,1 @@
-export { parserWriter } from './parserWriter';
+export { writer } from './writer';

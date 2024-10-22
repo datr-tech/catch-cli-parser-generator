@@ -1,20 +1,20 @@
 import { writeFileSync } from 'node:fs';
 import ts from 'typescript';
-import { assertStringCode, assertStringCodeFilePath } from '@app/core/assertions';
+import { assertStringCode, assertStringPath } from '@app/core/assertions';
 import { doesFileExist } from '@app/core/services/fileService';
 import { IFileServiceWriteCodeToFile } from '@app/interfaces/core/services/fileService';
 
 export const writeCodeToFile: IFileServiceWriteCodeToFile = ({
 	code,
-	codeFilePath,
+	path,
 	writeFile = writeFileSync,
 }) => {
 	assertStringCode({ code });
-	assertStringCodeFilePath({ codeFilePath });
-	const { doesExist } = doesFileExist({ filePath: codeFilePath });
+	assertStringPath({ path });
+	const { doesExist } = doesFileExist({ path });
 
 	if (doesExist) {
-		throw new TypeError("'codeFilePath' already exists");
+		throw new TypeError("'path' already exists");
 	}
 
 	try {
@@ -26,9 +26,9 @@ export const writeCodeToFile: IFileServiceWriteCodeToFile = ({
 	}
 
 	try {
-		writeFile(codeFilePath, code);
+		writeFile(path, code);
 	} catch (error) {
 		const { message } = error;
-		throw new TypeError(`'code' could not be written to 'codeFilePath': ${message}`);
+		throw new TypeError(`'code' could not be written to 'path': ${message}`);
 	}
 };

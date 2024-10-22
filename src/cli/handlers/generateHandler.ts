@@ -1,13 +1,13 @@
 import { InvalidArgumentError } from 'commander';
-import { parsersGenerator } from '@app/core/codeGenerators';
-import { parserWriter } from '@app/core/writers';
-import { IHandlerGenerate } from '@app/interfaces/cli/handlers';
+import { generateCode } from '@app/core/generators';
+import { writer } from '@app/core/writers';
+import { ICliHandlerGenerate } from '@app/interfaces/cli/handlers';
 
-export const generateHandler: IHandlerGenerate = ({
+export const generateHandler: ICliHandlerGenerate = ({
 	json,
 	options,
-	generator = parsersGenerator,
-	writer = parserWriter,
+	generator = generateCode,
+	write = writer,
 }) => {
 	const { preFlight } = options;
 	if (preFlight) {
@@ -15,7 +15,7 @@ export const generateHandler: IHandlerGenerate = ({
 	}
 
 	const { parserDefs } = json;
-	const codes = generator({ parserDefs });
+	const codeWrappers = generator({ parserDefs });
 	let parserOutDir = undefined;
 
 	if (typeof json.out !== 'undefined') {
@@ -25,14 +25,14 @@ export const generateHandler: IHandlerGenerate = ({
 		}
 	}
 
-	const unwritten = codes.filter((code) => {
-		const isValid = writer.validate({
-			parserCode: code.parserCode,
-			parserName: code.parserDef.parser,
-			parserOutDir,
+	const unwritten = codeWrappers.filter((codeWrapper) => {
+		const isValid = write.validate({
+			code: codeWrapper.parserCode,
+			name: codeWrapper.parserDef.parser,
+			outDir: parserOutDir,
 		});
 
-		return !isValid || writer.write() === false;
+		return !isValid || write.write() === false;
 	});
 
 	if (unwritten.length > 0) {

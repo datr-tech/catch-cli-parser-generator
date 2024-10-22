@@ -1,4 +1,6 @@
+import { IDataCommonName, IDataCommonValue } from '@app/interfaces/data/common';
+
 export interface IAssertStringInput {
-	value: string;
-	name: string;
+	name: IDataCommonName;
+	value: IDataCommonValue;
 }

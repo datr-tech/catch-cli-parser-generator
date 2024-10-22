@@ -1,7 +1,6 @@
 export { IAssertParserDef } from './IAssertParserDef';
-export { IAssertStringParserName } from './IAssertStringParserName';
+export { IAssertPath } from './IAssertPath';
 export { IAssertString } from './IAssertString';
 export { IAssertStringCode } from './IAssertStringCode';
-export { IAssertStringCodeFilePath } from './IAssertStringCodeFilePath';
-export { IAssertStringTemplateName } from './IAssertStringTemplateName';
-export { IAssertTemplatePath } from './IAssertTemplatePath';
+export { IAssertStringName } from './IAssertStringName';
+export { IAssertStringPath } from './IAssertStringPath';

@@ -1,6 +1,6 @@
 import { TemplateNamePrefixEnum } from '@app/config/enums';
 import { getTemplateName } from '@app/core/services/templateService';
-import { parserDefLeafPositive } from '@test/fixtures/args/parserDefs';
+import { parserDefLeafPositive } from '@test/fixtures/data/parserDefs';
 
 describe('unit', () => {
 	describe('core', () => {
@@ -13,7 +13,7 @@ describe('unit', () => {
 								/*
 								 * Arrange
 								 */
-								const templateNamePrefix = TemplateNamePrefixEnum.PARSER;
+								const namePrefix = TemplateNamePrefixEnum.PARSER;
 								const templateNameExpected = 'parserLeaf.hbs';
 								const parserDef = parserDefLeafPositive;
 
@@ -22,7 +22,7 @@ describe('unit', () => {
 								 */
 								const templateNameFound = getTemplateName({
 									parserDef,
-									templateNamePrefix,
+									namePrefix,
 								});
 
 								/*

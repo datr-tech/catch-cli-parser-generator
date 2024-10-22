@@ -1,0 +1,1 @@
+export { ICliCommonGenerateOptions } from './ICliCommonGenerateOptions';

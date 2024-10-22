@@ -7,5 +7,5 @@ export const getInterfaceParseOutputTemplateName: ITemplateServiceGetTemplateNam
 }) =>
 	getTemplateName({
 		parserDef,
-		templateNamePrefix: TemplateNamePrefixEnum.INTERFACE_PARSE_OUTPUT,
+		namePrefix: TemplateNamePrefixEnum.INTERFACE_PARSE_OUTPUT,
 	});

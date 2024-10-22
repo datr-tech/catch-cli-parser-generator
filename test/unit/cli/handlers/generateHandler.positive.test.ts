@@ -1,9 +1,10 @@
 import { generateHandler } from '@app/cli/handlers';
 import { CONSTS_PATHS_GENERATED_PARSER_CODE_DIR } from '@app/config/consts/paths';
-import { parsersGenerator } from '@app/core/codeGenerators';
+import { generateCode } from '@app/core/generators';
 import { doesFileExist } from '@app/core/services/fileService';
-import { IArgsJSON, IArgsOptions } from '@app/interfaces/args';
-import { parserDefLeafPositive, parserDefStemPositive } from '@test/fixtures/args/parserDefs';
+import { ICliCommonGenerateOptions } from '@app/interfaces/cli/commands';
+import { IDataJSON } from '@app/interfaces/data';
+import { parserDefLeafPositive, parserDefStemPositive } from '@test/fixtures/data/parserDefs';
 
 const parserCodePathLeaf = `${CONSTS_PATHS_GENERATED_PARSER_CODE_DIR}/leaf.ts`;
 const parserCodePathStem = `${CONSTS_PATHS_GENERATED_PARSER_CODE_DIR}/stem.ts`;
@@ -23,18 +24,18 @@ describe('unit', () => {
 						 */
 						const json = {
 							parserDefs: [parserDefLeafPositive, parserDefStemPositive],
-						} as IArgsJSON;
-						const options = { preFlight: false } as IArgsOptions;
+						} as IDataJSON;
+						const options = { preFlight: false } as ICliCommonGenerateOptions;
 
 						/*
 						 * Act
 						 */
-						const response = generateHandler({ json, options, generator: parsersGenerator });
+						const response = generateHandler({ json, options, generator: generateCode });
 						const { doesExist: doesExistParserCodeFileLeaf } = doesFileExist({
-							filePath: parserCodePathLeaf,
+							path: parserCodePathLeaf,
 						});
 						const { doesExist: doesExistParserCodeFileStem } = doesFileExist({
-							filePath: parserCodePathStem,
+							path: parserCodePathStem,
 						});
 						/*
 						 * Assert

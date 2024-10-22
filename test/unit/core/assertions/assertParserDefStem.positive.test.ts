@@ -1,6 +1,6 @@
 import { assertParserDefStem } from '@app/core/assertions';
-import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
-import { parserDefLeafPositive, parserDefStemPositive } from '@test/fixtures/args/parserDefs';
+import { IDataParserDef } from '@app/interfaces/data/parserDefs';
+import { parserDefLeafPositive, parserDefStemPositive } from '@test/fixtures/data/parserDefs';
 
 describe('unit', () => {
 	describe('core', () => {
@@ -13,7 +13,7 @@ describe('unit', () => {
 								/*
 								 * Arrange
 								 */
-								const parserDef: IArgsParserDef = parserDefStemPositive;
+								const parserDef: IDataParserDef = parserDefStemPositive;
 
 								/*
 								 * Act
@@ -29,7 +29,7 @@ describe('unit', () => {
 								/*
 								 * Arrange
 								 */
-								const parserDef: IArgsParserDef = parserDefLeafPositive;
+								const parserDef: IDataParserDef = parserDefLeafPositive;
 
 								/*
 								 * Act

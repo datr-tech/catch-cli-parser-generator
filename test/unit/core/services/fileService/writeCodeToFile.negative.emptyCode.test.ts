@@ -12,12 +12,12 @@ describe('unit', () => {
 								// Arrange
 								const code = '';
 								const timestamp = Date.now();
-								const codeFilePath = `${CONSTS_PATHS_TEST_DIR}/writeCodeToFile.negative.emptyCode.${timestamp}.ts`;
+								const path = `${CONSTS_PATHS_TEST_DIR}/writeCodeToFile.negative.emptyCode.${timestamp}.ts`;
 								const errorExpected = "Invalid 'code'";
 
 								// Act
 								const handler = () => {
-									writeCodeToFile({ code, codeFilePath });
+									writeCodeToFile({ code, path });
 								};
 
 								// Assert

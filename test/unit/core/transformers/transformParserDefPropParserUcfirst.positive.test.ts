@@ -1,6 +1,6 @@
 import { transformParserDefPropParserUcfirst } from '@app/core/transformers';
 import { transformParserDefPropParserUcfirstPositiveTestCases } from '@test/fixtures/core/transformers';
-import { parserDefLeafPositive } from '@test/fixtures/args/parserDefs';
+import { parserDefLeafPositive } from '@test/fixtures/data/parserDefs';
 
 describe('unit', () => {
 	describe('core', () => {

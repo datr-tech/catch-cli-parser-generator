@@ -1,5 +1,5 @@
-import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
+import { IDataParserDef } from '@app/interfaces/data/parserDefs';
 
 export interface ITemplateServiceGetTemplateNameConsumerInput {
-	parserDef: IArgsParserDef;
+	parserDef: IDataParserDef;
 }

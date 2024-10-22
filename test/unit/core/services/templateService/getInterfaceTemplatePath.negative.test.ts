@@ -7,18 +7,18 @@ describe('unit', () => {
 				describe('getInterfaceTemplatePath', () => {
 					describe('negative', () => {
 						describe('should throw an error', () => {
-							test("when 'templateName' is an empty string", () => {
+							test("when 'name' is an empty string", () => {
 								/*
 								 * Arrange
 								 */
-								const errorExpected = "Invalid 'templateName'";
-								const templateName = '';
+								const errorExpected = "Invalid 'name'";
+								const name = '';
 
 								/*
 								 * Act
 								 */
 								const handler = () => {
-									getInterfaceTemplatePath({ templateName });
+									getInterfaceTemplatePath({ name });
 								};
 
 								/*

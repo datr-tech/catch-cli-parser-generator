@@ -1,5 +1,5 @@
 import { ParserTypeEnum } from '@datr.tech/catch-lib-parser-core';
-import { IArgsParserDefIter, IArgsParserDefStem } from '@app/interfaces/args/parserDefs';
+import { IDataParserDefIter, IDataParserDefStem } from '@app/interfaces/data/parserDefs';
 import { ITransformerParserDef } from '@app/interfaces/core/transformers';
 import { transformStrToUcfirst } from './transformStrToUcfirst';
 
@@ -11,7 +11,7 @@ export const transformParserDefPropChildParserUcfirst: ITransformerParserDef = (
 	}
 
 	if (parserDefCloned.type === ParserTypeEnum.ITER) {
-		const parserDefIter = parserDefCloned as IArgsParserDefIter;
+		const parserDefIter = parserDefCloned as IDataParserDefIter;
 
 		parserDefIter.childParser = transformStrToUcfirst({
 			value: parserDefIter.childParser,
@@ -21,7 +21,7 @@ export const transformParserDefPropChildParserUcfirst: ITransformerParserDef = (
 	}
 
 	if (parserDefCloned.type === ParserTypeEnum.STEM) {
-		const parserDefStem = parserDefCloned as IArgsParserDefStem;
+		const parserDefStem = parserDefCloned as IDataParserDefStem;
 		const { childParserWrappers } = parserDefStem;
 
 		if (childParserWrappers) {

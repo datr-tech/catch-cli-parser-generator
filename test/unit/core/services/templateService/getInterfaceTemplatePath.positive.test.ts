@@ -11,12 +11,12 @@ describe('unit', () => {
 							/*
 							 * Arrange
 							 */
-							const templateName = 'commonParse.hbs';
-							const templatePathExpected = `${CONSTS_PATHS_TEMPLATES_DIR}/interfaces/${templateName}`;
+							const name = 'commonParse.hbs';
+							const templatePathExpected = `${CONSTS_PATHS_TEMPLATES_DIR}/interfaces/${name}`;
 							/*
 							 * Act
 							 */
-							const templatePathFound = getInterfaceTemplatePath({ templateName });
+							const templatePathFound = getInterfaceTemplatePath({ name });
 							/*
 							 * Assert
 							 */

@@ -1,9 +1,9 @@
 import { CONSTS_PATHS_TEMPLATES_DIR } from '@app/config/consts/paths';
-import { assertStringTemplateName } from '@app/core/assertions';
+import { assertStringName } from '@app/core/assertions';
 import { ITemplateServiceGetTemplatePath } from '@app/interfaces/core/services/templateService';
 
-export const getInterfaceTemplatePath: ITemplateServiceGetTemplatePath = ({ templateName }) => {
-	assertStringTemplateName({ templateName });
+export const getInterfaceTemplatePath: ITemplateServiceGetTemplatePath = ({ name }) => {
+	assertStringName({ name });
 
-	return `${CONSTS_PATHS_TEMPLATES_DIR}/interfaces/${templateName}`;
+	return `${CONSTS_PATHS_TEMPLATES_DIR}/interfaces/${name}`;
 };

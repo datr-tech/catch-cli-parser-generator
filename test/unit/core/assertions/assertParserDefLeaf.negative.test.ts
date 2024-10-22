@@ -1,6 +1,6 @@
 import { assertParserDefLeaf } from '@app/core/assertions';
-import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
-import { parserDefLeafNegativeTestCases } from '@test/fixtures/args/parserDefs';
+import { IDataParserDef } from '@app/interfaces/data/parserDefs';
+import { parserDefLeafNegativeTestCases } from '@test/fixtures/data/parserDefs';
 
 describe('unit', () => {
 	describe('core', () => {
@@ -15,7 +15,7 @@ describe('unit', () => {
 									/*
 									 * Arrange
 									 */
-									const parserDef: IArgsParserDef = parserDefNegative;
+									const parserDef: IDataParserDef = parserDefNegative;
 
 									/*
 									 * Act

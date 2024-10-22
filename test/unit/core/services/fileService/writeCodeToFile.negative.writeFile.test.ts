@@ -1,6 +1,6 @@
+import { writeFileSync } from 'node:fs';
 import { CONSTS_PATHS_TEST_DIR } from '@app/config/consts/paths';
 import { writeCodeToFile } from '@app/core/services/fileService';
-import { writeFileSync } from 'node:fs';
 
 const writeFileErrorMessage = 'TEST_ERROR';
 let writeFile: jest.Mock<typeof writeFileSync>;
@@ -24,12 +24,12 @@ describe('unit', () => {
 								// Arrange
 								const code = 'const testVar = 123;';
 								const timestamp = Date.now();
-								const codeFilePath = `${CONSTS_PATHS_TEST_DIR}/writeCodeToFile.negative.writeFile.${timestamp}.ts`;
-								const errorExpected = `'code' could not be written to 'codeFilePath': ${writeFileErrorMessage}`;
+								const path = `${CONSTS_PATHS_TEST_DIR}/writeCodeToFile.negative.writeFile.${timestamp}.ts`;
+								const errorExpected = `'code' could not be written to 'path': ${writeFileErrorMessage}`;
 
 								// Act
 								const handler = () => {
-									writeCodeToFile({ code, codeFilePath, writeFile });
+									writeCodeToFile({ code, path, writeFile });
 								};
 
 								// Assert

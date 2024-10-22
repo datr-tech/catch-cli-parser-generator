@@ -3,10 +3,7 @@ import { FileExtensionEnum } from '@app/config/enums';
 import { assertParserDefLeaf, assertParserDefStem } from '@app/core/assertions';
 import { ITemplateServiceGetTemplateName } from '@app/interfaces/core/services/templateService';
 
-export const getTemplateName: ITemplateServiceGetTemplateName = ({
-	parserDef,
-	templateNamePrefix,
-}) => {
+export const getTemplateName: ITemplateServiceGetTemplateName = ({ parserDef, namePrefix }) => {
 	let templateName: string;
 
 	assertParserDefLeaf({ parserDef });
@@ -14,13 +11,13 @@ export const getTemplateName: ITemplateServiceGetTemplateName = ({
 
 	switch (parserDef.type) {
 		case ParserTypeEnum.ITER:
-			templateName = `${templateNamePrefix}Iter.${FileExtensionEnum.HBS}`;
+			templateName = `${namePrefix}Iter.${FileExtensionEnum.HBS}`;
 			break;
 		case ParserTypeEnum.LEAF:
-			templateName = `${templateNamePrefix}Leaf.${FileExtensionEnum.HBS}`;
+			templateName = `${namePrefix}Leaf.${FileExtensionEnum.HBS}`;
 			break;
 		case ParserTypeEnum.STEM:
-			templateName = `${templateNamePrefix}Stem.${FileExtensionEnum.HBS}`;
+			templateName = `${namePrefix}Stem.${FileExtensionEnum.HBS}`;
 			break;
 	}
 

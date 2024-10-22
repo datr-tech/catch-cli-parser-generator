@@ -6,7 +6,7 @@ import {
 	CONSTS_COMMANDS_GENERATE_DESCRIPTION,
 	CONSTS_COMMANDS_GENERATE_NAME,
 } from '@app/config/consts/commands';
-import { IArgsJSON } from '@app/interfaces/args';
+import { IDataJSON } from '@app/interfaces/data';
 
 export const generateCommand = new Command(CONSTS_COMMANDS_GENERATE_NAME);
 
@@ -15,7 +15,7 @@ generateCommand
 	.addArgument(jsonArgument)
 	.addOption(preFlightOption)
 	.action((json, options) => {
-		const jsonObj = JSON.parse(json) as IArgsJSON;
+		const jsonObj = JSON.parse(json) as IDataJSON;
 
 		generateHandler({ json: jsonObj, options });
 	});

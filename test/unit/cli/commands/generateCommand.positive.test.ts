@@ -1,12 +1,12 @@
 import { app } from '@app/app';
-import { parserCodeLeafPositive } from '@test/fixtures/core/generators/parserGenerator';
+import { parserCodeLeafPositive } from '@test/fixtures/core/generators/generateParser';
 
 describe('unit', () => {
 	describe('cli', () => {
 		describe('commands', () => {
 			describe('generateCommand', () => {
 				describe('positive', () => {
-					describe('should return the successfully processed args', () => {
+					describe('should return the successfully processed data', () => {
 						test("when calling the 'generate' command (via app.parse) WITH the 'pre-flight' option, preventing further processing", () => {
 							/*
 							 * Arrange

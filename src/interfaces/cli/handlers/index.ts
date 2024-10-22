@@ -1,1 +1,1 @@
-export { IHandlerGenerate } from './IHandlerGenerate';
+export { ICliHandlerGenerate } from './ICliHandlerGenerate';

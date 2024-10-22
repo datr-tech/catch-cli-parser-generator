@@ -3,7 +3,7 @@ import {
 	getParserTemplatePath,
 	getTemplate,
 } from '@app/core/services/templateService';
-import { parserDefLeafPositive } from '@test/fixtures/args/parserDefs';
+import { parserDefLeafPositive } from '@test/fixtures/data/parserDefs';
 
 describe('unit', () => {
 	describe('core', () => {
@@ -20,10 +20,10 @@ describe('unit', () => {
 							/*
 							 * Act
 							 */
-							const templateName = getParserTemplateName({ parserDef });
-							const templatePath = getParserTemplatePath({ templateName });
-							const templateFound = getTemplate({ templatePath });
-							const templateExpected = global.jestReadFileSync(templatePath);
+							const name = getParserTemplateName({ parserDef });
+							const path = getParserTemplatePath({ name });
+							const templateFound = getTemplate({ path });
+							const templateExpected = global.jestReadFileSync(path);
 
 							/*
 							 * Assert

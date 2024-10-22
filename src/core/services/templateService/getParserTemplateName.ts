@@ -5,5 +5,5 @@ import { getTemplateName } from './getTemplateName';
 export const getParserTemplateName: ITemplateServiceGetTemplateNameConsumer = ({ parserDef }) =>
 	getTemplateName({
 		parserDef,
-		templateNamePrefix: TemplateNamePrefixEnum.PARSER,
+		namePrefix: TemplateNamePrefixEnum.PARSER,
 	});

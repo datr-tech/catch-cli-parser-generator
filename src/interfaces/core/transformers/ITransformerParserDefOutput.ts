@@ -1,3 +1,3 @@
-import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
+import { IDataParserDef } from '@app/interfaces/data/parserDefs';
 
-export type ITransformerParserDefOutput = IArgsParserDef;
+export type ITransformerParserDefOutput = IDataParserDef;

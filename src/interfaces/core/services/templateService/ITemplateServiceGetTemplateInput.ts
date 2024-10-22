@@ -1,3 +1,5 @@
+import { IDataCommonPath } from '@app/interfaces/data/common';
+
 export interface ITemplateServiceGetTemplateInput {
-	templatePath: string;
+	path: IDataCommonPath;
 }

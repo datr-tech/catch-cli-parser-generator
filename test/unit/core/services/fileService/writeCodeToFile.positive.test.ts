@@ -1,7 +1,7 @@
 import { CONSTS_PATHS_TEST_DIR } from '@app/config/consts/paths';
 import { doesFileExist, writeCodeToFile } from '@app/core/services/fileService';
 
-let codeFilePath: string;
+let path: string;
 
 describe('unit', () => {
 	describe('core', () => {
@@ -12,19 +12,19 @@ describe('unit', () => {
 						describe('should return undefined', () => {
 							beforeAll(() => {
 								const timestamp = Date.now();
-								codeFilePath = `${CONSTS_PATHS_TEST_DIR}/writeCodeToFile.positive.${timestamp}.ts`;
+								path = `${CONSTS_PATHS_TEST_DIR}/writeCodeToFile.positive.${timestamp}.ts`;
 							});
 							afterAll(() => {
-								global.jestRemoveFileSync(codeFilePath);
+								global.jestRemoveFileSync(path);
 							});
-							test("when 'code' has been written to 'codeFilePath'", () => {
+							test("when 'code' has been written to 'path'", () => {
 								// Arrange
 								const code = 'const tempVar = 123;';
 								const doesExistExpected = true;
 
 								// Act
-								writeCodeToFile({ code, codeFilePath });
-								const { doesExist } = doesFileExist({ filePath: codeFilePath });
+								writeCodeToFile({ code, path });
+								const { doesExist } = doesFileExist({ path });
 
 								// Assert
 								expect(doesExist).toBe(doesExistExpected);

@@ -1,6 +1,7 @@
-import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
+import { IDataCommonCode } from '@app/interfaces/data/common';
+import { IDataParserDef } from '@app/interfaces/data/parserDefs';
 
 export interface IGeneratorParserOutput {
-	parserCode: string;
-	parserDef: IArgsParserDef;
+	parserCode: IDataCommonCode;
+	parserDef: IDataParserDef;
 }

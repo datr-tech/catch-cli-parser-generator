@@ -1,5 +1,5 @@
 import { getParserTemplateName } from '@app/core/services/templateService';
-import { parserDefLeafPositive } from '@test/fixtures/args/parserDefs';
+import { parserDefLeafPositive } from '@test/fixtures/data/parserDefs';
 
 describe('unit', () => {
 	describe('core', () => {

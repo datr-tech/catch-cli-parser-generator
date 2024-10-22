@@ -1,6 +1,7 @@
-import { IArgsParserDef } from '@app/interfaces/args/parserDefs';
+import { IDataCommonName } from '@app/interfaces/data/common';
+import { IDataParserDef } from '@app/interfaces/data/parserDefs';
 
 export interface ICodeGeneratorHelperGenerateInterfaceInput {
-	parserDef: IArgsParserDef;
-	templateName: string;
+	parserDef: IDataParserDef;
+	name: IDataCommonName;
 }

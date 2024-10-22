@@ -1,4 +1,3 @@
-export { assertParserNameNegativeTestCases } from './assertParserNameNegativeTestCases';
+export { assertStringNameNegativeTestCases } from './assertStringNameNegativeTestCases';
 export { assertStringNegativeTestCases } from './assertStringNegativeTestCases';
-export { assertTemplateNameNegativeTestCases } from './assertTemplateNameNegativeTestCases';
-export { assertTemplatePathNegativeTestCases } from './assertTemplatePathNegativeTestCases';
+export { assertPathNegativeTestCases } from './assertPathNegativeTestCases';

@@ -1,2 +1,2 @@
-export { IWriterParser } from './IWriterParser';
-export { IWriterParserState } from './IWriterParserState';
+export { IWriter } from './IWriter';
+export { IWriterState } from './IWriterState';

@@ -1,13 +1,14 @@
 import { generateHandler } from '@app/cli/handlers';
-import { IArgsJSON, IArgsOptions } from '@app/interfaces/args';
-import { parserDefLeafPositive, parserDefStemPositive } from '@test/fixtures/args/parserDefs';
+import { ICliCommonGenerateOptions } from '@app/interfaces/cli/commands';
+import { IDataJSON } from '@app/interfaces/data';
+import { parserDefLeafPositive, parserDefStemPositive } from '@test/fixtures/data/parserDefs';
 
 describe('unit', () => {
 	describe('cli', () => {
 		describe('handlers', () => {
 			describe('generateHandler', () => {
 				describe('negative: parserOutDir', () => {
-					test("should throw an error when the code files have not be written to a non-existent dir", () => {
+					test('should throw an error when the code files have not be written to a non-existent dir', () => {
 						/*
 						 * Arrange
 						 */
@@ -16,12 +17,12 @@ describe('unit', () => {
 						const json = {
 							parserDefs: [parserDefLeafPositive, parserDefStemPositive],
 							out: {
-								parserOutDir
-							}
-						} as IArgsJSON;
-						const options = { preFlight: false } as IArgsOptions;
+								parserOutDir,
+							},
+						} as IDataJSON;
+						const options = { preFlight: false } as ICliCommonGenerateOptions;
 
-						const errorExpected = "code' could not be written to 'codeFilePath'";
+						const errorExpected = "code' could not be written to 'path'";
 
 						/*
 						 * Act

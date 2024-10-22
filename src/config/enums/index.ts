@@ -1,3 +1,4 @@
+export { CodeTypeEnum } from './CodeTypeEnum';
 export { FileExistTypeEnum } from './FileExistTypeEnum';
 export { FileExtensionEnum } from './FileExtensionEnum';
 export { ParserMethodEnum } from './ParserMethodEnum';

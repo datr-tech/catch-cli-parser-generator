@@ -1,9 +1,9 @@
 import fs from 'node:fs';
-import { assertTemplatePath } from '@app/core/assertions';
+import { assertPath } from '@app/core/assertions';
 import { ITemplateServiceGetTemplate } from '@app/interfaces/core/services/templateService';
 
-export const getTemplate: ITemplateServiceGetTemplate = ({ templatePath }) => {
-	assertTemplatePath({ templatePath });
+export const getTemplate: ITemplateServiceGetTemplate = ({ path }) => {
+	assertPath({ path });
 
-	return fs.readFileSync(templatePath, 'utf-8');
+	return fs.readFileSync(path, 'utf-8');
 };

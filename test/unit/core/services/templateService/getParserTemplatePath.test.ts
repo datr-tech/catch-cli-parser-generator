@@ -1,6 +1,6 @@
 import { CONSTS_PATHS_TEMPLATES_DIR } from '@app/config/consts/paths';
 import { getParserTemplateName, getParserTemplatePath } from '@app/core/services/templateService';
-import { parserDefLeafPositive } from '@test/fixtures/args/parserDefs';
+import { parserDefLeafPositive } from '@test/fixtures/data/parserDefs';
 
 describe('unit', () => {
 	describe('core', () => {
@@ -18,8 +18,8 @@ describe('unit', () => {
 							/*
 							 * Act
 							 */
-							const templateName = getParserTemplateName({ parserDef });
-							const templatePathFound = getParserTemplatePath({ templateName });
+							const name = getParserTemplateName({ parserDef });
+							const templatePathFound = getParserTemplatePath({ name });
 							/*
 							 * Assert
 							 */

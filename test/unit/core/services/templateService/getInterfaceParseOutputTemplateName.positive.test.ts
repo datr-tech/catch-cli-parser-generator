@@ -1,4 +1,4 @@
-import { parserDefLeafPositive } from '@test/fixtures/args/parserDefs';
+import { parserDefLeafPositive } from '@test/fixtures/data/parserDefs';
 import { getInterfaceParseOutputTemplateName } from '@app/core/services/templateService';
 
 describe('unit', () => {

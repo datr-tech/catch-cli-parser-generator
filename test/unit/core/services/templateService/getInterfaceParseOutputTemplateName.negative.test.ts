@@ -1,5 +1,5 @@
-import { parserDefStemNegativeParser } from '@test/fixtures/args/parserDefs';
 import { getInterfaceParseOutputTemplateName } from '@app/core/services/templateService';
+import { parserDefStemNegativeParser } from '@test/fixtures/data/parserDefs';
 
 describe('unit', () => {
 	describe('core', () => {

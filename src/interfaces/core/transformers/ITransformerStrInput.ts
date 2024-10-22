@@ -1,4 +1,6 @@
+import { IDataCommonName, IDataCommonValue } from '@app/interfaces/data/common';
+
 export interface ITransformerStrInput {
-	name: string;
-	value: string;
+	name: IDataCommonName;
+	value: IDataCommonValue;
 }
