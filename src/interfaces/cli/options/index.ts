@@ -1,0 +1,1 @@
+export { ICliOptionsGenerate } from './ICliOptionsGenerate';

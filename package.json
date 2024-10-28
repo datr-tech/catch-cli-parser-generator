@@ -1,0 +1,79 @@
+{
+  "name": "@datr.tech/catch-cli-parser-generator",
+  "description": "A TypeScript CLI for the generation of '@datr.tech/catch-api' parsers",
+  "private": false,
+  "author": "J.A.Strachan <admin@datr.tech>",
+  "homepage": "https://github.com/datr-tech/catch-cli-parser-generator/",
+  "keywords": [
+    "datr-tech",
+    "catch-api",
+    "parserBuilder",
+    "TypeScript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datr-tech/catch-cli-parser-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/datr-tech/catch-cli-parser-generator/issues"
+  },
+  "license": "LGPL-3.0-or-later",
+  "version": "0.1.0",
+  "main": "./dist/index.mjs",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "scripts": {
+    "clean": "npx rimraf coverage/* dist/*",
+    "lint": "npx eslint --config ./eslint.config.mjs --fix",
+    "format": "npx prettier --config ./.prettierrc './src/**/*.ts' './test/**/*.ts' --write",
+    "dev": "tsx ./src/index.ts",
+    "build": "npx webpack --mode production",
+    "test:base": "npx jest",
+    "test:unit": "npm run test:base -- ./test/unit --coverage",
+    "test:integration": "npm run test:base ./test/integration",
+    "test": "npm run test:unit",
+    "prepare": "husky",
+    "pre-push": "npm run lint"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.24.7",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@commitlint/format": "^19.5.0",
+    "@eslint/compat": "^1.1.1",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.10.0",
+    "@types/jest": "^29.5.13",
+    "commitlint": "^19.5.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.6",
+    "jest": "^29.7.0",
+    "playwright": "^1.48.1",
+    "playwright-extra": "^4.3.6",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.6.0",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@datr.tech/catch-lib-parser-core": "^0.1.0",
+    "@types/handlebars": "^4.1.0",
+    "@types/node": "^22.7.6",
+    "commander": "^12.1.0",
+    "handlebars": "^4.7.8",
+    "winston": "^3.15.0"
+  },
+  "types": "./dist/index.d.ts",
+  "directories": {
+    "test": "test"
+  }
+}

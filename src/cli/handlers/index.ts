@@ -1,0 +1,1 @@
+export { generateHandler } from './generateHandler';

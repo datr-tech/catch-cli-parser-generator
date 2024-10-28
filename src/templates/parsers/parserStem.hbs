@@ -1,0 +1,12 @@
+import { parserBuilderStem, IParseHandler } from '@datr.tech/catch-lib-parser-core';
+
+const elName = '{{el.tag}}.{{el.class}}';
+
+const parseHandler: IParseHandler = async ({ el }) =>
+({
+	{{#each childParserWrappers}}
+		{{ref}}: await {{childParser}}Parser.parse({ elParent: el }),
+	{{/each}}
+});
+
+export const {{parser}}Parser = parserBuilderStem({ elName, parseHandler });

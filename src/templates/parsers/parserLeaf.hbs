@@ -1,0 +1,6 @@
+import { parserBuilderLeaf, IParseHandler } from '@datr.tech/catch-lib-parser-core';
+
+const elName = '{{el.tag}}.{{el.class}}';
+const parseHandler: IParseHandler = async ({ el }) => (await el.{{method}}) as string;
+
+export const {{parser}}Parser = parserBuilderLeaf({ elName, parseHandler });

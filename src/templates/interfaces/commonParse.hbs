@@ -1,0 +1,6 @@
+import { IParseInput } from '@datr.tech/catch-lib-parser-core';
+import { IParser{{ parser }}ParseOutput from '@app/interfaces/core/parsers/IParser{{ parser }}ParseOutput';
+
+export interface IParser{{ parser }}Parse {
+	(args: IParseInput): IParser{{ parser }}ParseOutput;
+}

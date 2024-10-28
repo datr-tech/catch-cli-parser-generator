@@ -1,0 +1,1 @@
+export { GenerateController } from './GenerateController';
