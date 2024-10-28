@@ -1,28 +1,28 @@
-import { getFileNameCodeHelper } from '@app/helpers';
-import { FileNameService } from '@app/services/fileService/FileNameService';
+import { deriveFileNameCodeHelper } from '@app/helpers';
 import {
-	IModelFileNameHOF,
-	IModelFileNameHOFConstructor,
-	IModelFileNameHOFConstructorInput
-} from 'src/interfaces/services/fileService/FileNameServiceHOC';
+	IFileServiceFileNameHOF,
+	IFileServiceFileNameHOFConstructor,
+	IFileServiceFileNameHOFConstructorInput,
+} from '@app/interfaces/services/fileService/FileNameServiceHOC';
+import { FileNameService } from './FileNameService';
 
 /**
  * @public
  *
  * Construct a FileNameService to represent the name of a code file.
  *
- * @param {IModelFileNameHOFConstructorInput} args
+ * @param {IFileServiceFileNameHOFConstructorInput} args
  * @param {IModelDef} args.defModel
  * @param {TemplateTypeEnum} args.templateTypeEnum
- * @returns {IModelFileNameHOF}
+ * @returns {IFileServiceFileNameHOF}
  * @constructor
  */
-export const CodeFileNameService: IModelFileNameHOFConstructor = ({
+export const CodeFileNameService: IFileServiceFileNameHOFConstructor = ({
 	defModel,
-	templateTypeEnum
-}: IModelFileNameHOFConstructorInput): IModelFileNameHOF =>
+	templateTypeEnum,
+}: IFileServiceFileNameHOFConstructorInput): IFileServiceFileNameHOF =>
 	FileNameService({
 		defModel,
-		getFileNameHelper: getFileNameCodeHelper,
+		getFileNameHelper: deriveFileNameCodeHelper,
 		templateTypeEnum,
 	});

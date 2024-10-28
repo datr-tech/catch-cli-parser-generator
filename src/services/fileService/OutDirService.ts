@@ -4,19 +4,19 @@ import {
 	ICommonBool,
 	ICommonFuncIsValid,
 	ICommonPathStr,
-	ICommonValidityFlag
+	ICommonValidityFlag,
 } from '@app/interfaces/common';
 import {
 	IFileServiceDir,
-	IFileServiceDirFuncGetDirPath
-} from 'src/interfaces/services/fileService/DirFileService';
+	IFileServiceDirFuncGetDirPath,
+} from '@app/interfaces/services/fileService/DirFileService';
 import {
-	IModelOutDir,
-	IModelOutDirConstructor,
-	IModelOutDirConstructorInput,
-	IModelOutDirFuncGetOutDirType,
-	IModelOutDirFuncGetOutDirTypeOutput
-} from 'src/interfaces/services/fileService/OutDirService';
+	IFileServiceOutDir,
+	IFileServiceOutDirConstructor,
+	IFileServiceOutDirConstructorInput,
+	IFileServiceOutDirFuncGetOutDirType,
+	IFileServiceOutDirFuncGetOutDirTypeOutput,
+} from '@app/interfaces/services/fileService/OutDirService';
 import { DirService } from './DirService';
 
 /**
@@ -24,16 +24,16 @@ import { DirService } from './DirService';
  *
  * Construct a service to represent an output dir.
  *
- * @param {IModelOutDirConstructorInput} args
+ * @param {IFileServiceOutDirConstructorInput} args
  * @param {ICommonPathStr} args.dirPathStr
  * @param {OutDirTypeEnum} args.outDirTypeEnum
- * @returns {IModelOutDir}
+ * @returns {IFileServiceOutDir}
  * @constructor
  */
-export const OutDirService: IModelOutDirConstructor = ({
+export const OutDirService: IFileServiceOutDirConstructor = ({
 	dirPathStr,
-	outDirTypeEnum
-}: IModelOutDirConstructorInput): IModelOutDir => {
+	outDirTypeEnum,
+}: IFileServiceOutDirConstructorInput): IFileServiceOutDir => {
 	const dirModel: IFileServiceDir = DirService({ dirPathStr });
 	const isDirValidFlag: ICommonValidityFlag = { value: false };
 
@@ -42,7 +42,7 @@ export const OutDirService: IModelOutDirConstructor = ({
 	 *
 	 * Returns the path to the dir represented by 'dirModel'
 	 *
-	 * @returns {IModelDirFuncGetDirPathOutput}
+	 * @returns {IFileServiceDirFuncGetDirPathOutput}
 	 *
 	 * @throws When 'isValid' was not called before 'getDirPath'
 	 * @throws When 'dirModel' was not valid
@@ -58,18 +58,19 @@ export const OutDirService: IModelOutDirConstructor = ({
 	/**
 	 * Return the 'out dir' type
 	 *
-	 * @returns {IModelOutDirFuncGetOutDirTypeOutput}
+	 * @returns {IFileServiceOutDirFuncGetOutDirTypeOutput}
 	 *
 	 * @throws When 'isValid' was not called before 'getOutDirPath'
 	 * @throws When 'dirModel' was not valid
 	 */
-	const getOutDirType: IModelOutDirFuncGetOutDirType = (): IModelOutDirFuncGetOutDirTypeOutput => {
-		assertCondition({
-			condition: isDirValidFlag.value,
-		});
+	const getOutDirType: IFileServiceOutDirFuncGetOutDirType =
+		(): IFileServiceOutDirFuncGetOutDirTypeOutput => {
+			assertCondition({
+				condition: isDirValidFlag.value,
+			});
 
-		return outDirTypeEnum;
-	};
+			return outDirTypeEnum;
+		};
 
 	/**
 	 * @public
@@ -88,5 +89,5 @@ export const OutDirService: IModelOutDirConstructor = ({
 		getDirPath,
 		getOutDirType,
 		isValid,
-	} as IModelOutDir;
+	} as IFileServiceOutDir;
 };

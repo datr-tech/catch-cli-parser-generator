@@ -5,7 +5,7 @@ import {
 	ICommonFuncIsValid,
 	ICommonFuncMain,
 	ICommonJsonDef,
-	ICommonValidityFlag
+	ICommonValidityFlag,
 } from '@app/interfaces/common';
 import { IModelDef } from '@app/interfaces/models/DefModel';
 import {
@@ -13,7 +13,7 @@ import {
 	IModelDefsConstructor,
 	IModelDefsConstructorInput,
 	IModelDefsFuncGetDefs,
-	IModelDefsFuncGetDefsOutput
+	IModelDefsFuncGetDefsOutput,
 } from '@app/interfaces/models/DefsModel';
 import { DefModel } from './DefModel';
 
@@ -29,7 +29,7 @@ import { DefModel } from './DefModel';
  * @constructor
  */
 export const DefsModel: IModelDefsConstructor = ({
-	json
+	json,
 }: IModelDefsConstructorInput): IModelDefs => {
 	const areAllDefModelsValidFlag: ICommonValidityFlag = { value: false };
 	let defModels: IModelDef[];
@@ -60,8 +60,9 @@ export const DefsModel: IModelDefsConstructor = ({
 	 */
 	const isValid: ICommonFuncIsValid = (): ICommonBool =>
 		isValidTeeHelper({
-			condition: !defModels.find((defModel: IModelDef): ICommonBool =>
-				defModel.isValid() === false),
+			condition: !defModels.find(
+				(defModel: IModelDef): ICommonBool => defModel.isValid() === false,
+			),
 			validityFlagToUpdate: areAllDefModelsValidFlag,
 		});
 
@@ -73,11 +74,8 @@ export const DefsModel: IModelDefsConstructor = ({
 	 * instances of DefModel (based upon the received json).
 	 */
 	const main: ICommonFuncMain = (): void => {
-		if (typeof json.defs !== 'undefined'
-				&& Array.isArray(json.defs)) {
-
-			defModels = json.defs.map((jsonDef: ICommonJsonDef): IModelDef =>
-				DefModel({ jsonDef }));
+		if (typeof json.defs !== 'undefined' && Array.isArray(json.defs)) {
+			defModels = json.defs.map((jsonDef: ICommonJsonDef): IModelDef => DefModel({ jsonDef }));
 		}
 	};
 

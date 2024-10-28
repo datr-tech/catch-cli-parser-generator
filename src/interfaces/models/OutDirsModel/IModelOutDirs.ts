@@ -3,5 +3,5 @@ import { IModelOutDirsFuncGetFirstOutDirModelByType } from './IModelOutDirsFuncG
 
 export interface IModelOutDirs {
 	getFirstOutDirModelByType: IModelOutDirsFuncGetFirstOutDirModelByType;
-	isValid: ICommonFuncIsValid ;
+	isValid: ICommonFuncIsValid;
 }

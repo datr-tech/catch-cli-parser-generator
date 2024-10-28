@@ -2,5 +2,7 @@ import { IModelOutDirsFuncGetFirstOutDirModelByTypeInput } from './IModelOutDirs
 import { IModelOutDirsFuncGetFirstOutDirModelByTypeOutput } from './IModelOutDirsFuncGetFirstOutDirModelByTypeOutput';
 
 export interface IModelOutDirsFuncGetFirstOutDirModelByType {
-	(args: IModelOutDirsFuncGetFirstOutDirModelByTypeInput): IModelOutDirsFuncGetFirstOutDirModelByTypeOutput;
+	(
+		args: IModelOutDirsFuncGetFirstOutDirModelByTypeInput,
+	): IModelOutDirsFuncGetFirstOutDirModelByTypeOutput;
 }

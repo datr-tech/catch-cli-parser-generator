@@ -1,26 +1,26 @@
-import { getFileNameTemplateHelper } from '@app/helpers';
+import { deriveFileNameTemplateHelper } from '@app/helpers';
 import { FileNameService } from '@app/services/fileService/FileNameService';
-import { IModelFileName } from 'src/interfaces/services/fileService/FileNameService';
+import { IFileServiceFileName } from '@app/interfaces/services/fileService/FileNameService';
 import {
-	IModelFileNameHOFConstructor,
-	IModelFileNameHOFConstructorInput
-} from 'src/interfaces/services/fileService/FileNameServiceHOC';
+	IFileServiceFileNameHOFConstructor,
+	IFileServiceFileNameHOFConstructorInput,
+} from '@app/interfaces/services/fileService/FileNameServiceHOC';
 
 /**
  * Construct a FileNameService for a template.
  *
- * @param {IModelFileNameHOFConstructorInput} args
+ * @param {IFileServiceFileNameHOFConstructorInput} args
  * @param {IModelDef} args.defModel
  * @param {TemplateTypeEnum} args.templateTypeEnum
- * @returns {IModelFileName}
+ * @returns {IFileServiceFileName}
  * @constructor
  */
-export const TemplateFileNameService: IModelFileNameHOFConstructor = ({
+export const TemplateFileNameService: IFileServiceFileNameHOFConstructor = ({
 	defModel,
 	templateTypeEnum,
-}: IModelFileNameHOFConstructorInput): IModelFileName =>
+}: IFileServiceFileNameHOFConstructorInput): IFileServiceFileName =>
 	FileNameService({
 		defModel,
-		getFileNameHelper: getFileNameTemplateHelper,
+		getFileNameHelper: deriveFileNameTemplateHelper,
 		templateTypeEnum,
 	});

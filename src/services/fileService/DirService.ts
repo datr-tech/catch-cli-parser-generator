@@ -5,15 +5,15 @@ import {
 	ICommonBool,
 	ICommonFuncIsValid,
 	ICommonFuncMain,
-	ICommonValidityFlag
+	ICommonValidityFlag,
 } from '@app/interfaces/common';
 import {
 	IFileServiceDir,
 	IFileServiceDirConstructor,
 	IFileServiceDirConstructorInput,
 	IFileServiceDirFuncGetDirPath,
-	IFileServiceDirFuncGetDirPathOutput
-} from 'src/interfaces/services/fileService/DirFileService';
+	IFileServiceDirFuncGetDirPathOutput,
+} from '@app/interfaces/services/fileService/DirFileService';
 
 /**
  * @public
@@ -26,7 +26,7 @@ import {
  * @constructor
  */
 export const DirService: IFileServiceDirConstructor = ({
-	dirPathStr
+	dirPathStr,
 }: IFileServiceDirConstructorInput): IFileServiceDir => {
 	const isDirPathValidFlag: ICommonValidityFlag = { value: false };
 
@@ -57,8 +57,7 @@ export const DirService: IFileServiceDirConstructor = ({
 	 */
 	const isValid: ICommonFuncIsValid = (): ICommonBool =>
 		isValidTeeHelper({
-			condition: !!dirPathStr && fs.existsSync(dirPathStr)
-				&& fs.statSync(dirPathStr).isDirectory(),
+			condition: !!dirPathStr && fs.existsSync(dirPathStr) && fs.statSync(dirPathStr).isDirectory(),
 
 			validityFlagToUpdate: isDirPathValidFlag,
 		});

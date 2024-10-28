@@ -3,18 +3,18 @@ import {
 	ICommonBool,
 	ICommonFuncIsValid,
 	ICommonFuncMain,
-	ICommonJsonDir
+	ICommonJsonDir,
 } from '@app/interfaces/common';
-import { IFileServiceDir } from 'src/interfaces/services/fileService/DirFileService';
-import { IModelOutDir } from 'src/interfaces/services/fileService/OutDirService';
+import { IFileServiceDir } from '@app/interfaces/services/fileService/DirFileService';
+import { IFileServiceOutDir } from '@app/interfaces/services/fileService/OutDirService';
 import {
 	IModelOutDirs,
 	IModelOutDirsConstructor,
 	IModelOutDirsConstructorInput,
 	IModelOutDirsFuncGetFirstOutDirModelByType,
-	IModelOutDirsFuncGetFirstOutDirModelByTypeInput
+	IModelOutDirsFuncGetFirstOutDirModelByTypeInput,
 } from '@app/interfaces/models/OutDirsModel';
-import { OutDirService } from '../services/fileService/OutDirService';
+import { OutDirService } from '@app/services/fileService/OutDirService';
 
 /**
  * @public
@@ -28,10 +28,10 @@ import { OutDirService } from '../services/fileService/OutDirService';
  * @constructor
  */
 export const OutDirsModel: IModelOutDirsConstructor = ({
-	json
+	json,
 }: IModelOutDirsConstructorInput): IModelOutDirs => {
 	let areModelsValidFlag: ICommonBool = false;
-	let outDirModels: IModelOutDir[];
+	let outDirModels: IFileServiceOutDir[];
 
 	/**
 	 * @public
@@ -40,20 +40,21 @@ export const OutDirsModel: IModelOutDirsConstructor = ({
 	 *
 	 * @param {IModelOutDirsFuncGetFirstOutDirModelByTypeInput} args
 	 * @param {OutDirTypeEnum} args.outDirType
-	 * @returns {IModelOutDir | undefined}
+	 * @returns {IFileServiceOutDir | undefined}
 	 *
 	 * @throws When 'isValid' was not called before 'getFirstOutDirModelByType'
 	 * @throws When one or more 'outDirModels' is invalid
 	 */
 	const getFirstOutDirModelByType: IModelOutDirsFuncGetFirstOutDirModelByType = ({
-		outDirType
-	}: IModelOutDirsFuncGetFirstOutDirModelByTypeInput): IModelOutDir => {
+		outDirType,
+	}: IModelOutDirsFuncGetFirstOutDirModelByTypeInput): IFileServiceOutDir => {
 		assertCondition({
 			condition: areModelsValidFlag,
 		});
 
-		return outDirModels.find((outDirModel: IModelOutDir): ICommonBool =>
-			outDirModel.getOutDirType() === outDirType);
+		return outDirModels.find(
+			(outDirModel: IFileServiceOutDir): ICommonBool => outDirModel.getOutDirType() === outDirType,
+		);
 	};
 
 	/**
@@ -68,8 +69,9 @@ export const OutDirsModel: IModelOutDirsConstructor = ({
 			areModelsValidFlag = false;
 		}
 
-		const firstInvalidModel = outDirModels.find((outDirModel: IFileServiceDir): ICommonBool =>
-				outDirModel.isValid() === false);
+		const firstInvalidModel = outDirModels.find(
+			(outDirModel: IFileServiceDir): ICommonBool => outDirModel.isValid() === false,
+		);
 
 		areModelsValidFlag = typeof firstInvalidModel === 'undefined';
 
@@ -86,8 +88,10 @@ export const OutDirsModel: IModelOutDirsConstructor = ({
 	const main: ICommonFuncMain = (): void => {
 		outDirModels =
 			typeof json.dirs !== 'undefined' && Array.isArray(json.dirs)
-				? json.dirs.map(({ path, type }: ICommonJsonDir): IModelOutDir =>
-					OutDirService({ dirPathStr: path, outDirTypeEnum: type }))
+				? json.dirs.map(
+						({ path, type }: ICommonJsonDir): IFileServiceOutDir =>
+							OutDirService({ dirPathStr: path, outDirTypeEnum: type }),
+					)
 				: [];
 	};
 

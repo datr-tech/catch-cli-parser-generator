@@ -1,3 +1,3 @@
-export { IModelFilePathHOC } from './IModelFilePathHOC';
-export { IModelFilePathHOCConstructor } from './IModelFilePathHOCConstructor';
-export { IModelFilePathHOCConstructorInput } from './IModelFilePathHOCConstructorInput';
+export { IFileServiceFilePathHOC } from './IFileServiceFilePathHOC';
+export { IFileServiceFilePathHOCConstructor } from './IFileServiceFilePathHOCConstructor';
+export { IFileServiceFilePathHOCConstructorInput } from './IFileServiceFilePathHOCConstructorInput';
