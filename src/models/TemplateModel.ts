@@ -3,11 +3,12 @@ import Handlebars, { TemplateDelegate } from 'handlebars';
 import { assertCondition } from '@app/assertions';
 import { isValidTeeHelper } from '@app/helpers';
 import {
-	ICommonBool, ICommonCodeStr,
+	ICommonBool,
+	ICommonCodeStr,
 	ICommonFuncIsValid,
 	ICommonFuncMain,
 	ICommonTemplateStr,
-	ICommonValidityFlag
+	ICommonValidityFlag,
 } from '@app/interfaces/common';
 import { IModelCode } from '@app/interfaces/models/CodeModel';
 import {
@@ -26,12 +27,12 @@ import { CodeModel } from './CodeModel';
  * Construct a model to represent a template.
  *
  * @param {IModelTemplateConstructorInput} args
- * @param {IModelFilePath} args.templatePathModel
+ * @param {IFileServiceFilePath} args.templatePathModel
  * @returns {IModelTemplate}
  * @constructor
  */
 export const TemplateModel: IModelTemplateConstructor = ({
-	templatePathModel
+	templatePathModel,
 }: IModelTemplateConstructorInput): IModelTemplate => {
 	const isTemplateValidFlag: ICommonValidityFlag = { value: false };
 	let templateContentsStr: ICommonTemplateStr;
@@ -48,7 +49,7 @@ export const TemplateModel: IModelTemplateConstructor = ({
 	 * @throws When 'templatePathModel' was not valid
 	 */
 	const getCodeModel: IModelTemplateFuncGetCodeModel = ({
-		defModel
+		defModel,
 	}: IModelTemplateFuncGetCodeModelInput): IModelTemplateFuncGetCodeModelOutput => {
 		assertCondition({
 			condition: isTemplateValidFlag.value,
@@ -85,10 +86,7 @@ export const TemplateModel: IModelTemplateConstructor = ({
 		assertCondition({
 			condition: templatePathModel.isValid(),
 		});
-		templateContentsStr = fs.readFileSync(
-			templatePathModel.getFilePath(),
-			'utf-8'
-		);
+		templateContentsStr = fs.readFileSync(templatePathModel.getFilePath(), 'utf-8');
 	};
 
 	main();

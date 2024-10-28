@@ -1,3 +1,3 @@
-export { IModelFileNameHOF } from './IModelFileNameHOF';
-export { IModelFileNameHOFConstructor } from './IModelFileNameHOFConstructor';
-export { IModelFileNameHOFConstructorInput } from './IModelFileNameHOFConstructorInput';
+export { IFileServiceFileNameHOF } from './IFileServiceFileNameHOF';
+export { IFileServiceFileNameHOFConstructor } from './IFileServiceFileNameHOFConstructor';
+export { IFileServiceFileNameHOFConstructorInput } from './IFileServiceFileNameHOFConstructorInput';

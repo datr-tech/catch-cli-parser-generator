@@ -7,33 +7,33 @@ import {
 	ICommonFuncMain,
 	ICommonNameStr,
 	ICommonPathStr,
-	ICommonValidityFlag
+	ICommonValidityFlag,
 } from '@app/interfaces/common';
 import {
-	IModelFilePath,
-	IModelFilePathConstructor,
-	IModelFilePathConstructorInput,
-	IModelFilePathFuncGetFilePath,
-	IModelFilePathFuncGetFilePathOutput
-} from 'src/interfaces/services/fileService/FilePathService';
+	IFileServiceFilePath,
+	IFileServiceFilePathConstructor,
+	IFileServiceFilePathConstructorInput,
+	IFileServiceFilePathFuncGetFilePath,
+	IFileServicesFilePathFuncGetFilePathOutput,
+} from '@app/interfaces/services/fileService/FilePathService';
 
 /**
  * @public
  *
  * Construct a service to represent a file path.
  *
- * @param {IModelFilePathConstructorInput)} args
- * @param {IModelDir} args.dirModel
- * @param {IModelFileName} args.fileNameModel
+ * @param {IFileServiceFilePathConstructorInput)} args
+ * @param {IFileServiceDir} args.dirModel
+ * @param {IFileServiceFileName} args.fileNameModel
  * @param {ICommonBool} args.shouldFileCurrentlyExist
- * @returns {IModelFilePath}
+ * @returns {IFileServiceFilePath}
  * @constructor
  */
-export const FilePathService: IModelFilePathConstructor = ({
+export const FilePathService: IFileServiceFilePathConstructor = ({
 	dirModel,
 	fileNameModel,
 	shouldFileCurrentlyExist,
-}: IModelFilePathConstructorInput): IModelFilePath => {
+}: IFileServiceFilePathConstructorInput): IFileServiceFilePath => {
 	const isFilePathValidFlag: ICommonValidityFlag = { value: false };
 	let filePathStr: ICommonPathStr;
 
@@ -42,19 +42,20 @@ export const FilePathService: IModelFilePathConstructor = ({
 	 *
 	 * Returns the file path
 	 *
-	 * @returns {IModelFilePathFuncGetFilePathOutput}
+	 * @returns {IFileServicesFilePathFuncGetFilePathOutput}
 	 *
 	 * @throws When 'isValid' was not called before 'getFilePath'
 	 * @throws When 'filePathStr' does not identify an existing file AND 'shouldFileCurrentlyExist' is true
 	 * @throws When 'filePathStr' identifies an existing file AND 'shouldFileCurrentlyExist' is false
 	 */
-	const getFilePath: IModelFilePathFuncGetFilePath = (): IModelFilePathFuncGetFilePathOutput => {
-		assertCondition({
-			condition: isFilePathValidFlag.value,
-		});
+	const getFilePath: IFileServiceFilePathFuncGetFilePath =
+		(): IFileServicesFilePathFuncGetFilePathOutput => {
+			assertCondition({
+				condition: isFilePathValidFlag.value,
+			});
 
-		return filePathStr;
-	};
+			return filePathStr;
+		};
 
 	/**
 	 * @public

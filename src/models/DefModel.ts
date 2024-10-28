@@ -1,10 +1,6 @@
 import { assertCondition } from '@app/assertions';
 import { isValidTeeHelper } from '@app/helpers';
-import {
-	ICommonBool,
-	ICommonFuncIsValid,
-	ICommonValidityFlag
-} from '@app/interfaces/common';
+import { ICommonBool, ICommonFuncIsValid, ICommonValidityFlag } from '@app/interfaces/common';
 import {
 	IModelDef,
 	IModelDefConstructor,
@@ -31,7 +27,7 @@ import {
  * @constructor
  */
 export const DefModel: IModelDefConstructor = ({
-	jsonDef
+	jsonDef,
 }: IModelDefConstructorInput): IModelDef => {
 	const isDefModelValidFlag: ICommonValidityFlag = { value: false };
 
@@ -44,7 +40,7 @@ export const DefModel: IModelDefConstructor = ({
 	 */
 	const getName: IModelDefFuncGetName = (): IModelDefFuncGetNameOutput =>
 		getProp({
-			propName: 'name'
+			propName: 'name',
 		}) as IModelDefFuncGetNameOutput;
 
 	/**
@@ -56,7 +52,7 @@ export const DefModel: IModelDefConstructor = ({
 	 */
 	const getPayload: IModelDefFuncGetPayload = (): IModelDefFuncGetPayloadOutput =>
 		getProp({
-			propName: 'payload'
+			propName: 'payload',
 		}) as IModelDefFuncGetPayloadOutput;
 
 	/**
@@ -68,7 +64,7 @@ export const DefModel: IModelDefConstructor = ({
 	 */
 	const getType: IModelDefFuncGetType = (): IModelDefFuncGetTypeOutput =>
 		getProp({
-			propName: 'type'
+			propName: 'type',
 		}) as IModelDefFuncGetTypeOutput;
 
 	/**
@@ -97,7 +93,7 @@ export const DefModel: IModelDefConstructor = ({
 	 * @throws When one of the expected 'jsonDef' properties was not found
 	 */
 	const getProp: IModelDefFuncGetProp = ({
-		propName
+		propName,
 	}: IModelDefFuncGetPropInput): IModelDefFuncGetPropOutput => {
 		assertCondition({
 			condition: isDefModelValidFlag.value,

@@ -1,5 +1,5 @@
-import { IModelFilePathHOC } from 'src/interfaces/services/fileService/FilePathServicelHOC';
+import { IFileServiceFilePathHOC } from '@app/interfaces/services/fileService/FilePathServicelHOC';
 
 export interface IModelTemplateConstructorInput {
-	templatePathModel: IModelFilePathHOC;
+	templatePathModel: IFileServiceFilePathHOC;
 }

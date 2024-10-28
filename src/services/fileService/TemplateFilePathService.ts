@@ -1,23 +1,23 @@
 import { FilePathService } from './FilePathService';
-import { IModelFilePath  } from 'src/interfaces/services/fileService/FilePathService';
+import { IFileServiceFilePath } from '@app/interfaces/services/fileService/FilePathService';
 import {
-	IModelFilePathHOCConstructor,
-	IModelFilePathHOCConstructorInput
-} from 'src/interfaces/services/fileService/FilePathServicelHOC';
+	IFileServiceFilePathHOCConstructor,
+	IFileServiceFilePathHOCConstructorInput,
+} from '@app/interfaces/services/fileService/FilePathServicelHOC';
 
 /**
  * Construct a FilePathService for a template.
  *
- * @param {IModelFilePathHOCConstructorInput} args
- * @param {IModelDir} args.dirModel
- * @param {IModelFileName} args.fileNameModel
- * @returns {IModelFilePath}
+ * @param {IFileServiceFilePathHOCConstructorInput} args
+ * @param {IFileServiceDir} args.dirModel
+ * @param {IFileServiceFileName} args.fileNameModel
+ * @returns {IFileServiceFilePath}
  * @constructor
  */
-export const TemplateFilePathService: IModelFilePathHOCConstructor = ({
+export const TemplateFilePathService: IFileServiceFilePathHOCConstructor = ({
 	dirModel,
-	fileNameModel
-}: IModelFilePathHOCConstructorInput): IModelFilePath =>
+	fileNameModel,
+}: IFileServiceFilePathHOCConstructorInput): IFileServiceFilePath =>
 	FilePathService({
 		dirModel,
 		fileNameModel,

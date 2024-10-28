@@ -1,3 +1,3 @@
-import { IModelOutDir } from 'src/interfaces/services/fileService/OutDirService';
+import { IFileServiceOutDir } from '@app/interfaces/services/fileService/OutDirService';
 
-export type IModelOutDirsFuncGetFirstOutDirModelByTypeOutput = IModelOutDir;
+export type IModelOutDirsFuncGetFirstOutDirModelByTypeOutput = IFileServiceOutDir;

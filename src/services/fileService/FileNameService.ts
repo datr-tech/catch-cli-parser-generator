@@ -5,33 +5,33 @@ import {
 	ICommonFuncIsValid,
 	ICommonFuncMain,
 	ICommonNameStr,
-	ICommonValidityFlag
+	ICommonValidityFlag,
 } from '@app/interfaces/common';
 import {
-	IModelFileName,
-	IModelFileNameConstructor,
-	IModelFileNameConstructorInput,
-	IModelFileNameFuncGetFileName,
-	IModelFileNameFuncGetFileNameOuput
-} from 'src/interfaces/services/fileService/FileNameService';
+	IFileServiceFileName,
+	IFileServiceFileNameConstructor,
+	IFileServiceFileNameConstructorInput,
+	IFileServiceFileNameFuncGetFileName,
+	IModelFileNameFuncGetFileNameOutput,
+} from '@app/interfaces/services/fileService/FileNameService';
 
 /**
  * @public
  *
  * Construct a service to represent the name of a file.
  *
- * @param {IModelFileNameConstructorInput} args
+ * @param {IFileServiceFileNameConstructorInput} args
  * @param {IModelDef} args.defModel
  * @param {IHelperGetFileName} args.getFileNameHelper
  * @param {TemplateTypeEnum} args.templateTypeEnum
- * @returns {IModelFileName}
+ * @returns {IFileServiceFileName}
  * @constructor
  */
-export const FileNameService: IModelFileNameConstructor = ({
+export const FileNameService: IFileServiceFileNameConstructor = ({
 	defModel,
 	getFileNameHelper,
 	templateTypeEnum,
-}: IModelFileNameConstructorInput): IModelFileName => {
+}: IFileServiceFileNameConstructorInput): IFileServiceFileName => {
 	const isFileNameValidFlag: ICommonValidityFlag = { value: false };
 	let fileNameStr: ICommonNameStr;
 
@@ -40,18 +40,19 @@ export const FileNameService: IModelFileNameConstructor = ({
 	 *
 	 * Returns the name of the file
 	 *
-	 * @returns {IModelFileNameFuncGetFileNameOuput }
+	 * @returns {IModelFileNameFuncGetFileNameOutput }
 	 *
 	 * @throws When 'isValid' was not called before 'getFileName'
 	 * @throws When 'fileNameStr' was not truthy
 	 */
-	const getFileName: IModelFileNameFuncGetFileName = (): IModelFileNameFuncGetFileNameOuput => {
-		assertCondition({
-			condition: isFileNameValidFlag.value,
-		});
+	const getFileName: IFileServiceFileNameFuncGetFileName =
+		(): IModelFileNameFuncGetFileNameOutput => {
+			assertCondition({
+				condition: isFileNameValidFlag.value,
+			});
 
-		return fileNameStr;
-	};
+			return fileNameStr;
+		};
 
 	/**
 	 * @public
@@ -86,5 +87,5 @@ export const FileNameService: IModelFileNameConstructor = ({
 
 	main();
 
-	return { getFileName, isValid } as IModelFileName;
+	return { getFileName, isValid } as IFileServiceFileName;
 };

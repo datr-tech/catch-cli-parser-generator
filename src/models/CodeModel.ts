@@ -7,7 +7,7 @@ import {
 	IModelCodeConstructor,
 	IModelCodeConstructorInput,
 	IModelCodeFuncWriteCodeToFile,
-	IModelCodeFuncWriteCodeToFileInput
+	IModelCodeFuncWriteCodeToFileInput,
 } from '@app/interfaces/models/CodeModel';
 
 /**
@@ -45,7 +45,7 @@ import {
  * }
  */
 export const CodeModel: IModelCodeConstructor = ({
-	codeStr
+	codeStr,
 }: IModelCodeConstructorInput): IModelCode => {
 	const isCodeStrValidFlag: ICommonValidityFlag = { value: false };
 
@@ -68,19 +68,19 @@ export const CodeModel: IModelCodeConstructor = ({
 	 * Write 'codeStr' to the file designated by 'codeFilePathModel'
 	 *
 	 * @param {IModelCodeFuncWriteCodeToFileInput} args
-	 * @param {IModelFilePath} args.codeFilePathModel
+	 * @param {IFileServiceFilePath} args.codeFilePathService
 	 *
 	 * @throws When 'isValid' was not called before 'writeCodeToFile'
-	 * @throws When 'codeStr' was not truthy
-	 * @throws When 'codeFilePathModel' was not valid
+	 * @throws When 'codeStr' is not truthy
+	 * @throws When 'codeFilePathService' is not valid
 	 */
 	const writeCodeToFile: IModelCodeFuncWriteCodeToFile = ({
-		codeFilePathModel
+		codeFilePathService,
 	}: IModelCodeFuncWriteCodeToFileInput): void => {
 		assertCondition({
-			condition: isCodeStrValidFlag.value && codeFilePathModel.isValid(),
+			condition: isCodeStrValidFlag.value && codeFilePathService.isValid(),
 		});
-		const codeFilePath = codeFilePathModel.getFilePath();
+		const codeFilePath = codeFilePathService.getFilePath();
 		fs.writeFileSync(codeFilePath, codeStr);
 	};
 

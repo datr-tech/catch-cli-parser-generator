@@ -1,3 +1,3 @@
 export interface ICommonFuncMain {
-	(): void
+	(): void;
 }

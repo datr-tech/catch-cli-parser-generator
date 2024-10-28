@@ -1,54 +1,87 @@
+import { assertCondition } from '@app/assertions';
+import { codeModelBuilder, templateDirServiceBuilder, templateModelBuilder } from '@app/builders';
 import { TemplateTypeEnum } from '@app/config/enums';
-import { codeModelBuilder, templateModelBuilder } from 'src/modelBuilders';
-import { DefsModel, OutDirsModel, templateDirModel } from '@app/models';
+import { DefsModel, OutDirsModel } from '@app/models';
+import { ICommonBool, ICommonFuncIsValid } from '@app/interfaces/common';
 import {
 	IControllerGenerate,
 	IControllerGenerateConstructor,
+	IControllerGenerateConstructorInput,
+	IControllerGenerateFuncInit,
+	IControllerGenerateFuncRun,
 } from '@app/interfaces/controllers/GenerateController';
 import { IModelDefs } from '@app/interfaces/models/DefsModel';
 import { IModelOutDirs } from '@app/interfaces/models/OutDirsModel';
-import { assertCondition } from '@app/assertions';
 
-export const GenerateController: IControllerGenerateConstructor = ({ json }) => {
+export const GenerateController: IControllerGenerateConstructor = ({
+	json,
+}: IControllerGenerateConstructorInput): IControllerGenerate => {
 	let areAllModelsValid = false;
 	let defsModel: IModelDefs;
 	let outDirsModel: IModelOutDirs;
 	let templateTypeEnums: TemplateTypeEnum[];
 
-	const init = () => {
+	/**
+	 * @public
+	 *
+	 * A public function that initialises instances
+	 * of 'GeneratorController', populating 'defsModel',
+	 * 'outDirsModel', and 'templateTypeEnum'
+	 */
+	const init: IControllerGenerateFuncInit = (): void => {
 		outDirsModel = OutDirsModel({ json });
 		defsModel = DefsModel({ json });
 		templateTypeEnums = Object.values(TemplateTypeEnum) as TemplateTypeEnum[];
 	};
 
-	const isValid = () => {
+	/**
+	 * @public
+	 *
+	 * A public function that ensures all 'child' models
+	 * are valid, as well as 'templateTypeEnum'.
+	 *
+	 * @returns {ICommonBool}
+	 */
+	const isValid: ICommonFuncIsValid = (): ICommonBool => {
 		areAllModelsValid =
-			outDirsModel.isValid() &&
-			defsModel.isValid() &&
-			templateDirModel.isValid() &&
-			templateTypeEnums.length > 0;
+			outDirsModel.isValid() && defsModel.isValid() && templateTypeEnums.length > 0;
 
 		return areAllModelsValid;
 	};
 
-	const run = () => {
+	/**
+	 * @public
+	 *
+	 * For each 'defModel' generate code based upon
+	 * 'templateModel' and 'writeCodeToFile'.
+	 *
+	 * @throws When one or more of the 'child' models are invalid.
+	 */
+	const run: IControllerGenerateFuncRun = (): void => {
 		assertCondition({
 			condition: areAllModelsValid,
 		});
+
+		const templateDirService = templateDirServiceBuilder.build();
 
 		const defModels = defsModel.getDefs();
 		for (const defModel of defModels) {
 			for (const templateTypeEnum of templateTypeEnums) {
 				const templateModel = templateModelBuilder.build({
 					defModel,
-					templateDirModel,
+					templateDirService,
 					templateTypeEnum,
 				});
-				codeModelBuilder.build({
+
+				const { codeFilePathService, codeModel } = codeModelBuilder.build({
 					defModel,
 					outDirsModel,
 					templateModel,
 					templateTypeEnum,
+				});
+
+				codeModel.writeCodeToFile({
+					codeFilePathService,
 				});
 			}
 		}

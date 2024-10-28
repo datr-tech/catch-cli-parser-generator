@@ -1,4 +1,4 @@
-export { getFileNameCodeHelper } from './getFileNameCodeHelper';
-export { getFileNameTemplateHelper } from './getFileNameTemplateHelper';
+export { deriveFileNameCodeHelper } from './deriveFileNameCodeHelper';
+export { deriveFileNameTemplateHelper } from './deriveFileNameTemplateHelper';
 export { isValidTeeHelper } from './isValidTeeHelper';
 export { templateTypeHelper } from './templateTypeHelper';

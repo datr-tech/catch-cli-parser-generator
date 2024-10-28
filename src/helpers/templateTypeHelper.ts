@@ -1,8 +1,22 @@
 import { OutDirTypeEnum, TemplateTypeEnum } from '@app/config/enums';
-import { IHelperTemplateType } from '@app/interfaces/helpers';
+import {
+	IHelperTemplateType,
+	IHelperTemplateTypeFuncGetOutDirTypeInput,
+} from '@app/interfaces/helpers';
 
 export const templateTypeHelper: IHelperTemplateType = {
-	getOutDirType: ({ templateTypeEnum }) => {
+	/**
+	 * @public
+	 *
+	 * Get OutDirTypeEnum by 'TemplateTypeEnum'
+	 *
+	 * @param {IHelperTemplateTypeFuncGetOutDirTypeInput} args
+	 * @param {TemplateTypeEnum} args.templateTypeEnum
+	 * @returns {OutDirTypeEnum}
+	 */
+	getOutDirType: ({
+		templateTypeEnum,
+	}: IHelperTemplateTypeFuncGetOutDirTypeInput): OutDirTypeEnum => {
 		switch (templateTypeEnum) {
 			case TemplateTypeEnum.TEMPLATE_TYPE_CODE_PARSER:
 				return OutDirTypeEnum.OUT_DIR_PARSERS;
