@@ -1,8 +1,8 @@
 import { CONSTS_PATHS_APP_ROOT } from '@app/config/consts/paths';
-import { DirModel } from '@app/models';
+import { DirService } from '@app/services/fileService';
 
 const timestamp = Date.now();
-const fileName = `DirModel.isValid.negative.test.${timestamp}`;
+const fileName = `DirService.isValid.negative.test.${timestamp}`;
 const filePath = `${CONSTS_PATHS_APP_ROOT}/${fileName}.txt`;
 
 describe('DirService', () => {
@@ -15,12 +15,12 @@ describe('DirService', () => {
 				 * Arrange
 				 */
 				const dirPathStr = `/${fileName}`;
-				const dirModel = DirModel({ dirPathStr });
+				const dirService = DirService({ dirPathStr });
 
 				/*
 				 * Act
 				 */
-				const isValidFound = dirModel.isValid();
+				const isValidFound = dirService.isValid();
 
 				/*
 				 * Assert
@@ -32,12 +32,12 @@ describe('DirService', () => {
 				 * Arrange
 				 */
 				const dirPathStr = filePath;
-				const dirModel = DirModel({ dirPathStr });
+				const dirService = DirService({ dirPathStr });
 
 				/*
 				 * Act
 				 */
-				const isValidFound = dirModel.isValid();
+				const isValidFound = dirService.isValid();
 
 				/*
 				 * Assert

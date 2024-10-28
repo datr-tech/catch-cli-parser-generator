@@ -1,4 +1,4 @@
-import { DirModel } from '@app/models';
+import { DirService } from '@app/services/fileService';
 
 describe('DirService', () => {
 	describe('constructor', () => {
@@ -12,12 +12,12 @@ describe('DirService', () => {
 				/*
 				 * Act
 				 */
-				const dirModel = DirModel({ dirPathStr });
+				const dirService = DirService({ dirPathStr });
 
 				/*
 				 * Assert
 				 */
-				expect(dirModel).toBeTruthy();
+				expect(dirService).toBeTruthy();
 			});
 		});
 	});
