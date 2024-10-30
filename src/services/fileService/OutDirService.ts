@@ -22,7 +22,7 @@ import { DirService } from './DirService';
 /**
  * @public
  *
- * Construct a service to represent an output dir.
+ * Construct a services to represent an output dir.
  *
  * @param {IFileServiceOutDirConstructorInput} args
  * @param {ICommonPathStr} args.dirPathStr

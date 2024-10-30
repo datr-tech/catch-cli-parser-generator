@@ -11,7 +11,7 @@ export const codeModelBuilder: IBuilderCodeModel = {
 	 * @public
 	 *
 	 * Build a 'codeModel' with an associated FilePathService.
-	 * The service can be used when calling 'codeModel.writeCodeToFile'.
+	 * The services can be used when calling 'codeModel.writeCodeToFile'.
 	 *
 	 * @param {IBuilderCodeModelFuncBuildInput} args
 	 * @param {IModelDef} args.defModel

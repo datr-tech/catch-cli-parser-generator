@@ -20,7 +20,7 @@ import {
 /**
  * @public
  *
- * Construct a service to represent a file path.
+ * Construct a services to represent a file path.
  *
  * @param {IFileServiceFilePathConstructorInput)} args
  * @param {IFileServiceDir} args.dirModel

@@ -18,7 +18,7 @@ import {
 /**
  * @public
  *
- * Construct a service to represent a dir.
+ * Construct a services to represent a dir.
  *
  * @param {IFileServiceDirConstructorInput} args
  * @param {ICommonPathStr} args.dirPathStr
