@@ -1,9 +1,8 @@
 export default {
 	coveragePathIgnorePatterns: [
 		'<rootDir>/.jest',
-		'<rootDir>/src/templateService',
+		'<rootDir>/test/doubles',
 		'<rootDir>/test/fixtures',
-		'<rootDir>/test/templateService',
 	],
 	coverageReporters: ['clover', 'text'],
 	coverageThreshold: {
