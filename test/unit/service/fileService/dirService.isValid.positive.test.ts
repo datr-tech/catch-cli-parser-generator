@@ -1,5 +1,5 @@
 import { CONSTS_PATHS_APP_ROOT } from '@app/config/consts/paths';
-import { DirModel } from '@app/models';
+import { DirService } from '@app/services/fileService';
 
 describe('DirService', () => {
 	describe('isValid', () => {
@@ -9,12 +9,12 @@ describe('DirService', () => {
 				 * Arrange
 				 */
 				const dirPathStr = CONSTS_PATHS_APP_ROOT;
-				const dirModel = DirModel({ dirPathStr });
+				const dirService = DirService({ dirPathStr });
 
 				/*
 				 * Act
 				 */
-				const isValidFound = dirModel.isValid();
+				const isValidFound = dirService.isValid();
 
 				/*
 				 * Assert

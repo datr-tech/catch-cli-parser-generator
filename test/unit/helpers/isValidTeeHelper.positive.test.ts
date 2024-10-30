@@ -1,4 +1,4 @@
-import { isValidTeeHelper } from '@app/helpers/';
+import { isValidTeeHelper } from '@app/helpers';
 
 describe('isValidTeeHelper', () => {
 	describe('should return true and update the received (external) flag', () => {
@@ -6,7 +6,7 @@ describe('isValidTeeHelper', () => {
 			/*
 			 * Arrange
 			 */
-			const validityFlag = { value: false };
+			const validityFlagToUpdate = { value: false };
 			const condition = true;
 
 			/*
@@ -14,14 +14,14 @@ describe('isValidTeeHelper', () => {
 			 */
 			const isValidFound = isValidTeeHelper({
 				condition,
-				validityFlag,
+				validityFlagToUpdate,
 			});
 
 			/*
 			 * Assert
 			 */
 			expect(isValidFound).toBe(true);
-			expect(validityFlag.value).toBe(true);
+			expect(validityFlagToUpdate.value).toBe(true);
 		});
 	});
 });

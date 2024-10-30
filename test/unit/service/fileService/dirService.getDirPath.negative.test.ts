@@ -1,5 +1,5 @@
 import { CONSTS_PATHS_APP_ROOT } from '@app/config/consts/paths';
-import { DirModel } from '@app/models';
+import { DirService } from '@app/services/fileService';
 
 describe('DirService', () => {
 	describe('getDir', () => {
@@ -10,13 +10,13 @@ describe('DirService', () => {
 				 */
 				const errorExpected = "Negative 'isDirPathValidFlag'";
 				const dirPathStr = CONSTS_PATHS_APP_ROOT;
-				const dirModel = DirModel({ dirPathStr });
+				const dirService = DirService({ dirPathStr });
 
 				/*
 				 * Act
 				 */
 				const handler = () => {
-					dirModel.getDir();
+					dirService.getDirPath();
 				};
 
 				/*

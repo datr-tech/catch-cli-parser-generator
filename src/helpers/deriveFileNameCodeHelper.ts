@@ -21,24 +21,26 @@ export const deriveFileNameCodeHelper: IHelperDeriveFileName = ({
 	templateTypeEnum,
 }: IHelperDeriveFileNameInput): ICommonNameStr => {
 	let codeFileName: ICommonNameStr;
-	const defNameStr = defModel.getName();
 
 	assertCondition({
-		condition: !!defNameStr,
+		condition: defModel.isValid(),
+		message: "Invalid 'defModel'",
 	});
+
+	const defNameStr: ICommonNameStr = defModel.getName();
 
 	switch (templateTypeEnum) {
 		case TemplateTypeEnum.TEMPLATE_TYPE_CODE_PARSER:
 			codeFileName = `${defNameStr}Parser.${FileExtensionEnum.TYPESCRIPT}`;
 			break;
 		case TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE:
-			codeFileName = `I${defNameStr}Parse.${FileExtensionEnum.TYPESCRIPT}`;
+			codeFileName = `IParse${defNameStr}.${FileExtensionEnum.TYPESCRIPT}`;
 			break;
 		case TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE_OUTPUT:
-			codeFileName = `I${defNameStr}ParseOutput.${FileExtensionEnum.TYPESCRIPT}`;
+			codeFileName = `IParse${defNameStr}Output.${FileExtensionEnum.TYPESCRIPT}`;
 			break;
 		case TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSER:
-			codeFileName = `I${defNameStr}Parser.${FileExtensionEnum.TYPESCRIPT}`;
+			codeFileName = `IParser${defNameStr}.${FileExtensionEnum.TYPESCRIPT}`;
 			break;
 	}
 

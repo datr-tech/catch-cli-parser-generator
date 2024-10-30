@@ -1,6 +1,7 @@
 import { DefTypeEnum, TemplateNameEnum, TemplateTypeEnum } from '@app/config/enums';
 import { IHelperDeriveFileName, IHelperDeriveFileNameInput } from '@app/interfaces/helpers';
-import { ICommonNameStr } from '@app/interfaces/common';
+import { ICommonNameStr, ICommonStr } from '@app/interfaces/common';
+import { assertCondition } from '@app/assertions';
 
 /**
  * @public
@@ -17,8 +18,14 @@ export const deriveFileNameTemplateHelper: IHelperDeriveFileName = ({
 	defModel,
 	templateTypeEnum,
 }: IHelperDeriveFileNameInput): ICommonNameStr => {
-	let templateNameStr = '';
-	const defTypeEnum = defModel.getType();
+	let templateNameStr: ICommonStr = '';
+
+	assertCondition({
+		condition: defModel.isValid(),
+		message: "Invalid 'defModel'",
+	});
+
+	const defTypeEnum: DefTypeEnum = defModel.getType();
 
 	switch (templateTypeEnum) {
 		case TemplateTypeEnum.TEMPLATE_TYPE_CODE_PARSER:

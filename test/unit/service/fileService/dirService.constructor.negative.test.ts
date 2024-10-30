@@ -1,4 +1,4 @@
-import { DirModel } from '@app/models';
+import { DirService } from '@app/services/fileService';
 
 describe('DirService', () => {
 	describe('constructor', () => {
@@ -14,7 +14,7 @@ describe('DirService', () => {
 				 * Act
 				 */
 				const handler = () => {
-					DirModel({ dirPathStr });
+					DirService({ dirPathStr });
 				};
 
 				/*
@@ -33,7 +33,7 @@ describe('DirService', () => {
 				 * Act
 				 */
 				const handler = () => {
-					DirModel({ dirPathStr });
+					DirService({ dirPathStr });
 				};
 
 				/*
