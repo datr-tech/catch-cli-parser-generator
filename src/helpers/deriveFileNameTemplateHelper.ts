@@ -22,7 +22,7 @@ export const deriveFileNameTemplateHelper: IHelperDeriveFileName = ({
 
 	assertCondition({
 		condition: defModel.isValid(),
-		message: "Invalid 'defModel'",
+		errorMessage: "Invalid 'defModel'",
 	});
 
 	const defTypeEnum: DefTypeEnum = defModel.getType();

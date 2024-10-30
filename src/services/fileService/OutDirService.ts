@@ -49,7 +49,7 @@ export const OutDirService: IFileServiceOutDirConstructor = ({
 	 */
 	const getDirPath: IFileServiceDirFuncGetDirPath = (): ICommonPathStr => {
 		assertCondition({
-			condition: isDirValidFlag,
+			condition: isDirValidFlag.value,
 		});
 
 		return dirModel.getDirPath();
