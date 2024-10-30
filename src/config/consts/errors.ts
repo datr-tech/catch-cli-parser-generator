@@ -1,3 +1,2 @@
-export const CONSTS_ERRORS_DEFAULT_MESSAGE = 'DEFAULT_ERROR_MESSAGE';
-export const CONSTS_ERRORS_CATCH_CLI_PARSER_GENERATOR_BASE_ERROR_NAME =
-	'CatchCliParserGeneratorBaseError';
+export const CONSTS_ERRORS_CONDITION_MESSAGE_DEFAULT = "Negative 'condition'";
+export const CONSTS_ERRORS_STRING_UNKNOWN = 'string';

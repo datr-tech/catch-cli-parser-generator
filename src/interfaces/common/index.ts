@@ -1,6 +1,7 @@
 export { ICommonBool } from './ICommonBool';
 export { ICommonCodeStr } from './ICommonCodeStr';
 export { ICommonDescriptionStr } from './ICommonDescriptionStr';
+export { ICommonErrorMessageStr } from './ICommonErrorMessageStr';
 export { ICommonFuncIsValid } from './ICommonFuncIsValid';
 export { ICommonFuncMain } from './ICommonFuncMain';
 export { ICommonJson } from './ICommonJson';

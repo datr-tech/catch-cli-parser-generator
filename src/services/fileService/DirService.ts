@@ -43,7 +43,7 @@ export const DirService: IFileServiceDirConstructor = ({
 	const getDirPath: IFileServiceDirFuncGetDirPath = (): IFileServiceDirFuncGetDirPathOutput => {
 		assertCondition({
 			condition: isDirPathValidFlag.value,
-			message: "Negative 'isDirPathValidFlag'",
+			errorMessage: "Negative 'isDirPathValidFlag'",
 		});
 		return dirPathStr;
 	};
@@ -75,7 +75,7 @@ export const DirService: IFileServiceDirConstructor = ({
 	const main: ICommonFuncMain = (): void => {
 		assertCondition({
 			condition: !!dirPathStr,
-			message: "Invalid 'dirPathStr'",
+			errorMessage: "Invalid 'dirPathStr'",
 		});
 	};
 

@@ -24,7 +24,7 @@ export const deriveFileNameCodeHelper: IHelperDeriveFileName = ({
 
 	assertCondition({
 		condition: defModel.isValid(),
-		message: "Invalid 'defModel'",
+		errorMessage: "Invalid 'defModel'",
 	});
 
 	const defNameStr: ICommonNameStr = defModel.getName();
