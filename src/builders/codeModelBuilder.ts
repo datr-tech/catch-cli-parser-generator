@@ -5,6 +5,11 @@ import {
 	IBuilderCodeModelFuncBuildInput,
 	IBuilderCodeModelFuncBuildOutput,
 } from '@app/interfaces/builders/codeModelBuilder';
+import { IModelCode } from '@app/interfaces/models/CodeModel';
+import { IFileServiceDir } from '@app/interfaces/services/fileService/DirService';
+import { IFileServiceFileName } from '@app/interfaces/services/fileService/FileNameService';
+import { IFileServiceFilePath } from '@app/interfaces/services/fileService/FilePathService';
+import { OutDirTypeEnum } from '@app/config/enums';
 
 export const codeModelBuilder: IBuilderCodeModel = {
 	/**
@@ -26,20 +31,20 @@ export const codeModelBuilder: IBuilderCodeModel = {
 		templateModel,
 		templateTypeEnum,
 	}: IBuilderCodeModelFuncBuildInput): IBuilderCodeModelFuncBuildOutput => {
-		const outDirType = templateTypeHelper.getOutDirType({ templateTypeEnum });
-		const codeDirModel = outDirsModel.getFirstOutDirModelByType({ outDirType });
+		const outDirType: OutDirTypeEnum = templateTypeHelper.getOutDirType({ templateTypeEnum });
+		const dirService: IFileServiceDir = outDirsModel.getFirstOutDirModelByType({ outDirType });
 
-		const codeFileNameModel = CodeFileNameService({
+		const fileNameService: IFileServiceFileName = CodeFileNameService({
 			defModel,
 			templateTypeEnum,
 		});
 
-		const codeFilePathService = CodeFilePathService({
-			dirModel: codeDirModel,
-			fileNameModel: codeFileNameModel,
+		const codeFilePathService: IFileServiceFilePath = CodeFilePathService({
+			dirService,
+			fileNameService,
 		});
 
-		const codeModel = templateModel.getCodeModel({ defModel });
+		const codeModel: IModelCode = templateModel.getCodeModel({ defModel });
 
 		return {
 			codeFilePathService,

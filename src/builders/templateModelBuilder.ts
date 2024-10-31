@@ -23,15 +23,15 @@ export const templateModelBuilder: IBuilderTemplateModel = {
 		templateDirService,
 		templateTypeEnum,
 	}: IBuilderTemplateModelFuncBuildInput): IModelTemplate => {
-		const templateNameModel = TemplateFileNameService({
+		const fileNameService = TemplateFileNameService({
 			defModel,
 			templateTypeEnum,
 		});
-		const templatePathModel = TemplateFilePathService({
-			dirModel: templateDirService,
-			fileNameModel: templateNameModel,
+		const templatePathService = TemplateFilePathService({
+			dirService: templateDirService,
+			fileNameService,
 		});
 
-		return TemplateModel({ templatePathModel });
+		return TemplateModel({ templatePathService });
 	},
 };
