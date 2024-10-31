@@ -1,7 +1,12 @@
 import fs from 'node:fs';
 import { assertCondition } from '@app/assertions';
 import { isValidTeeHelper } from '@app/helpers';
-import { ICommonBool, ICommonFuncIsValid, ICommonValidityFlag } from '@app/interfaces/common';
+import {
+	ICommonBool,
+	ICommonCodeStr,
+	ICommonFuncIsValid,
+	ICommonValidityFlag,
+} from '@app/interfaces/common';
 import {
 	IModelCode,
 	IModelCodeConstructor,
@@ -80,7 +85,7 @@ export const CodeModel: IModelCodeConstructor = ({
 		assertCondition({
 			condition: isCodeStrValidFlag.value && codeFilePathService.isValid(),
 		});
-		const codeFilePath = codeFilePathService.getFilePath();
+		const codeFilePath: ICommonCodeStr = codeFilePathService.getFilePath();
 		fs.writeFileSync(codeFilePath, codeStr);
 	};
 

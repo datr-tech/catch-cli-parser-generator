@@ -22,7 +22,7 @@ import {
  *
  * @param {IFileServiceFileNameConstructorInput} args
  * @param {IModelDef} args.defModel
- * @param {IHelperGetFileName} args.getFileNameHelper
+ * @param args.getFileNameHelper
  * @param {TemplateTypeEnum} args.templateTypeEnum
  * @returns {IFileServiceFileName}
  * @constructor

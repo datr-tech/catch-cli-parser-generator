@@ -1,11 +1,17 @@
 import { assertCondition } from '@app/assertions';
 import {
+	hasAtLeastOneInvalidChildHelper,
+	hasMinimumChildrenHelper,
+	isJsonPropArrayHelper,
+	isValidTeeHelper,
+} from '@app/helpers';
+import {
 	ICommonBool,
 	ICommonFuncIsValid,
 	ICommonFuncMain,
 	ICommonJsonDir,
+	ICommonValidityFlag,
 } from '@app/interfaces/common';
-import { IFileServiceDir } from 'src/interfaces/services/fileService/DirService';
 import { IFileServiceOutDir } from '@app/interfaces/services/fileService/OutDirService';
 import {
 	IModelOutDirs,
@@ -13,6 +19,7 @@ import {
 	IModelOutDirsConstructorInput,
 	IModelOutDirsFuncGetFirstOutDirModelByType,
 	IModelOutDirsFuncGetFirstOutDirModelByTypeInput,
+	IModelOutDirsFuncGetNumOutDirModels,
 } from '@app/interfaces/models/OutDirsModel';
 import { OutDirService } from '@app/services/fileService/OutDirService';
 
@@ -30,7 +37,7 @@ import { OutDirService } from '@app/services/fileService/OutDirService';
 export const OutDirsModel: IModelOutDirsConstructor = ({
 	json,
 }: IModelOutDirsConstructorInput): IModelOutDirs => {
-	let areModelsValidFlag: ICommonBool = false;
+	const areAllOutDirModelsValidFlag: ICommonValidityFlag = { value: false };
 	let outDirModels: IFileServiceOutDir[];
 
 	/**
@@ -49,7 +56,7 @@ export const OutDirsModel: IModelOutDirsConstructor = ({
 		outDirType,
 	}: IModelOutDirsFuncGetFirstOutDirModelByTypeInput): IFileServiceOutDir => {
 		assertCondition({
-			condition: areModelsValidFlag,
+			condition: areAllOutDirModelsValidFlag.value,
 		});
 
 		return outDirModels.find(
@@ -64,19 +71,23 @@ export const OutDirsModel: IModelOutDirsConstructor = ({
 	 *
 	 * @returns {ICommonBool}
 	 */
-	const isValid: ICommonFuncIsValid = (): ICommonBool => {
-		if (outDirModels.length === 0) {
-			areModelsValidFlag = false;
-		}
+	const isValid: ICommonFuncIsValid = (): ICommonBool =>
+		isValidTeeHelper({
+			condition:
+				hasMinimumChildrenHelper({ numChildren: outDirModels.length }) &&
+				!hasAtLeastOneInvalidChildHelper({ children: outDirModels }),
+			validityFlagToUpdate: areAllOutDirModelsValidFlag,
+		});
 
-		const firstInvalidModel = outDirModels.find(
-			(outDirModel: IFileServiceDir): ICommonBool => outDirModel.isValid() === false,
-		);
-
-		areModelsValidFlag = typeof firstInvalidModel === 'undefined';
-
-		return areModelsValidFlag;
-	};
+	/**
+	 * @public
+	 *
+	 * A utility func which returns the current number of 'child' outDirModels,
+	 * and which has proved to be useful for testing purposes.
+	 *
+	 * @returns {number}
+	 */
+	const getNumOutDirModels: IModelOutDirsFuncGetNumOutDirModels = (): number => outDirModels.length;
 
 	/**
 	 * @private
@@ -86,13 +97,12 @@ export const OutDirsModel: IModelOutDirsConstructor = ({
 	 * constructed according to the definitions within the received 'json'.
 	 */
 	const main: ICommonFuncMain = (): void => {
-		outDirModels =
-			typeof json.dirs !== 'undefined' && Array.isArray(json.dirs)
-				? json.dirs.map(
-						({ path, type }: ICommonJsonDir): IFileServiceOutDir =>
-							OutDirService({ dirPathStr: path, outDirTypeEnum: type }),
-					)
-				: [];
+		outDirModels = isJsonPropArrayHelper({ jsonProp: json.dirs })
+			? json.dirs.map(
+					({ path, type }: ICommonJsonDir): IFileServiceOutDir =>
+						OutDirService({ dirPathStr: path, outDirTypeEnum: type }),
+				)
+			: [];
 	};
 
 	main();
@@ -100,5 +110,6 @@ export const OutDirsModel: IModelOutDirsConstructor = ({
 	return {
 		getFirstOutDirModelByType,
 		isValid,
+		getNumOutDirModels,
 	};
 };
