@@ -9,17 +9,17 @@ import {
  * Construct a FilePathService for a template.
  *
  * @param {IFileServiceFilePathHOCConstructorInput} args
- * @param {IFileServiceDir} args.dirModel
- * @param {IFileServiceFileName} args.fileNameModel
+ * @param {IFileServiceDir} args.dirService
+ * @param {IFileServiceFileName} args.fileNameService
  * @returns {IFileServiceFilePath}
  * @constructor
  */
 export const TemplateFilePathService: IFileServiceFilePathHOCConstructor = ({
-	dirModel,
-	fileNameModel,
+	dirService,
+	fileNameService,
 }: IFileServiceFilePathHOCConstructorInput): IFileServiceFilePath =>
 	FilePathService({
-		dirModel,
-		fileNameModel,
+		dirService,
+		fileNameService,
 		shouldFileCurrentlyExist: true,
 	});

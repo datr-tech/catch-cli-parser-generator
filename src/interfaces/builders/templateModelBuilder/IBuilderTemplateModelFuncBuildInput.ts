@@ -1,5 +1,5 @@
 import { IModelDef } from '@app/interfaces/models/DefModel';
-import { IFileServiceDir } from '@app/interfaces/services/fileService/DirFileService';
+import { IFileServiceDir } from 'src/interfaces/services/fileService/DirService';
 import { TemplateTypeEnum } from '@app/config/enums';
 
 export interface IBuilderTemplateModelFuncBuildInput {

@@ -13,7 +13,7 @@ import {
 	IFileServiceDirConstructorInput,
 	IFileServiceDirFuncGetDirPath,
 	IFileServiceDirFuncGetDirPathOutput,
-} from '@app/interfaces/services/fileService/DirFileService';
+} from '@app/interfaces/services/fileService/DirService';
 
 /**
  * @public

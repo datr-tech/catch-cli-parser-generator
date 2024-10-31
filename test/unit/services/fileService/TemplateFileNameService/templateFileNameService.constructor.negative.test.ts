@@ -1,32 +1,28 @@
 import { TemplateTypeEnum } from '@app/config/enums';
-import { deriveFileNameCodeHelper } from '@app/helpers';
 import { DefModel } from '@app/models';
-import { FileNameService } from '@app/services/fileService';
+import { TemplateFileNameService } from '@app/services/fileService';
 import { ICommonJsonDef } from '@app/interfaces/common';
-import { IHelperDeriveFileName } from '@app/interfaces/helpers';
 import { IModelDef } from '@app/interfaces/models/DefModel';
 import { jsonDefFake } from '@test/doubles/fakes';
 
-describe('FileNameService', () => {
+describe('TemplateFileNameService', () => {
 	describe('constructor', () => {
 		describe('should throw an error', () => {
-			test("when receiving an in valid 'defModel'", () => {
+			test("when receiving a invalid 'defModel'", () => {
 				/*
 				 * Arrange
 				 */
+				const errorExpected = "Invalid 'defModel'";
 				const jsonDef: ICommonJsonDef = jsonDefFake({ name: undefined, useDefaultName: false });
 				const defModel: IModelDef = DefModel({ jsonDef });
-				const getFileNameHelper: IHelperDeriveFileName = deriveFileNameCodeHelper;
 				const templateTypeEnum: TemplateTypeEnum = TemplateTypeEnum.TEMPLATE_TYPE_CODE_PARSER;
-				const errorExpected = "Invalid 'defModel'";
 
 				/*
 				 * Act
 				 */
 				const handler = (): void => {
-					FileNameService({
+					TemplateFileNameService({
 						defModel,
-						getFileNameHelper,
 						templateTypeEnum,
 					});
 				};

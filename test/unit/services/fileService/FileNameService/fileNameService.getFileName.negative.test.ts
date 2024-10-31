@@ -18,12 +18,12 @@ describe('FileNameService', () => {
 				const errorExpected = "Negative 'condition'";
 				const jsonDef: ICommonJsonDef = jsonDefFake({ name: 'TEST_JSON_DEF' });
 				const defModel: IModelDef = DefModel({ jsonDef });
-				const getFileNameHelper:IHelperDeriveFileName = deriveFileNameCodeHelper;
+				const getFileNameHelper: IHelperDeriveFileName = deriveFileNameCodeHelper;
 				const templateTypeEnum: TemplateTypeEnum = TemplateTypeEnum.TEMPLATE_TYPE_UNK;
 				const fileNameService: IFileServiceFileName = FileNameService({
 					defModel,
 					getFileNameHelper,
-					templateTypeEnum
+					templateTypeEnum,
 				});
 
 				/*
@@ -31,8 +31,7 @@ describe('FileNameService', () => {
 				 */
 				const handler = () => {
 					fileNameService.getFileName();
-				}
-
+				};
 
 				/*
 				 * Assert

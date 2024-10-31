@@ -11,28 +11,34 @@ describe('FileNameService', () => {
 		describe("should return the expected 'fileNameStr'", () => {
 			test.each(fileNameServiceGetFileNameFixturePositive)(
 				"when 'templateTypeEnum' is $templateTypeEnum",
-				({ fileNameStrExpected, getFileNameHelper, jsonDef, templateTypeEnum }: IFixtureFileNameServiceGetFileNamePositive): void => {
-				/*
-				 * Arrange
-				 */
-				const defModel: IModelDef = DefModel({ jsonDef });
-
-				/*
-				 * Act
-				 */
-				const fileNameService: IFileServiceFileName = FileNameService({
-					defModel,
+				({
+					fileNameStrExpected,
 					getFileNameHelper,
-					templateTypeEnum
-				});
-				fileNameService.isValid();
-				const fileNameStrFound: ICommonNameStr = fileNameService.getFileName();
+					jsonDef,
+					templateTypeEnum,
+				}: IFixtureFileNameServiceGetFileNamePositive): void => {
+					/*
+					 * Arrange
+					 */
+					const defModel: IModelDef = DefModel({ jsonDef });
 
-				/*
-				 * Assert
-				 */
-				expect(fileNameStrFound).toBe(fileNameStrExpected);
-			});
+					/*
+					 * Act
+					 */
+					const fileNameService: IFileServiceFileName = FileNameService({
+						defModel,
+						getFileNameHelper,
+						templateTypeEnum,
+					});
+					fileNameService.isValid();
+					const fileNameStrFound: ICommonNameStr = fileNameService.getFileName();
+
+					/*
+					 * Assert
+					 */
+					expect(fileNameStrFound).toBe(fileNameStrExpected);
+				},
+			);
 		});
 	});
 });

@@ -48,7 +48,7 @@ export const FileNameService: IFileServiceFileNameConstructor = ({
 	const getFileName: IFileServiceFileNameFuncGetFileName =
 		(): IModelFileNameFuncGetFileNameOutput => {
 			assertCondition({
-				condition: isFileNameValidFlag.value
+				condition: isFileNameValidFlag.value,
 			});
 
 			return fileNameStr;
@@ -80,7 +80,7 @@ export const FileNameService: IFileServiceFileNameConstructor = ({
 	const main: ICommonFuncMain = (): void => {
 		assertCondition({
 			condition: defModel.isValid(),
-			errorMessage: "Invalid 'defModel'"
+			errorMessage: "Invalid 'defModel'",
 		});
 
 		fileNameStr = getFileNameHelper({ defModel, templateTypeEnum });
