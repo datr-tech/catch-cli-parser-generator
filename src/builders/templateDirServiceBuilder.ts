@@ -1,6 +1,6 @@
 import { CONSTS_PATHS_TEMPLATES_DIR } from '@app/config/consts/paths';
 import { DirService } from '@app/services/fileService';
-import { IFileServiceDir } from '@app/interfaces/services/fileService/DirFileService';
+import { IFileServiceDir } from 'src/interfaces/services/fileService/DirService';
 import {
 	IBuilderTemplateDirService,
 	IBuilderTemplateDirServiceFuncBuildInput,

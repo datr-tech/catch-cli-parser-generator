@@ -1,7 +1,7 @@
-import { IFileServiceDir } from '@app/interfaces/services/fileService/DirFileService';
+import { IFileServiceDir } from 'src/interfaces/services/fileService/DirService';
 import { IFileServiceFileNameHOF } from '@app/interfaces/services/fileService/FileNameServiceHOC';
 
 export interface IFileServiceFilePathHOCConstructorInput {
-	dirModel: IFileServiceDir;
-	fileNameModel: IFileServiceFileNameHOF;
+	dirService: IFileServiceDir;
+	fileNameService: IFileServiceFileNameHOF;
 }

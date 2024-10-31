@@ -20,18 +20,18 @@ import {
 /**
  * @public
  *
- * Construct a service to represent a file path.
+ * Construct a services to represent a file path.
  *
  * @param {IFileServiceFilePathConstructorInput)} args
- * @param {IFileServiceDir} args.dirModel
- * @param {IFileServiceFileName} args.fileNameModel
+ * @param {IFileServiceDir} args.dirService
+ * @param {IFileServiceFileName} args.fileNameService
  * @param {ICommonBool} args.shouldFileCurrentlyExist
  * @returns {IFileServiceFilePath}
  * @constructor
  */
 export const FilePathService: IFileServiceFilePathConstructor = ({
-	dirModel,
-	fileNameModel,
+	dirService,
+	fileNameService,
 	shouldFileCurrentlyExist,
 }: IFileServiceFilePathConstructorInput): IFileServiceFilePath => {
 	const isFilePathValidFlag: ICommonValidityFlag = { value: false };
@@ -77,16 +77,17 @@ export const FilePathService: IFileServiceFilePathConstructor = ({
 	 * It asserts the validity of the received 'dir' and 'fileName' models,
 	 * ensuring that an instance can not be constructed when they are invalid.
 	 *
-	 * @throws When 'dirModel' is invalid
-	 * @throws When 'fileNameModel' is invalid
+	 * @throws When 'dirService' is invalid
+	 * @throws When 'fileNameService' is invalid
 	 */
 	const main: ICommonFuncMain = (): void => {
 		assertCondition({
-			condition: dirModel.isValid() && fileNameModel.isValid(),
+			condition: dirService.isValid() && fileNameService.isValid(),
+			errorMessage: "Either 'dirService' or 'fileNameService' is invalid",
 		});
 
-		const dirPathStr: ICommonPathStr = dirModel.getDirPath();
-		const fileNameStr: ICommonNameStr = fileNameModel.getFileName();
+		const dirPathStr: ICommonPathStr = dirService.getDirPath();
+		const fileNameStr: ICommonNameStr = fileNameService.getFileName();
 		filePathStr = `${dirPathStr}/${fileNameStr}`;
 	};
 

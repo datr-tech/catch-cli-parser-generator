@@ -11,17 +11,17 @@ import { FilePathService } from './FilePathService';
  * Construct a FilePathService to represent a code path.
  *
  * @param {IFileServiceFilePathHOCConstructorInput} args
- * @param {IFileServiceDir} args.dirModel
- * @param {IFileServiceFileName} args.fileNameModel
+ * @param {IFileServiceDir} args.dirService
+ * @param {IFileServiceFileName} args.fileNameService
  * @returns {IFileServiceFilePathHOC}
  * @constructor
  */
 export const CodeFilePathService: IFileServiceFilePathHOCConstructor = ({
-	dirModel,
-	fileNameModel,
+	dirService,
+	fileNameService,
 }: IFileServiceFilePathHOCConstructorInput): IFileServiceFilePathHOC =>
 	FilePathService({
-		dirModel,
-		fileNameModel,
+		dirService,
+		fileNameService,
 		shouldFileCurrentlyExist: false,
 	});

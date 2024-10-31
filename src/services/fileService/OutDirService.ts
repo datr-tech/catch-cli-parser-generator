@@ -3,13 +3,14 @@ import { assertCondition } from '@app/assertions';
 import {
 	ICommonBool,
 	ICommonFuncIsValid,
+	ICommonFuncMain,
 	ICommonPathStr,
 	ICommonValidityFlag,
 } from '@app/interfaces/common';
 import {
 	IFileServiceDir,
 	IFileServiceDirFuncGetDirPath,
-} from '@app/interfaces/services/fileService/DirFileService';
+} from '@app/interfaces/services/fileService/DirService';
 import {
 	IFileServiceOutDir,
 	IFileServiceOutDirConstructor,
@@ -22,7 +23,7 @@ import { DirService } from './DirService';
 /**
  * @public
  *
- * Construct a service to represent an output dir.
+ * Construct a services to represent an output dir.
  *
  * @param {IFileServiceOutDirConstructorInput} args
  * @param {ICommonPathStr} args.dirPathStr
@@ -34,25 +35,25 @@ export const OutDirService: IFileServiceOutDirConstructor = ({
 	dirPathStr,
 	outDirTypeEnum,
 }: IFileServiceOutDirConstructorInput): IFileServiceOutDir => {
-	const dirModel: IFileServiceDir = DirService({ dirPathStr });
+	let dirService: IFileServiceDir;
 	const isDirValidFlag: ICommonValidityFlag = { value: false };
 
 	/**
 	 * @public
 	 *
-	 * Returns the path to the dir represented by 'dirModel'
+	 * Returns the path to the dir represented by 'dirService'
 	 *
 	 * @returns {IFileServiceDirFuncGetDirPathOutput}
 	 *
 	 * @throws When 'isValid' was not called before 'getDirPath'
-	 * @throws When 'dirModel' was not valid
+	 * @throws When 'dirService' was not valid
 	 */
 	const getDirPath: IFileServiceDirFuncGetDirPath = (): ICommonPathStr => {
 		assertCondition({
 			condition: isDirValidFlag.value,
 		});
 
-		return dirModel.getDirPath();
+		return dirService.getDirPath();
 	};
 
 	/**
@@ -61,7 +62,7 @@ export const OutDirService: IFileServiceOutDirConstructor = ({
 	 * @returns {IFileServiceOutDirFuncGetOutDirTypeOutput}
 	 *
 	 * @throws When 'isValid' was not called before 'getOutDirPath'
-	 * @throws When 'dirModel' was not valid
+	 * @throws When 'dirService' was not valid
 	 */
 	const getOutDirType: IFileServiceOutDirFuncGetOutDirType =
 		(): IFileServiceOutDirFuncGetOutDirTypeOutput => {
@@ -75,15 +76,34 @@ export const OutDirService: IFileServiceOutDirConstructor = ({
 	/**
 	 * @public
 	 *
-	 * Returns true when 'dirModel' is valid. Otherwise, false.
+	 * Returns true when 'dirService' is valid. Otherwise, false.
 	 *
 	 * @returns {ICommonBool}
 	 */
 	const isValid: ICommonFuncIsValid = (): ICommonBool =>
 		isValidTeeHelper({
-			condition: dirModel.isValid(),
+			condition: dirService.isValid(),
 			validityFlagToUpdate: isDirValidFlag,
 		});
+
+	/**
+	 * @private
+	 *
+	 * Main is called by default during the construction of an OutDirService.
+	 * It asserts the validity of the received 'dirPathStr',
+	 * ensuring that an instance can not be constructed when the string is invalid.
+	 *
+	 * @throws When 'dirPathStr' is invalid
+	 */
+	const main: ICommonFuncMain = (): void => {
+		assertCondition({
+			condition: !!dirPathStr,
+			errorMessage: "Invalid 'dirPathStr'",
+		});
+
+		dirService = DirService({ dirPathStr });
+	};
+	main();
 
 	return {
 		getDirPath,

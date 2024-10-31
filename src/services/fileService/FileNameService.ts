@@ -18,7 +18,7 @@ import {
 /**
  * @public
  *
- * Construct a service to represent the name of a file.
+ * Construct a services to represent the name of a file.
  *
  * @param {IFileServiceFileNameConstructorInput} args
  * @param {IModelDef} args.defModel
@@ -80,6 +80,7 @@ export const FileNameService: IFileServiceFileNameConstructor = ({
 	const main: ICommonFuncMain = (): void => {
 		assertCondition({
 			condition: defModel.isValid(),
+			errorMessage: "Invalid 'defModel'",
 		});
 
 		fileNameStr = getFileNameHelper({ defModel, templateTypeEnum });

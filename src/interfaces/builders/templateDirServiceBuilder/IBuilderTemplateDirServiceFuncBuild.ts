@@ -1,4 +1,4 @@
-import { IFileServiceDir } from '@app/interfaces/services/fileService/DirFileService';
+import { IFileServiceDir } from 'src/interfaces/services/fileService/DirService';
 import { IBuilderTemplateDirServiceFuncBuildInput } from './IBuilderTemplateDirServiceFuncBuildInput';
 
 export interface IBuilderTemplateDirServiceFuncBuild {

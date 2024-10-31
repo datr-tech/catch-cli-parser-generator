@@ -13,12 +13,12 @@ import {
 	IFileServiceDirConstructorInput,
 	IFileServiceDirFuncGetDirPath,
 	IFileServiceDirFuncGetDirPathOutput,
-} from '@app/interfaces/services/fileService/DirFileService';
+} from '@app/interfaces/services/fileService/DirService';
 
 /**
  * @public
  *
- * Construct a service to represent a dir.
+ * Construct a services to represent a dir.
  *
  * @param {IFileServiceDirConstructorInput} args
  * @param {ICommonPathStr} args.dirPathStr
