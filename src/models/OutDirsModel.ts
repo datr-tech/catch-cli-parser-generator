@@ -13,6 +13,7 @@ import {
 	IModelOutDirsConstructorInput,
 	IModelOutDirsFuncGetFirstOutDirModelByType,
 	IModelOutDirsFuncGetFirstOutDirModelByTypeInput,
+	IModelOutDirsFuncGetNumOutDirModels,
 } from '@app/interfaces/models/OutDirsModel';
 import { OutDirService } from '@app/services/fileService/OutDirService';
 
@@ -67,16 +68,26 @@ export const OutDirsModel: IModelOutDirsConstructor = ({
 	const isValid: ICommonFuncIsValid = (): ICommonBool => {
 		if (outDirModels.length === 0) {
 			areModelsValidFlag = false;
+		} else {
+			const firstInvalidModel: IFileServiceOutDir = outDirModels.find(
+				(outDirModel: IFileServiceDir): ICommonBool => outDirModel.isValid() === false,
+			);
+			areModelsValidFlag = typeof firstInvalidModel === 'undefined';
 		}
-
-		const firstInvalidModel = outDirModels.find(
-			(outDirModel: IFileServiceDir): ICommonBool => outDirModel.isValid() === false,
-		);
-
-		areModelsValidFlag = typeof firstInvalidModel === 'undefined';
 
 		return areModelsValidFlag;
 	};
+
+	/**
+	 * @public
+	 *
+	 * A utility func which returns the current number of 'child' outDirModels,
+	 * and which has proved useful for testing purposes.
+	 *
+	 * @returns {number}
+	 */
+	const _getNumOutDirModels: IModelOutDirsFuncGetNumOutDirModels = (): number =>
+		outDirModels.length;
 
 	/**
 	 * @private
@@ -100,5 +111,6 @@ export const OutDirsModel: IModelOutDirsConstructor = ({
 	return {
 		getFirstOutDirModelByType,
 		isValid,
+		_getNumOutDirModels,
 	};
 };

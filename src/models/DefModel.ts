@@ -1,6 +1,11 @@
 import { assertCondition } from '@app/assertions';
 import { isValidTeeHelper } from '@app/helpers';
-import { ICommonBool, ICommonFuncIsValid, ICommonValidityFlag } from '@app/interfaces/common';
+import {
+	ICommonBool,
+	ICommonFuncIsValid,
+	ICommonFuncMain,
+	ICommonValidityFlag,
+} from '@app/interfaces/common';
 import {
 	IModelDef,
 	IModelDefConstructor,
@@ -101,6 +106,20 @@ export const DefModel: IModelDefConstructor = ({
 		return jsonDef[propName];
 	};
 
+	/**
+	 * @private
+	 *
+	 * Main is called during the construction of instances of DefModel,
+	 * and it ensures that 'jsonDef' is not undefined.
+	 */
+	const main: ICommonFuncMain = (): void => {
+		assertCondition({
+			condition: !!jsonDef,
+			errorMessage: "Invalid 'jsonDef'",
+		});
+	};
+
+	main();
 	return {
 		getName,
 		getPayload,
