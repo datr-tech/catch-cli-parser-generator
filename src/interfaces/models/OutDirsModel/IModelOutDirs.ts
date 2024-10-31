@@ -5,5 +5,5 @@ import { IModelOutDirsFuncGetNumOutDirModels } from './IModelOutDirsFuncGetNumOu
 export interface IModelOutDirs {
 	getFirstOutDirModelByType: IModelOutDirsFuncGetFirstOutDirModelByType;
 	isValid: ICommonFuncIsValid;
-	_getNumOutDirModels: IModelOutDirsFuncGetNumOutDirModels;
+	getNumOutDirModels: IModelOutDirsFuncGetNumOutDirModels;
 }

@@ -1,6 +1,11 @@
 import { isValidTeeHelper } from '@app/helpers';
 import { assertCondition } from '@app/assertions';
 import {
+	hasAtLeastOneInvalidChildHelper,
+	hasMinimumChildrenHelper,
+	isJsonPropArrayHelper,
+} from '@app/helpers';
+import {
 	ICommonBool,
 	ICommonFuncIsValid,
 	ICommonFuncMain,
@@ -12,8 +17,8 @@ import {
 	IModelDefs,
 	IModelDefsConstructor,
 	IModelDefsConstructorInput,
-	IModelDefsFuncGetDefs,
-	IModelDefsFuncGetDefsOutput,
+	IModelDefsFuncGetDefModels,
+	IModelDefsFuncGetDefModelsOutput,
 } from '@app/interfaces/models/DefsModel';
 import { DefModel } from './DefModel';
 
@@ -39,12 +44,12 @@ export const DefsModel: IModelDefsConstructor = ({
 	 *
 	 * Returns an array of valid defModels.
 	 *
-	 * @returns {IModelDefsFuncGetDefsOutput}
+	 * @returns {IModelDefsFuncGetDefModelsOutput}
 	 *
 	 * @throws When 'isValid' was not called before 'getDefs'
 	 * @throws When one or more of the defModels is invalid
 	 */
-	const getDefs: IModelDefsFuncGetDefs = (): IModelDefsFuncGetDefsOutput => {
+	const getDefModels: IModelDefsFuncGetDefModels = (): IModelDefsFuncGetDefModelsOutput => {
 		assertCondition({
 			condition: areAllDefModelsValidFlag.value,
 		});
@@ -60,9 +65,9 @@ export const DefsModel: IModelDefsConstructor = ({
 	 */
 	const isValid: ICommonFuncIsValid = (): ICommonBool =>
 		isValidTeeHelper({
-			condition: !defModels.find(
-				(defModel: IModelDef): ICommonBool => defModel.isValid() === false,
-			),
+			condition:
+				hasMinimumChildrenHelper({ numChildren: defModels.length }) &&
+				!hasAtLeastOneInvalidChildHelper({ children: defModels }),
 			validityFlagToUpdate: areAllDefModelsValidFlag,
 		});
 
@@ -74,12 +79,14 @@ export const DefsModel: IModelDefsConstructor = ({
 	 * instances of DefModel (based upon the received json).
 	 */
 	const main: ICommonFuncMain = (): void => {
-		if (typeof json.defs !== 'undefined' && Array.isArray(json.defs)) {
+		if (isJsonPropArrayHelper({ jsonProp: json.defs })) {
 			defModels = json.defs.map((jsonDef: ICommonJsonDef): IModelDef => DefModel({ jsonDef }));
+		} else {
+			defModels = [];
 		}
 	};
 
 	main();
 
-	return { getDefs, isValid } as IModelDefs;
+	return { getDefModels, isValid } as IModelDefs;
 };

@@ -27,12 +27,12 @@ import { CodeModel } from './CodeModel';
  * Construct a model to represent a template.
  *
  * @param {IModelTemplateConstructorInput} args
- * @param {IFileServiceFilePath} args.templatePathModel
+ * @param {IFileServiceFilePath} args.templatePathService
  * @returns {IModelTemplate}
  * @constructor
  */
 export const TemplateModel: IModelTemplateConstructor = ({
-	templatePathModel,
+	templatePathService,
 }: IModelTemplateConstructorInput): IModelTemplate => {
 	const isTemplateValidFlag: ICommonValidityFlag = { value: false };
 	let templateContentsStr: ICommonTemplateStr;
@@ -84,9 +84,10 @@ export const TemplateModel: IModelTemplateConstructor = ({
 	 */
 	const main: ICommonFuncMain = (): void => {
 		assertCondition({
-			condition: templatePathModel.isValid(),
+			condition: templatePathService.isValid(),
+			errorMessage: "Invalid 'templatePathService'",
 		});
-		templateContentsStr = fs.readFileSync(templatePathModel.getFilePath(), 'utf-8');
+		templateContentsStr = fs.readFileSync(templatePathService.getFilePath(), 'utf-8');
 	};
 
 	main();

@@ -1,7 +1,7 @@
 import { ICommonFuncIsValid } from '@app/interfaces/common/ICommonFuncIsValid';
-import { IModelDefsFuncGetDefs } from './IModelDefsFuncGetDefs';
+import { IModelDefsFuncGetDefModels } from './IModelDefsFuncGetDefModels';
 
 export interface IModelDefs {
-	getDefs: IModelDefsFuncGetDefs;
+	getDefModels: IModelDefsFuncGetDefModels;
 	isValid: ICommonFuncIsValid;
 }

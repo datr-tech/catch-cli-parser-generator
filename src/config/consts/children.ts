@@ -1,0 +1,1 @@
+export const CONSTS_CHILDREN_MINIMUM_NUM = 1;

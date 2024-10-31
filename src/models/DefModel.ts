@@ -103,6 +103,7 @@ export const DefModel: IModelDefConstructor = ({
 		assertCondition({
 			condition: isDefModelValidFlag.value,
 		});
+
 		return jsonDef[propName];
 	};
 
@@ -112,14 +113,14 @@ export const DefModel: IModelDefConstructor = ({
 	 * Main is called during the construction of instances of DefModel,
 	 * and it ensures that 'jsonDef' is not undefined.
 	 */
-	const main: ICommonFuncMain = (): void => {
+	const _main: ICommonFuncMain = (): void =>
 		assertCondition({
 			condition: !!jsonDef,
 			errorMessage: "Invalid 'jsonDef'",
 		});
-	};
 
-	main();
+	_main();
+
 	return {
 		getName,
 		getPayload,

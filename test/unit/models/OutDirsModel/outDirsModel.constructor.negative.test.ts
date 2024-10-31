@@ -21,7 +21,7 @@ describe('OutDirsModel', (): void => {
 				 * Act
 				 */
 				const outDirsModel: IModelOutDirs = OutDirsModel({ json });
-				const numOutDirModelsFound: number = outDirsModel._getNumOutDirModels();
+				const numOutDirModelsFound: number = outDirsModel.getNumOutDirModels();
 
 				/*
 				 * Assert
@@ -44,7 +44,7 @@ describe('OutDirsModel', (): void => {
 				 * Act
 				 */
 				const outDirsModel: IModelOutDirs = OutDirsModel({ json });
-				const numOutDirModelsFound: number = outDirsModel._getNumOutDirModels();
+				const numOutDirModelsFound: number = outDirsModel.getNumOutDirModels();
 
 				/*
 				 * Assert
