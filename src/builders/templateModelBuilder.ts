@@ -5,6 +5,8 @@ import {
 	IBuilderTemplateModelFuncBuildInput,
 } from '@app/interfaces/builders/templateModelBuilder';
 import { IModelTemplate } from '@app/interfaces/models/TemplateModel';
+import { IFileServiceFileName } from '@app/interfaces/services/fileService/FileNameService';
+import { IFileServiceFilePath } from '@app/interfaces/services/fileService/FilePathService';
 
 export const templateModelBuilder: IBuilderTemplateModel = {
 	/**
@@ -23,11 +25,11 @@ export const templateModelBuilder: IBuilderTemplateModel = {
 		templateDirService,
 		templateTypeEnum,
 	}: IBuilderTemplateModelFuncBuildInput): IModelTemplate => {
-		const fileNameService = TemplateFileNameService({
+		const fileNameService: IFileServiceFileName = TemplateFileNameService({
 			defModel,
 			templateTypeEnum,
 		});
-		const templatePathService = TemplateFilePathService({
+		const templatePathService: IFileServiceFilePath = TemplateFilePathService({
 			dirService: templateDirService,
 			fileNameService,
 		});
