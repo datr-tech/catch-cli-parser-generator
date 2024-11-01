@@ -3,3 +3,7 @@ export { IControllerGenerateConstructor } from './IControllerGenerateConstructor
 export { IControllerGenerateConstructorInput } from './IControllerGenerateConstructorInput';
 export { IControllerGenerateFuncInit } from './IControllerGenerateFuncInit';
 export { IControllerGenerateFuncRun } from './IControllerGenerateFuncRun';
+export { IControllerGenerateFuncRunOutput } from './IControllerGenerateFuncRunOuput';
+export { IControllerGenerateFuncWriteCodeToFile } from './IControllerGenerateFuncWriteCodeToFile';
+export { IControllerGenerateFuncWriteCodeToFileInput } from './IControllerGenerateFuncWriteCodeToFileInput';
+export { IControllerGenerateFuncWriteCodeToFileOutput } from './IControllerGenerateFuncWriteCodeToFileOutput';

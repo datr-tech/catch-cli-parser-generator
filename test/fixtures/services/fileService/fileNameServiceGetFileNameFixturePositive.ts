@@ -1,7 +1,7 @@
 import { DefTypeEnum, TemplateTypeEnum } from '@app/config/enums';
 import { deriveFileNameCodeHelper, deriveFileNameTemplateHelper } from '@app/helpers';
 import { jsonDefFake } from '@test/doubles/fakes';
-import { IFixtureFileNameServiceGetFileNamePositive } from '@test/fixtures/interfaces/services/fileServices';
+import { IFixtureFileNameServiceGetFileNamePositive } from '../../../interfaces/fixtures/services/fileServices';
 
 export const fileNameServiceGetFileNameFixturePositive: IFixtureFileNameServiceGetFileNamePositive[] =
 	[
@@ -48,55 +48,55 @@ export const fileNameServiceGetFileNameFixturePositive: IFixtureFileNameServiceG
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_CODE_PARSER,
 		},
 		{
-			fileNameStrExpected: 'interface.parse.hbs',
+			fileNameStrExpected: 'interfaces/interface.parse.hbs',
 			getFileNameHelper: deriveFileNameTemplateHelper,
 			jsonDef: jsonDefFake({ name: 'Test', type: DefTypeEnum.DEF_TYPE_ITER }),
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE,
 		},
 		{
-			fileNameStrExpected: 'interface.parse.hbs',
+			fileNameStrExpected: 'interfaces/interface.parse.hbs',
 			getFileNameHelper: deriveFileNameTemplateHelper,
 			jsonDef: jsonDefFake({ name: 'Test', type: DefTypeEnum.DEF_TYPE_LEAF }),
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE,
 		},
 		{
-			fileNameStrExpected: 'interface.parse.hbs',
+			fileNameStrExpected: 'interfaces/interface.parse.hbs',
 			getFileNameHelper: deriveFileNameTemplateHelper,
 			jsonDef: jsonDefFake({ name: 'Test', type: DefTypeEnum.DEF_TYPE_STEM }),
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE,
 		},
 		{
-			fileNameStrExpected: 'interface.parse.output.hbs',
+			fileNameStrExpected: 'interfaces/interface.parse.output.iter.hbs',
 			getFileNameHelper: deriveFileNameTemplateHelper,
 			jsonDef: jsonDefFake({ name: 'Test', type: DefTypeEnum.DEF_TYPE_ITER }),
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE_OUTPUT,
 		},
 		{
-			fileNameStrExpected: 'interface.parse.output.hbs',
+			fileNameStrExpected: 'interfaces/interface.parse.output.leaf.hbs',
 			getFileNameHelper: deriveFileNameTemplateHelper,
 			jsonDef: jsonDefFake({ name: 'Test', type: DefTypeEnum.DEF_TYPE_LEAF }),
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE_OUTPUT,
 		},
 		{
-			fileNameStrExpected: 'interface.parse.output.hbs',
+			fileNameStrExpected: 'interfaces/interface.parse.output.stem.hbs',
 			getFileNameHelper: deriveFileNameTemplateHelper,
 			jsonDef: jsonDefFake({ name: 'Test', type: DefTypeEnum.DEF_TYPE_STEM }),
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE_OUTPUT,
 		},
 		{
-			fileNameStrExpected: 'interface.parser.hbs',
+			fileNameStrExpected: 'interfaces/interface.parser.hbs',
 			getFileNameHelper: deriveFileNameTemplateHelper,
 			jsonDef: jsonDefFake({ name: 'Test', type: DefTypeEnum.DEF_TYPE_ITER }),
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSER,
 		},
 		{
-			fileNameStrExpected: 'interface.parser.hbs',
+			fileNameStrExpected: 'interfaces/interface.parser.hbs',
 			getFileNameHelper: deriveFileNameTemplateHelper,
 			jsonDef: jsonDefFake({ name: 'Test', type: DefTypeEnum.DEF_TYPE_LEAF }),
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSER,
 		},
 		{
-			fileNameStrExpected: 'interface.parser.hbs',
+			fileNameStrExpected: 'interfaces/interface.parser.hbs',
 			getFileNameHelper: deriveFileNameTemplateHelper,
 			jsonDef: jsonDefFake({ name: 'Test', type: DefTypeEnum.DEF_TYPE_STEM }),
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSER,

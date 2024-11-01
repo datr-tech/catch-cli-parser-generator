@@ -1,3 +1,5 @@
+import { IControllerGenerateFuncRunOutput } from './IControllerGenerateFuncRunOuput';
+
 export interface IControllerGenerateFuncRun {
-	(): void;
+	(): IControllerGenerateFuncRunOutput;
 }

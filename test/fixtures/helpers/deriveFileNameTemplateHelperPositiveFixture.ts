@@ -1,5 +1,5 @@
 import { DefTypeEnum, TemplateTypeEnum } from '@app/config/enums';
-import { IFixtureDeriveFileNameTemplateHelperPositive } from '@test/fixtures/interfaces/helpers';
+import { IFixtureDeriveFileNameTemplateHelperPositive } from '../../interfaces/fixtures/helpers';
 
 export const deriveFileNameTemplateHelperPositiveFixture: IFixtureDeriveFileNameTemplateHelperPositive[] =
 	[
@@ -20,47 +20,47 @@ export const deriveFileNameTemplateHelperPositiveFixture: IFixtureDeriveFileName
 		},
 		{
 			defTypeEnum: DefTypeEnum.DEF_TYPE_ITER,
-			templateFileNameExpected: 'interface.parse.hbs',
+			templateFileNameExpected: 'interfaces/interface.parse.hbs',
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE,
 		},
 		{
 			defTypeEnum: DefTypeEnum.DEF_TYPE_LEAF,
-			templateFileNameExpected: 'interface.parse.hbs',
+			templateFileNameExpected: 'interfaces/interface.parse.hbs',
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE,
 		},
 		{
 			defTypeEnum: DefTypeEnum.DEF_TYPE_STEM,
-			templateFileNameExpected: 'interface.parse.hbs',
+			templateFileNameExpected: 'interfaces/interface.parse.hbs',
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE,
 		},
 		{
 			defTypeEnum: DefTypeEnum.DEF_TYPE_ITER,
-			templateFileNameExpected: 'interface.parse.output.hbs',
+			templateFileNameExpected: 'interfaces/interface.parse.output.iter.hbs',
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE_OUTPUT,
 		},
 		{
 			defTypeEnum: DefTypeEnum.DEF_TYPE_LEAF,
-			templateFileNameExpected: 'interface.parse.output.hbs',
+			templateFileNameExpected: 'interfaces/interface.parse.output.leaf.hbs',
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE_OUTPUT,
 		},
 		{
 			defTypeEnum: DefTypeEnum.DEF_TYPE_STEM,
-			templateFileNameExpected: 'interface.parse.output.hbs',
+			templateFileNameExpected: 'interfaces/interface.parse.output.stem.hbs',
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE_OUTPUT,
 		},
 		{
 			defTypeEnum: DefTypeEnum.DEF_TYPE_ITER,
-			templateFileNameExpected: 'interface.parser.hbs',
+			templateFileNameExpected: 'interfaces/interface.parser.hbs',
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSER,
 		},
 		{
 			defTypeEnum: DefTypeEnum.DEF_TYPE_LEAF,
-			templateFileNameExpected: 'interface.parser.hbs',
+			templateFileNameExpected: 'interfaces/interface.parser.hbs',
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSER,
 		},
 		{
 			defTypeEnum: DefTypeEnum.DEF_TYPE_STEM,
-			templateFileNameExpected: 'interface.parser.hbs',
+			templateFileNameExpected: 'interfaces/interface.parser.hbs',
 			templateTypeEnum: TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSER,
 		},
 	];

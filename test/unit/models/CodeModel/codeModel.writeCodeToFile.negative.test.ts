@@ -1,56 +1,34 @@
-import { CONSTS_PATHS_APP_ROOT } from '@app/config/consts/paths';
-import { TemplateTypeEnum } from '@app/config/enums';
-import { CodeModel, DefModel } from '@app/models';
-import { CodeFileNameService, CodeFilePathService, DirService } from '@app/services/fileService';
-import {
-	ICommonCodeStr,
-	ICommonJsonDef,
-	ICommonNameStr,
-	ICommonPathStr,
-} from '@app/interfaces/common';
-import { IModelCode } from '@app/interfaces/models/CodeModel';
-import { IModelDef } from '@app/interfaces/models/DefModel';
-import { IFileServiceDir } from '@app/interfaces/services/fileService/DirService';
-import { IFileServiceFileName } from '@app/interfaces/services/fileService/FileNameService';
-import { IFileServiceFilePath } from '@app/interfaces/services/fileService/FilePathService';
-import { jsonDefFake } from '@test/doubles/fakes';
+import { writeFileSync } from 'node:fs';
+import { codeModelFixture } from '@test/fixtures/models';
 
 describe('CodeModel', (): void => {
 	describe('writeCodeToFile', (): void => {
-		describe('should throw the expected error', (): void => {
+		describe('should fail to write any code', (): void => {
 			test("when not calling 'isValid' before 'writeCodeToFile'", (): void => {
 				/*
 				 * Arrange
 				 */
-				const errorExpected = "Negative 'condition'";
-				const testName: ICommonNameStr = 'Test';
-				const codeStrExpected: ICommonCodeStr = 'TEST_CODE_STR';
-				const jsonDef: ICommonJsonDef = jsonDefFake({ name: testName });
-				const defModel: IModelDef = DefModel({ jsonDef });
-				const dirPathStr: ICommonPathStr = CONSTS_PATHS_APP_ROOT;
-				const dirService: IFileServiceDir = DirService({ dirPathStr });
-				const templateTypeEnum: TemplateTypeEnum = TemplateTypeEnum.TEMPLATE_TYPE_CODE_PARSER;
-				const codeFileNameService: IFileServiceFileName = CodeFileNameService({
-					defModel,
-					templateTypeEnum,
-				});
-				const codeFilePathService: IFileServiceFilePath = CodeFilePathService({
-					dirService,
-					fileNameService: codeFileNameService,
-				});
+				const { codeModel, codeFilePathService } = codeModelFixture[0];
+				const messageExpected = 'TEST_ERROR';
+				const writeFileSyncMock: typeof writeFileSync = () => {
+					throw Error(messageExpected);
+				};
+				codeFilePathService.isValid();
+				codeModel.isValid();
 
 				/*
 				 * Act
 				 */
-				const codeModel: IModelCode = CodeModel({ codeStr: codeStrExpected });
-				const handler = (): void => {
-					codeModel.writeCodeToFile({ codeFilePathService });
-				};
+				const { message, status } = codeModel.writeCodeToFile({
+					codeFilePathService,
+					writeFile: writeFileSyncMock,
+				});
 
 				/*
 				 * Assert
 				 */
-				expect(handler).toThrow(errorExpected);
+				expect(message).toBe(messageExpected);
+				expect(status).toBe(false);
 			});
 		});
 	});

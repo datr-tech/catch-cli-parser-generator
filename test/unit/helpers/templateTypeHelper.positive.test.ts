@@ -1,7 +1,7 @@
 import { OutDirTypeEnum } from '@app/config/enums';
 import { templateTypeHelper } from '@app/helpers';
 import { templateTypeHelperPositiveFixture } from '@test/fixtures/helpers';
-import { IFixtureTemplateTypeHelperPositive } from '@test/fixtures/interfaces/helpers';
+import { IFixtureTemplateTypeHelperPositive } from '../../interfaces/fixtures/helpers';
 
 describe('templateTypeHelper', () => {
 	describe("should return the expected 'outDirTypeEnum'", () => {

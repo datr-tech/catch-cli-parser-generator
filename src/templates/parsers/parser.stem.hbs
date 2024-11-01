@@ -4,7 +4,7 @@ const elName = '{{el.tag}}.{{el.class}}';
 
 const parseHandler: IParseHandler = async ({ el }) =>
 ({
-	{{#each childParserWrappers}}
+	{{#each childParsers}}
 		{{ref}}: await {{childParser}}Parser.parse({ elParent: el }),
 	{{/each}}
 });

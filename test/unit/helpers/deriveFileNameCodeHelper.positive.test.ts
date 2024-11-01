@@ -3,7 +3,7 @@ import { DefModel } from '@app/models';
 import { ICommonNameStr } from '@app/interfaces/common';
 import { IModelDef } from '@app/interfaces/models/DefModel';
 import { deriveFileNameCodeHelperPositiveFixture } from '@test/fixtures/helpers';
-import { IFixtureDeriveFileNameCodeHelperPositive } from '@test/fixtures/interfaces/helpers';
+import { IFixtureDeriveFileNameCodeHelperPositive } from '../../interfaces/fixtures/helpers';
 
 describe('deriveFileNameCodeHelper', () => {
 	describe("should return the expected 'codeFileName'", () => {

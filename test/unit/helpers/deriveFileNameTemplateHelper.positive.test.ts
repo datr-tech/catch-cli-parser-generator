@@ -4,7 +4,7 @@ import { ICommonJsonDef, ICommonNameStr } from '@app/interfaces/common';
 import { IModelDef } from '@app/interfaces/models/DefModel';
 import { jsonDefFake } from '@test/doubles/fakes';
 import { deriveFileNameTemplateHelperPositiveFixture } from '@test/fixtures/helpers';
-import { IFixtureDeriveFileNameTemplateHelperPositive } from '@test/fixtures/interfaces/helpers';
+import { IFixtureDeriveFileNameTemplateHelperPositive } from '../../interfaces/fixtures/helpers';
 
 describe('deriveFileNameTemplateHelper', () => {
 	describe("should return the expected 'templateFileName'", () => {

@@ -1,5 +1,5 @@
 import { OutDirTypeEnum, TemplateTypeEnum } from '@app/config/enums';
-import { IFixtureTemplateTypeHelperPositive } from '@test/fixtures/interfaces/helpers';
+import { IFixtureTemplateTypeHelperPositive } from '../../interfaces/fixtures/helpers';
 
 export const templateTypeHelperPositiveFixture: IFixtureTemplateTypeHelperPositive[] = [
 	{

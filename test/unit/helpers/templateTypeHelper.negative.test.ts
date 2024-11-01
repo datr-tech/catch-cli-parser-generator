@@ -8,7 +8,8 @@ describe('templateTypeHelper', (): void => {
 			 * Assert
 			 */
 			const errorExpected = "Unknown 'templateTypeEnum'";
-			const unknownTemplateTypeEnum: TemplateTypeEnum = TemplateTypeEnum.TEMPLATE_TYPE_UNK;
+			const unknownTemplateTypeEnum: TemplateTypeEnum =
+				TemplateTypeEnum.TEMPLATE_TYPE_FOR_TESTING_PURPOSES_ONLY;
 
 			/*
 			 * Act

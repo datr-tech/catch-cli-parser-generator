@@ -1,6 +1,6 @@
 import { TemplateTypeEnum } from '@app/config/enums';
 import { jsonDefFake } from '@test/doubles/fakes';
-import { IFixtureDeriveFileNameCodeHelperPositive } from '@test/fixtures/interfaces/helpers';
+import { IFixtureDeriveFileNameCodeHelperPositive } from '../../interfaces/fixtures/helpers';
 
 export const deriveFileNameCodeHelperPositiveFixture: IFixtureDeriveFileNameCodeHelperPositive[] = [
 	{

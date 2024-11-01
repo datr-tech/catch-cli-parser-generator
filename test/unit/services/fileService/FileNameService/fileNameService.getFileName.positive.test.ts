@@ -4,7 +4,7 @@ import { ICommonNameStr } from '@app/interfaces/common';
 import { IModelDef } from '@app/interfaces/models/DefModel';
 import { IFileServiceFileName } from '@app/interfaces/services/fileService/FileNameService';
 import { fileNameServiceGetFileNameFixturePositive } from '@test/fixtures/services/fileService';
-import { IFixtureFileNameServiceGetFileNamePositive } from '@test/fixtures/interfaces/services/fileServices';
+import { IFixtureFileNameServiceGetFileNamePositive } from '../../../../interfaces/fixtures/services/fileServices';
 
 describe('FileNameService', () => {
 	describe('getFileName', () => {
