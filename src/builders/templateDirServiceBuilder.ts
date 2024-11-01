@@ -18,5 +18,5 @@ export const templateDirServiceBuilder: IBuilderTemplateDirService = {
 	 */
 	build: ({
 		dirPathStr = CONSTS_PATHS_TEMPLATES_DIR,
-	}: IBuilderTemplateDirServiceFuncBuildInput): IFileServiceDir => DirService({ dirPathStr }),
+	}: IBuilderTemplateDirServiceFuncBuildInput = {}): IFileServiceDir => DirService({ dirPathStr }),
 };
