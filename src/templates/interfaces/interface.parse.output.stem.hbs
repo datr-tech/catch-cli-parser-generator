@@ -1,9 +1,9 @@
-{{#each childParserWrappers }}
+{{#each childParsers }}
 import { IParser{{ childParser }}ParseOutput } from '@app/interfaces/core/parsers/IParser{{ childParser }}ParseOutput';
 {{/each}}
 
 export type IParser{{ parser }}ParseOutput = {
-	{{#each childParserWrappers }}
+	{{#each childParsers }}
 		{{ ref }}: IParser{{ childParser }}ParseOutput;
 	{{/each}}
 };

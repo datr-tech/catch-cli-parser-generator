@@ -6,7 +6,7 @@ export const getFileNameHelperMock: IHelperDeriveFileName = ({
 	defModel,
 	templateTypeEnum,
 }: IHelperDeriveFileNameInput) => {
-	if (templateTypeEnum === TemplateTypeEnum.TEMPLATE_TYPE_UNK) {
+	if (templateTypeEnum === TemplateTypeEnum.TEMPLATE_TYPE_FOR_TESTING_PURPOSES_ONLY) {
 		return '';
 	} else {
 		return deriveFileNameCodeHelper({ defModel, templateTypeEnum });

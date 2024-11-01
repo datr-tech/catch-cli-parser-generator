@@ -1,5 +1,6 @@
 import { IModelCodeFuncWriteCodeToFileInput } from './IModelCodeFuncWriteCodeToFileInput';
+import { IModelCodeFuncWriteCodeToFileOutput } from './IModelCodeFuncWriteCodeToFileOutput';
 
 export interface IModelCodeFuncWriteCodeToFile {
-	(args: IModelCodeFuncWriteCodeToFileInput): void;
+	(args: IModelCodeFuncWriteCodeToFileInput): IModelCodeFuncWriteCodeToFileOutput;
 }

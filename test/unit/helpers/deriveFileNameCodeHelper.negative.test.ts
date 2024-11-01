@@ -2,7 +2,7 @@ import { deriveFileNameCodeHelper } from '@app/helpers';
 import { DefModel } from '@app/models';
 import { IModelDef } from '@app/interfaces/models/DefModel';
 import { deriveFileNameCodeHelperNegativeFixture } from '@test/fixtures/helpers';
-import { IFixtureDeriveFileNameCodeHelperNegative } from '@test/fixtures/interfaces/helpers';
+import { IFixtureDeriveFileNameCodeHelperNegative } from '../../interfaces/fixtures/helpers';
 
 describe('deriveFileNameCodeHelper', (): void => {
 	describe('should throw the expected error', (): void => {

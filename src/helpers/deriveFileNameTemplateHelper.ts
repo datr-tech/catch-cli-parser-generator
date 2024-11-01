@@ -45,7 +45,17 @@ export const deriveFileNameTemplateHelper: IHelperDeriveFileName = ({
 			templateNameStr = TemplateNameEnum.TEMPLATE_NAME_INTERFACE_PARSE;
 			break;
 		case TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE_OUTPUT:
-			templateNameStr = TemplateNameEnum.TEMPLATE_NAME_INTERFACE_PARSE_OUTPUT;
+			switch (defTypeEnum) {
+				case DefTypeEnum.DEF_TYPE_ITER:
+					templateNameStr = TemplateNameEnum.TEMPLATE_NAME_INTERFACE_PARSE_OUTPUT_ITER;
+					break;
+				case DefTypeEnum.DEF_TYPE_LEAF:
+					templateNameStr = TemplateNameEnum.TEMPLATE_NAME_INTERFACE_PARSE_OUTPUT_LEAF;
+					break;
+				case DefTypeEnum.DEF_TYPE_STEM:
+					templateNameStr = TemplateNameEnum.TEMPLATE_NAME_INTERFACE_PARSE_OUTPUT_STEM;
+					break;
+			}
 			break;
 		case TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSER:
 			templateNameStr = TemplateNameEnum.TEMPLATE_NAME_INTERFACE_PARSER;

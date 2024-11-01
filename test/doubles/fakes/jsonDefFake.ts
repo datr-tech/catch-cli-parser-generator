@@ -1,4 +1,4 @@
-import { DefTypeEnum } from '@app/config/enums';
+import { DefTypeEnum, TemplateParserMethodEnum } from '@app/config/enums';
 import {
 	ICommonBool,
 	ICommonJsonDef,
@@ -6,12 +6,12 @@ import {
 	ICommonNameStr,
 	ICommonStr,
 } from '@app/interfaces/common';
-import { IFakeJsonDef, IFakeJsonDefInput } from '@test/doubles/interfaces/fakes';
+import { IFakeJsonDef, IFakeJsonDefInput } from '@test/interfaces/doubles/fakes';
 
 /**
  * @public
  *
- * Retrieve a fake jsonDef object.
+ * Derive a fake jsonDef object.
  *
  * @param {IFakeJsonDefInput)} args
  * @param {ICommonStr} args.description
@@ -33,7 +33,7 @@ export const jsonDefFake: IFakeJsonDef = ({
 	useDefaultName = true,
 	useDefaultPayload = true,
 	useDefaultType = true,
-}: IFakeJsonDefInput): ICommonJsonDef => {
+}: IFakeJsonDefInput = {}): ICommonJsonDef => {
 	let descriptionResolved: ICommonStr | undefined = description;
 	let nameResolved: ICommonNameStr | undefined = name;
 	let payloadResolved: ICommonJsonDefPayload | undefined = payload;
@@ -48,7 +48,10 @@ export const jsonDefFake: IFakeJsonDef = ({
 	}
 
 	if ((useDefaultPayload as ICommonBool) && !payload) {
-		payloadResolved = {};
+		payloadResolved = {
+			method: TemplateParserMethodEnum.GET_ATTRIBUTE_SRC,
+			parser: 'Test',
+		};
 	}
 
 	if ((useDefaultType as ICommonBool) && !type) {

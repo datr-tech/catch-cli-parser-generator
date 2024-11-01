@@ -1,10 +1,11 @@
-import fs from 'node:fs';
+import { writeFileSync } from 'node:fs';
 import { assertCondition } from '@app/assertions';
 import { isValidTeeHelper } from '@app/helpers';
 import {
 	ICommonBool,
 	ICommonCodeStr,
 	ICommonFuncIsValid,
+	ICommonStr,
 	ICommonValidityFlag,
 } from '@app/interfaces/common';
 import {
@@ -13,6 +14,7 @@ import {
 	IModelCodeConstructorInput,
 	IModelCodeFuncWriteCodeToFile,
 	IModelCodeFuncWriteCodeToFileInput,
+	IModelCodeFuncWriteCodeToFileOutput,
 } from '@app/interfaces/models/CodeModel';
 
 /**
@@ -70,23 +72,53 @@ export const CodeModel: IModelCodeConstructor = ({
 	/**
 	 * @public
 	 *
-	 * Write 'codeStr' to the file designated by 'codeFilePathModel'
+	 * Write 'codeStr' to the file designated by 'codeFilePathModel'.
+	 * When successful, the response object will contain:
 	 *
 	 * @param {IModelCodeFuncWriteCodeToFileInput} args
 	 * @param {IFileServiceFilePath} args.codeFilePathService
+	 * @returns {IModelCodeFuncWriteCodeToFileOutput} - { message, status }
 	 *
 	 * @throws When 'isValid' was not called before 'writeCodeToFile'
 	 * @throws When 'codeStr' is not truthy
 	 * @throws When 'codeFilePathService' is not valid
+	 *
+	 * @example
+	 * When successful, the response object will contain:
+	 * {
+	 * 		message // The path to which the code was written,
+	 * 	  status  // true
+	 * }
+	 *
+	 * @example
+	 * If unsuccessful (when calling writeFile), the response object will contain:
+	 * {
+	 * 		message // The thrown error message,
+	 * 	  status  // false
+	 * }
 	 */
 	const writeCodeToFile: IModelCodeFuncWriteCodeToFile = ({
 		codeFilePathService,
-	}: IModelCodeFuncWriteCodeToFileInput): void => {
+		writeFile = writeFileSync,
+	}: IModelCodeFuncWriteCodeToFileInput): IModelCodeFuncWriteCodeToFileOutput => {
+		let message: ICommonStr;
+		let status: ICommonBool;
 		assertCondition({
 			condition: isCodeStrValidFlag.value && codeFilePathService.isValid(),
 		});
+
 		const codeFilePath: ICommonCodeStr = codeFilePathService.getFilePath();
-		fs.writeFileSync(codeFilePath, codeStr);
+
+		try {
+			writeFile(codeFilePath, codeStr);
+			message = codeFilePath;
+			status = true;
+		} catch (error) {
+			message = (error as Error).message;
+			status = false;
+		}
+
+		return { message, status };
 	};
 
 	return { isValid, writeCodeToFile } as IModelCode;

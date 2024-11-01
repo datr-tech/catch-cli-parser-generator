@@ -19,7 +19,8 @@ describe('FileNameService', () => {
 				const jsonDef: ICommonJsonDef = jsonDefFake({ name: 'TEST_JSON_DEF' });
 				const defModel: IModelDef = DefModel({ jsonDef });
 				const getFileNameHelper: IHelperDeriveFileName = deriveFileNameCodeHelper;
-				const templateTypeEnum: TemplateTypeEnum = TemplateTypeEnum.TEMPLATE_TYPE_UNK;
+				const templateTypeEnum: TemplateTypeEnum =
+					TemplateTypeEnum.TEMPLATE_TYPE_FOR_TESTING_PURPOSES_ONLY;
 				const fileNameService: IFileServiceFileName = FileNameService({
 					defModel,
 					getFileNameHelper,
