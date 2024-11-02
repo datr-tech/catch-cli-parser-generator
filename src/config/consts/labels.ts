@@ -1,0 +1,1 @@
+export const CONSTS_LABELS_TEMPLATE_TYPE_NON_PROD_KEY = 'test';

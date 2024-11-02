@@ -19,6 +19,7 @@ export default {
 		extensions: ['.ts', '.js'],
 		modules: ['node_modules'],
 		alias: {
+			handlebars: 'handlebars/dist/handlebars.js',
 			'@app': path.resolve(__dirname, 'src/'),
 			'@dist': path.resolve(__dirname, 'dist/'),
 			'@test': path.resolve(__dirname, 'test/'),
@@ -26,8 +27,7 @@ export default {
 	},
 	target: 'node',
 	output: {
-		filename: 'index.mjs',
-		libraryTarget: 'umd',
+		filename: 'index.cjs',
 		path: path.resolve(__dirname, 'dist'),
 	},
 };

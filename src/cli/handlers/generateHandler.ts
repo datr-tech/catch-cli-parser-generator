@@ -1,9 +1,6 @@
 import { GenerateController } from '@app/controllers';
 import { logger } from '@app/utils';
-import {
-	ICliHandlerGenerate,
-	ICliHandlerGenerateInput
-} from '@app/interfaces/cli/handlers';
+import { ICliHandlerGenerate, ICliHandlerGenerateInput } from '@app/interfaces/cli/handlers';
 import { IControllerGenerate } from '@app/interfaces/controllers/GenerateController';
 
 /**
@@ -21,7 +18,7 @@ import { IControllerGenerate } from '@app/interfaces/controllers/GenerateControl
  */
 export const generateHandler: ICliHandlerGenerate = ({
 	json,
-	options
+	options,
 }: ICliHandlerGenerateInput): void => {
 	const { preFlight } = options;
 

@@ -1,7 +1,6 @@
 import { IModelDef } from '@app/interfaces/models/DefModel';
-import { TemplateTypeEnum } from '@app/config/enums';
+import { IHelperDeriveFileNameInputCommon } from './IHelperDeriveFileNameInputCommon';
 
-export interface IHelperDeriveFileNameInput {
+export interface IHelperDeriveFileNameInput extends IHelperDeriveFileNameInputCommon {
 	defModel: IModelDef;
-	templateTypeEnum: TemplateTypeEnum;
 }

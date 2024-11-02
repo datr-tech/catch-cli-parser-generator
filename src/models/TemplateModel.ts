@@ -54,6 +54,7 @@ export const TemplateModel: IModelTemplateConstructor = ({
 		assertCondition({
 			condition: isTemplateValidFlag.value,
 		});
+
 		const templateFn: TemplateDelegate = Handlebars.compile(templateContentsStr);
 		const codeStr: ICommonCodeStr = templateFn(defModel.getPayload());
 

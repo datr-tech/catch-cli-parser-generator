@@ -1,4 +1,6 @@
 export { deriveFileNameCodeHelper } from './deriveFileNameCodeHelper';
+export { deriveFileNameCodeHelperBase } from './deriveFileNameCodeHelperBase';
+export { deriveFileNamesCodeHelper } from './deriveFileNamesCodeHelper';
 export { deriveFileNameTemplateHelper } from './deriveFileNameTemplateHelper';
 export { hasAtLeastOneInvalidChildHelper } from './hasAtLeastOneInvalidChildHelper';
 export { hasMinimumChildrenHelper } from './hasMinimumChildrenHelper';

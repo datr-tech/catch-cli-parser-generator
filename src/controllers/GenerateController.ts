@@ -124,6 +124,7 @@ export const GenerateController: IControllerGenerateConstructor = ({
 		templateTypeEnum,
 	}: IControllerGenerateFuncWriteCodeToFileInput): IControllerGenerateFuncWriteCodeToFileOutput => {
 		const templateDirService: IFileServiceDir = templateDirServiceBuilder.build();
+
 		const codeModel: IModelCode = codeModelBuilder.build({
 			defModel,
 			templateDirService,

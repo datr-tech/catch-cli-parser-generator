@@ -1,5 +1,5 @@
-import { FileExtensionEnum, TemplateTypeEnum } from '@app/config/enums';
 import { assertCondition } from '@app/assertions';
+import { deriveFileNameCodeHelperBase } from './deriveFileNameCodeHelperBase';
 import { ICommonNameStr } from '@app/interfaces/common';
 import { IHelperDeriveFileName, IHelperDeriveFileNameInput } from '@app/interfaces/helpers';
 
@@ -13,36 +13,18 @@ import { IHelperDeriveFileName, IHelperDeriveFileNameInput } from '@app/interfac
  * @param {IModelDef} args.defModel
  * @param {TemplateTypeEnum} args.templateTypeEnum
  * @returns {ICommonNameStr}
- *
- * @throws When 'defNameStr' is not truthy
  */
 export const deriveFileNameCodeHelper: IHelperDeriveFileName = ({
 	defModel,
 	templateTypeEnum,
 }: IHelperDeriveFileNameInput): ICommonNameStr => {
-	let codeFileName: ICommonNameStr;
-
 	assertCondition({
 		condition: defModel.isValid(),
 		errorMessage: "Invalid 'defModel'",
 	});
 
-	const defNameStr: ICommonNameStr = defModel.getName();
-
-	switch (templateTypeEnum) {
-		case TemplateTypeEnum.TEMPLATE_TYPE_CODE_PARSER:
-			codeFileName = `${defNameStr}Parser.${FileExtensionEnum.TYPESCRIPT}`;
-			break;
-		case TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE:
-			codeFileName = `IParse${defNameStr}.${FileExtensionEnum.TYPESCRIPT}`;
-			break;
-		case TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSE_OUTPUT:
-			codeFileName = `IParse${defNameStr}Output.${FileExtensionEnum.TYPESCRIPT}`;
-			break;
-		case TemplateTypeEnum.TEMPLATE_TYPE_INTERFACE_PARSER:
-			codeFileName = `IParser${defNameStr}.${FileExtensionEnum.TYPESCRIPT}`;
-			break;
-	}
-
-	return codeFileName;
+	return deriveFileNameCodeHelperBase({
+		defNameStr: defModel.getName(),
+		templateTypeEnum,
+	});
 };

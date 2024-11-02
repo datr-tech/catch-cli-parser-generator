@@ -1,9 +1,4 @@
-import {
-	jestAppRootDir,
-	jestAppDistCodePath,
-	jestAppDistDir,
-	jestAppTestDir
-} from './paths';
+import { jestAppRootDir, jestAppDistCodePath, jestAppDistDir, jestAppTestDir } from './paths';
 
 global.JEST_APP_ROOT_DIR = jestAppRootDir;
 global.JEST_APP_DIST_DIR = jestAppDistDir;

@@ -1,5 +1,13 @@
 export { IHelperDeriveFileName } from './IHelperDeriveFileName';
 export { IHelperDeriveFileNameInput } from './IHelperDeriveFileNameInput';
+export { IHelperDeriveFileNameBase } from './IHelperDeriveFileNameBase';
+export { IHelperDeriveFileNameBaseInput } from './IHelperDeriveFileNameBaseInput';
+export { IHelperDeriveFileNames } from './IHelperDeriveFileNames';
+export { IHelperDeriveFileNamesInput } from './IHelperDeriveFileNamesInput';
+export { IHelperDeriveFileNamesOutput } from './IHelperDeriveFileNamesOutput';
+export { IHelperDeriveFileNamesOutputElement } from './IHelperDeriveFileNamesOutputElement';
+export { IHelperGetProdTemplateTypeEnums } from './IHelperGetProdTemplateTypeEnums';
+export { IHelperGetProdTemplateTypeEnumsOutput } from './IHelperGetProdTemplateTypeEnumsOutput';
 export { IHelperHasAtLeastOneInvalidChild } from './IHelperHasAtLeastOneInvalidChild';
 export { IHelperHasAtLeastOneInvalidChildInput } from './IHelperHasAtLeastOneInvalidChildInput';
 export { IHelperHasMinimumChildren } from './IHelperHasMinimumChildren';

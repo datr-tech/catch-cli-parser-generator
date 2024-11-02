@@ -31,9 +31,11 @@
     "format": "npx prettier --config ./.prettierrc './src/**/*.ts' './test/**/*.ts' --write",
     "dev": "tsx ./src/index.ts",
     "build": "npx webpack --mode production",
+    "postbuild": "chmod 777 ./dist/index.cjs",
     "test:base": "npx jest",
     "test:unit": "npm run test:base -- ./test/unit --coverage",
-    "test:integration": "npm run build && npm run test:base ./test/integration",
+    "test:integration:base": "npm run test:base ./test/integration",
+    "test:integration": "npm run build && npm run test:integration:base",
     "test": "npm run test:unit",
     "prepare": "husky",
     "pre-push": "npm run lint"
@@ -45,18 +47,18 @@
     "@eslint/compat": "^1.1.1",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.10.0",
-    "@types/execa": "^2.0.2",
     "@types/jest": "^29.5.13",
+    "@types/shelljs": "^0.8.15",
     "commitlint": "^19.5.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "execa": "^9.5.1",
     "husky": "^9.1.6",
     "jest": "^29.7.0",
     "playwright": "^1.48.1",
     "playwright-extra": "^4.3.6",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
+    "shelljs": "^0.8.5",
     "strip-ansi": "^7.1.0",
     "ts-jest": "^29.2.5",
     "ts-loader": "^9.5.1",
@@ -75,7 +77,7 @@
     "handlebars": "^4.7.8",
     "winston": "^3.15.0"
   },
-  "types": "./dist/index.d.ts",
+  "types": "./dist/src/index.d.ts",
   "directories": {
     "test": "test"
   }
