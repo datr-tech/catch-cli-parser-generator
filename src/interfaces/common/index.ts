@@ -14,6 +14,7 @@ export { ICommonJsonDefPayloadStem } from './ICommonJsonDefPayloadStem';
 export { ICommonJsonDefPayloadStemChildParser } from './ICommonJsonDefPayloadStemChildParser';
 export { ICommonJsonDir } from './ICommonJsonDir';
 export { ICommonJsonDirs } from './ICommonJsonDirs';
+export { ICommonJsonStr } from './ICommonJsonStr';
 export { ICommonNameStr } from './ICommonNameStr';
 export { ICommonPathStr } from './ICommonPathStr';
 export { ICommonStr } from './ICommonStr';

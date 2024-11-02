@@ -1,12 +1,13 @@
-import { deriveFileNameCodeHelper } from '@app/helpers';
+import { deriveFileNameCodeHelperBase } from '@app/helpers';
 import { DefModel } from '@app/models';
+import { ICommonNameStr } from '@app/interfaces/common';
 import { IModelDef } from '@app/interfaces/models/DefModel';
-import { deriveFileNameCodeHelperNegativeFixture } from '@test/fixtures/helpers';
+import { deriveFileNameCodeHelperBaseNegativeFixture } from '@test/fixtures/helpers';
 import { IFixtureDeriveFileNameCodeHelperNegative } from '@test/interfaces/fixtures/helpers';
 
-describe('deriveFileNameCodeHelper', (): void => {
+describe('deriveFileNameCodeHelperBase', (): void => {
 	describe('should throw the expected error', (): void => {
-		test.each(deriveFileNameCodeHelperNegativeFixture)(
+		test.each(deriveFileNameCodeHelperBaseNegativeFixture)(
 			"when 'defTypeEnum' is $defTypeEnum and 'templateTypeEnum' is $templateTypeEnum",
 			({
 				errorExpected,
@@ -22,8 +23,11 @@ describe('deriveFileNameCodeHelper', (): void => {
 				 * Act
 				 */
 				const handler = (): void => {
-					deriveFileNameCodeHelper({
-						defModel,
+					defModel.isValid();
+					const defNameStr: ICommonNameStr = defModel.getName();
+
+					deriveFileNameCodeHelperBase({
+						defNameStr,
 						templateTypeEnum,
 					});
 				};

@@ -2,7 +2,7 @@ import { TemplateTypeEnum } from '@app/config/enums';
 import { jsonDefFake } from '@test/doubles/fakes';
 import { IFixtureDeriveFileNameCodeHelperPositive } from '../../interfaces/fixtures/helpers';
 
-export const deriveFileNameCodeHelperPositiveFixture: IFixtureDeriveFileNameCodeHelperPositive[] = [
+export const deriveFileNameCodeHelperCommonPositiveFixture: IFixtureDeriveFileNameCodeHelperPositive[] = [
 	{
 		codeFileNameExpected: 'Test1Parser.ts',
 		jsonDef: jsonDefFake({ name: 'Test1' }),

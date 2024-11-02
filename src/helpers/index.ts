@@ -6,4 +6,5 @@ export { hasAtLeastOneInvalidChildHelper } from './hasAtLeastOneInvalidChildHelp
 export { hasMinimumChildrenHelper } from './hasMinimumChildrenHelper';
 export { isJsonPropArrayHelper } from './isJsonPropArrayHelper';
 export { isValidTeeHelper } from './isValidTeeHelper';
+export { jsonStrParserHelper } from './jsonStrParserHelper';
 export { templateTypeHelper } from './templateTypeHelper';

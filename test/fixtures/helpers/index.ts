@@ -1,6 +1,7 @@
 export { codeFilePathServiceBuilderFixture } from './codeFilePathServiceBuilderFixture';
 export { codeModelBuilderFixture } from './codeModelBuilderFixture';
-export { deriveFileNameCodeHelperPositiveFixture } from './deriveFileNameCodeHelperPositiveFixture';
+export { deriveFileNameCodeHelperBaseNegativeFixture } from './deriveFileNameCodeHelperBaseNegativeFixture';
+export { deriveFileNameCodeHelperCommonPositiveFixture } from './deriveFileNameCodeHelperCommonPositiveFixture';
 export { deriveFileNameCodeHelperNegativeFixture } from './deriveFileNameCodeHelperNegativeFixture';
 export { deriveFileNameTemplateHelperPositiveFixture } from './deriveFileNameTemplateHelperPositiveFixture';
 export { deriveFileNameTemplateHelperNegativeFixture } from './deriveFileNameTemplateHelperNegativeFixture';

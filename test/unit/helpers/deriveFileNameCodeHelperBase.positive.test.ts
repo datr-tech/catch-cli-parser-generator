@@ -1,14 +1,14 @@
-import { deriveFileNameCodeHelper } from '@app/helpers';
+import { deriveFileNameCodeHelperBase } from '@app/helpers';
 import { DefModel } from '@app/models';
 import { ICommonNameStr } from '@app/interfaces/common';
 import { IModelDef } from '@app/interfaces/models/DefModel';
 import { deriveFileNameCodeHelperCommonPositiveFixture } from '@test/fixtures/helpers';
 import { IFixtureDeriveFileNameCodeHelperPositive } from '@test/interfaces/fixtures/helpers';
 
-describe('deriveFileNameCodeHelper', () => {
+describe('deriveFileNameCodeHelperBase', () => {
 	describe("should return the expected 'codeFileName'", () => {
 		test.each(deriveFileNameCodeHelperCommonPositiveFixture)(
-			"when 'jsonDef.name' is $jsonDef.name and 'templateTypeEnum' is $templateTypeEnum",
+			"when 'jsonDefName' is $jsonDef.name and 'templateTypeEnum' is $templateTypeEnum",
 			({
 				codeFileNameExpected,
 				jsonDef,
@@ -18,12 +18,14 @@ describe('deriveFileNameCodeHelper', () => {
 				 * Arrange
 				 */
 				const defModel: IModelDef = DefModel({ jsonDef });
+				defModel.isValid();
+				const defNameStr: ICommonNameStr = defModel.getName();
 
 				/*
 				 * Act
 				 */
-				const codeFileNameFound: ICommonNameStr = deriveFileNameCodeHelper({
-					defModel,
+				const codeFileNameFound: ICommonNameStr = deriveFileNameCodeHelperBase({
+					defNameStr,
 					templateTypeEnum,
 				});
 
