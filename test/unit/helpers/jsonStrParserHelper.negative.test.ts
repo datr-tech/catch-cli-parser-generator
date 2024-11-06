@@ -1,10 +1,14 @@
 import { jsonStrParserHelper } from '@app/helpers';
-import { ICommonJson, ICommonJsonDef, ICommonJsonDir, ICommonJsonStr } from '@app/interfaces/common';
+import {
+	ICommonJson,
+	ICommonJsonDef,
+	ICommonJsonDir,
+	ICommonJsonStr,
+} from '@app/interfaces/common';
 import { jsonDefFake, jsonDirFake } from '@test/doubles/fakes';
 
-
 describe('jsonStrParserHelper', (): void => {
-	describe("should throw the expected error", (): void => {
+	describe('should throw the expected error', (): void => {
 		test("when 'jsonStr' is undefined", (): void => {
 			/*
 			 * Arrange
@@ -17,7 +21,7 @@ describe('jsonStrParserHelper', (): void => {
 			 */
 			const handler = (): void => {
 				jsonStrParserHelper({ jsonStr });
-			}
+			};
 
 			/*
 			 * Assert
@@ -41,7 +45,7 @@ describe('jsonStrParserHelper', (): void => {
 			 */
 			const handler = (): void => {
 				jsonStrParserHelper({ jsonStr });
-			}
+			};
 
 			/*
 			 * Assert
@@ -65,7 +69,7 @@ describe('jsonStrParserHelper', (): void => {
 			 */
 			const handler = (): void => {
 				jsonStrParserHelper({ jsonStr });
-			}
+			};
 
 			/*
 			 * Assert
@@ -89,7 +93,7 @@ describe('jsonStrParserHelper', (): void => {
 			 */
 			const handler = (): void => {
 				jsonStrParserHelper({ jsonStr });
-			}
+			};
 
 			/*
 			 * Assert
@@ -113,7 +117,7 @@ describe('jsonStrParserHelper', (): void => {
 			 */
 			const handler = (): void => {
 				jsonStrParserHelper({ jsonStr });
-			}
+			};
 
 			/*
 			 * Assert
@@ -125,14 +129,14 @@ describe('jsonStrParserHelper', (): void => {
 			 * Arrange
 			 */
 			const errorExpected = "Invalid 'jsonStr'";
-			const jsonStr: ICommonJsonStr = "{ defs,},"
+			const jsonStr: ICommonJsonStr = '{ defs,},';
 
 			/*
 			 * Act
 			 */
 			const handler = (): void => {
 				jsonStrParserHelper({ jsonStr });
-			}
+			};
 
 			/*
 			 * Assert

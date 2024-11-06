@@ -7,7 +7,7 @@ import {
 	CONSTS_COMMANDS_GENERATE_NAME,
 } from '@app/config/consts/commands';
 import { ICliOptionsGenerate } from '@app/interfaces/cli/options';
-import {  ICommonJson } from '@app/interfaces/common';
+import { ICommonJson } from '@app/interfaces/common';
 
 export const generateCommand = new Command(CONSTS_COMMANDS_GENERATE_NAME);
 
@@ -19,4 +19,5 @@ generateCommand
 		generateHandler({
 			json,
 			options,
-		}));
+		}),
+	);

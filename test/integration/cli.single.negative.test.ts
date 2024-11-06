@@ -5,11 +5,7 @@ import {
 	ICommonJsonDir,
 	ICommonJsonStr,
 } from '@app/interfaces/common';
-import {
-	jsonDefFake,
-	jsonDefPayloadLeafFake,
-	jsonDirFake
-} from '@test/doubles/fakes';
+import { jsonDefFake, jsonDefPayloadLeafFake, jsonDirFake } from '@test/doubles/fakes';
 
 describe('CLI', (): void => {
 	describe("should return the expected 'exitCode' and 'stderr'", (): void => {
@@ -23,7 +19,7 @@ describe('CLI', (): void => {
 				type: DefTypeEnum.DEF_TYPE_LEAF,
 			});
 			const json: ICommonJson = {
-				defs: [ jsonDef ],
+				defs: [jsonDef],
 				dirs: undefined,
 			};
 
@@ -52,7 +48,7 @@ describe('CLI', (): void => {
 			const jsonDir: ICommonJsonDir = jsonDirFake();
 			const json: ICommonJson = {
 				defs: undefined,
-				dirs: [ jsonDir ]
+				dirs: [jsonDir],
 			};
 
 			/*
@@ -79,7 +75,7 @@ describe('CLI', (): void => {
 			 */
 			const json: ICommonJson = {
 				defs: undefined,
-				dirs: undefined
+				dirs: undefined,
 			};
 
 			/*

@@ -3,7 +3,7 @@ import { ICommonJson } from '@app/interfaces/common';
 import {
 	IHelperParseJsonStr,
 	IHelperParseJsonStrInput,
-	IHelperParseJsonStrOutput
+	IHelperParseJsonStrOutput,
 } from '@app/interfaces/helpers';
 import { isJsonPropArrayHelper } from './isJsonPropArrayHelper';
 
@@ -23,7 +23,7 @@ import { isJsonPropArrayHelper } from './isJsonPropArrayHelper';
  * @throws When jsonObj does not contain a valid dirs array property
  */
 export const jsonStrParserHelper: IHelperParseJsonStr = ({
-	jsonStr
+	jsonStr,
 }: IHelperParseJsonStrInput): IHelperParseJsonStrOutput => {
 	let jsonObj: object;
 
@@ -39,14 +39,14 @@ export const jsonStrParserHelper: IHelperParseJsonStr = ({
 	assertCondition({
 		// @ts-ignore
 		condition: isJsonPropArrayHelper({ jsonProp: jsonObj.defs }),
-		errorMessage: "Invalid 'jsonObj.defs'"
+		errorMessage: "Invalid 'jsonObj.defs'",
 	});
 
 	assertCondition({
 		// @ts-ignore
 		condition: isJsonPropArrayHelper({ jsonProp: jsonObj.dirs }),
-		errorMessage: "Invalid 'jsonObj.dirs'"
+		errorMessage: "Invalid 'jsonObj.dirs'",
 	});
 
 	return jsonObj as ICommonJson;
-}
+};

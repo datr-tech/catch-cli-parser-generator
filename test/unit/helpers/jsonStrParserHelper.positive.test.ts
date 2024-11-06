@@ -1,7 +1,11 @@
 import { jsonStrParserHelper } from '@app/helpers';
-import { ICommonJson, ICommonJsonDef, ICommonJsonDir, ICommonJsonStr } from '@app/interfaces/common';
-import { jsonDefFake,jsonDirFake } from '@test/doubles/fakes';
-
+import {
+	ICommonJson,
+	ICommonJsonDef,
+	ICommonJsonDir,
+	ICommonJsonStr,
+} from '@app/interfaces/common';
+import { jsonDefFake, jsonDirFake } from '@test/doubles/fakes';
 
 describe('jsonStrParserHelper', (): void => {
 	describe("should return a parser version of the received 'jsonStr'", (): void => {
